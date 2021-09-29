@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        
+        <title>MyComponent</title>
+        
+        <!-- Required Stylesheets -->
+        <link
+        type="text/css"
+        rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+
+        <link
+        type="text/css"
+        rel="stylesheet"
+        href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+
+        <style>
+            .carousel{
+                width: 85%;
+                height: 70hv;
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+            .border{
+                border-radius: 10px;
+                
+            }
+            .border img{
+                border-radius: 10px;
+            }
+        </style>
+        
+        <!-- Load polyfills to support older browsers -->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+        
+        <!-- Required scripts -->
+        <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+        <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    </head>
+    <body>
+        <!-- Este div es el root -->
+        <div id="app">
+            <div>
+                <!-- Aqui pongan su componente -->
+
+                <template>
+                    <div class="carousel">
+                        <b-carousel
+                            id="carousel-1"
+                            v-model="slide"
+                            :interval="4000"
+                            controls
+                            indicators
+                            background="#FFFFFF"
+                            img-width="1024"
+                            img-height="480"
+                            style="text-shadow: 1px 1px 2px #333;"
+                            @sliding-start="onSlideStart"
+                            @sliding-end="onSlideEnd"
+                            label-next="Siguiente"
+                            label-prev="Anterior"
+                            class="border"
+                            >
+                            <!-- Text slides with image -->
+                            <b-carousel-slide
+                            caption="Titulo"
+                            text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                            img-src="https://picsum.photos/1024/480/?image=52"
+                            class="border"
+                            ></b-carousel-slide>
+                            
+                            <b-carousel-slide
+                            caption="Tutulo"
+                            text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                            img-src="https://picsum.photos/1024/480/?image=52"
+                            class="border"
+                            ></b-carousel-slide>
+
+                            <b-carousel-slide
+                            caption="Titulo"
+                            text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                            img-src="https://picsum.photos/1024/480/?image=52"
+                            class="border"
+                            ></b-carousel-slide>
+
+                            <b-carousel-slide
+                            caption="Titulo"
+                            text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                            img-src="https://picsum.photos/1024/480/?image=52"
+                            class="border"
+                            ></b-carousel-slide>
+                        </b-carousel>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Este es el JS que le agrega funcionalidad -->
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -53,6 +53,10 @@ export default {
         padding-right: 10px;
     }
 
+    button {
+        width: 222px;
+    }
+
     li {
         padding-right: 20px;
     }

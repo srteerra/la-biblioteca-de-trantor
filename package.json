@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node-dev  src --no-notify",
+    "start": "npm run build:prod",
     "build:dev": "webpack --mode=development --stats-children",
     "build:prod": "webpack --mode=production --node-env=production",
     "server": "webpack serve --mode=development --stats-children "
@@ -42,6 +43,7 @@
     "autoprefixer": "^10.3.6",
     "axios": "^0.21.4",
     "babel-loader": "^8.2.2",
+    "bootstrap": "^5.1.1",
     "clean-webpack-plugin": "^4.0.0",
     "css": "^3.0.0",
     "css-loader": "^6.3.0",

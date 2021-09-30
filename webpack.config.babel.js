@@ -48,7 +48,7 @@ export default () => {
                             loader: "sass-loader",
                             options: {
                                 implementation: require("sass"),
-                                additionalData: `@import "./src/app/assets/styles.scss";`
+                                additionalData: `@import "./src/app/assets/style.scss";`
                             }
                         },
                         

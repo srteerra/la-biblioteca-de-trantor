@@ -34,7 +34,7 @@
                 </ul>
                 <div>
                     <router-link to="/" class="fw-bold">Ingresar</router-link>
-                    <span class="px-2">o</span>
+                    <span class="me-2">o</span>
                     <button type="button" class="btn btn-outline-dark py-3 px-4 rounded-pill">Participar</button>
                 </div>
             </div>

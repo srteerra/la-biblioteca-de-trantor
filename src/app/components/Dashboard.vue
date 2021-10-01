@@ -152,6 +152,7 @@ export default {
                         background-color: transparent;
                         border: none;
                         padding: 15px 0;
+                        font-weight: 200;
                     }
                 }
             }

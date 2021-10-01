@@ -28,6 +28,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "icons": "^1.0.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "node-dev": "^7.0.0",

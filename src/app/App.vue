@@ -16,12 +16,14 @@
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Test from "./components/Test";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 export default {
   name: "App",
   data() {
@@ -32,6 +34,7 @@ export default {
   components: {
     Test,
     Nav,
+    Footer,
   },
   methods: {
     mensaje() {

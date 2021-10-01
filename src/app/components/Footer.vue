@@ -34,6 +34,7 @@
             <li>
                 <a href="#!" class="text-light">Explorar</a>
             </li>
+            <i class="fab fa-facebook"></i>
             </ul>
         </div>
         <!--Grid column-->

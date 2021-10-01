@@ -1,13 +1,13 @@
 <template>
   <main>
     <div class="title__container">
-      <h1>LA BIBLIOTECA DE TRANTOR</h1>
-      <p>Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
-      <i class="fas fa-chevron-down"></i>
+      <h1 class="text-dark">LA BIBLIOTECA DE TRANTOR</h1>
+      <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
+      <i class="fas fa-chevron-down text-dark"></i>
     </div>
     <Dashboard/>
     <div class="infotop__container">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
+      <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
     </div>
 
     <!-- Modal -->
@@ -56,8 +56,7 @@
       grid-column: 3;
       text-align: center;
       margin: 0 auto;
-      padding: 150px 0px;
-      color: var($dark);
+      padding: 250px 0px 150px;
 
       h1 {
         font-family: 'Times New Roman', Times, serif;

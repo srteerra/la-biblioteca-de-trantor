@@ -3,9 +3,9 @@
         <div class="dashboard__card">
             <div class="dashboard__content">
                 <div class="dashboard__head">
-                    <h2>TABLA DE PUTUACIONES</h2>
-                    <h4>Ago - Feb</h4>
-                    <hr>
+                    <h2 class="text-dark">TABLA DE PUTUACIONES</h2>
+                    <h4 class="text-dark">Ago - Feb</h4>
+                    <hr class="text-dark">
                 </div>
                 <div class="dashboard__body">
                     <div class="dashboard__item rounded-pill">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="dashboard__footer">
-                    <button type="button" class="rewards__btn" data-bs-toggle="modal" data-bs-target="#rewardsModal">Ver recompensas</button>
+                    <button type="button" class="rewards__btn text-dark" data-bs-toggle="modal" data-bs-target="#rewardsModal">Ver recompensas</button>
                 </div>
             </div>
         </div>

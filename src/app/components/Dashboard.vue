@@ -87,7 +87,7 @@ export default {
     .dashboard__container {
         width: 100%;
         height: auto;
-        grid-column: 2;
+        grid-column: 3;
         margin: 0 auto;
 
         .dashboard__card {
@@ -152,6 +152,7 @@ export default {
                         background-color: transparent;
                         border: none;
                         padding: 15px 0;
+                        font-weight: 200;
                     }
                 }
             }

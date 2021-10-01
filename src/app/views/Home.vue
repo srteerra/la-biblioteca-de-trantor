@@ -6,6 +6,9 @@
       <i class="fas fa-chevron-down"></i>
     </div>
     <Dashboard/>
+    <div class="infotop__container">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="rewardsModal" tabindex="-1" aria-labelledby="rewardsModalLabel" aria-hidden="true">
@@ -44,13 +47,13 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: .7fr 1fr .7fr;
+    grid-template-columns: .4fr .3fr 1fr .3fr .4fr;
     background-color: #f5fce2;
 
     .title__container {
       max-width: 1000px;
       height: auto;
-      grid-column: 2;
+      grid-column: 3;
       text-align: center;
       margin: 0 auto;
       padding: 150px 0px;
@@ -72,6 +75,15 @@
         margin-top: 50px;
         font-size: 2em;
       }
+    }
+
+    .infotop__container {
+      max-width: 80%;
+      height: auto;
+      grid-column: 3;
+      text-align: center;
+      margin: 0 auto;
+      padding: 50px 0px 150px;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-secondary text-center text-lg-start">
     <!-- Grid container -->
-    <div class="container p-4">
+    <div class="container p-4 first">
         <!--Grid row-->
         <div class="row">
         <!--Grid column-->
@@ -9,12 +9,24 @@
             <h5 class="text-light text-uppercase fw-bold">Logo</h5>
 
             <ul class="list-unstyled mb-0">
-            <li>
-                <a href="#!" class="text-light">{{ mail }}</a>
-            </li>
-            <li>
-                <a href="#!" class="text-light">{{ phone }}</a>
-            </li>
+                <li>
+                    <a href="#!" class="text-light">{{ mail }}</a>
+                </li>
+                <li>
+                    <a href="#!" class="text-light">{{ phone }}</a>
+                </li>
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn btn-link btn-floating text-light m-1" href="#!" role="button" data-mdb-ripple-color="info"><i class="fab fa-facebook-f"></i></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-link btn-floating text-light m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-link btn-floating text-light m-1" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+                </section>
+                <!-- Section: Social media -->
 
             </ul>
         </div>
@@ -25,16 +37,15 @@
             <h5 class="text-light fw-bold text-uppercase mb-0">Quienes somos</h5>
 
             <ul class="list-unstyled">
-            <li>
-                <a href="#!" class="text-light">Acerca</a>
-            </li>
-            <li>
-                <a href="#!" class="text-light">Aprende mas</a>
-            </li>
-            <li>
-                <a href="#!" class="text-light">Explorar</a>
-            </li>
-            <i class="fab fa-facebook"></i>
+                <li>
+                    <a href="#!" class="text-light">Acerca</a>
+                </li>
+                <li>
+                    <a href="#!" class="text-light">Aprende mas</a>
+                </li>
+                <li>
+                    <a href="#!" class="text-light">Explorar</a>
+                </li>
             </ul>
         </div>
         <!--Grid column-->
@@ -80,7 +91,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center text-light p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="last text-center text-light p-3">
         Copyright ©2021 
         <a class="text-light" href="#">La Biblioteca de Trantor. Todos los derechos reservados</a>
     </div>
@@ -101,5 +112,16 @@ export default {
 </script>
 
 <style lang="scss">
+    .last{
+        border-top: 2px solid white;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .first{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 </style>

@@ -57,6 +57,7 @@
       text-align: center;
       margin: 0 auto;
       padding: 150px 0px;
+      color: var($dark);
 
       h1 {
         font-family: 'Times New Roman', Times, serif;

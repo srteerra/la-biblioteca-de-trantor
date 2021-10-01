@@ -9,7 +9,8 @@
 <script>
   import Test from "./components/Test";
   import Nav from "./components/Nav";
-  import Footer from "./components/Footer"
+  import Footer from "./components/Footer";
+  
   export default {
     name: "App",
     data() {

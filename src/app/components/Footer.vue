@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer__container bg-secondary text-center text-lg-start">
+    <footer class="footer__container bg-dark text-center text-lg-start">
         <!-- Grid container -->
         <div class="footer__grid container p-4 first">
             <!--Grid row-->

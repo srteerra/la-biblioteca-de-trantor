@@ -1,5 +1,8 @@
 <template>
   <main>
+    <img src="../assets/img/planet-1.png" alt="" srcset="" id="planet-1">
+    <img src="../assets/img/planet-2.png" alt="" srcset="" id="planet-2">
+
     <div class="title__container">
       <h1 class="text-dark">LA BIBLIOTECA DE TRANTOR</h1>
       <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
@@ -58,6 +61,22 @@
     display: grid;
     grid-template-columns: .4fr .3fr 1fr .3fr .4fr;
     background-color: #f5fce2;
+
+    #planet-1 {
+      max-width: 500px;
+      position: absolute;
+      left: 87%;
+      top: 40%;
+      opacity: 40%;
+    }
+
+    #planet-2 {
+      max-width: 150px;
+      position: absolute;
+      left: 10%;
+      top: 130%;
+      opacity: 40%;
+    }
 
     .title__container {
       max-width: 1000px;

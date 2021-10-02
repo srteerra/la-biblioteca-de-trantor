@@ -89,6 +89,7 @@ export default {
         height: auto;
         grid-column: 3;
         margin: 0 auto;
+        z-index: 2;
 
         .dashboard__card {
             width: 100%;

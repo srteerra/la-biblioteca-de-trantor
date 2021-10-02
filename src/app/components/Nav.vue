@@ -62,4 +62,8 @@ export default {
     #mylogo {
         max-width: 80px;
     }
+
+    nav {
+        z-index: 3;
+    }
 </style>

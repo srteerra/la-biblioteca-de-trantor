@@ -32,6 +32,8 @@
   };
 </script>
 
-<style>
-
+<style lang="scss">
+  body {
+    overflow-x: hidden;
+  }
 </style>

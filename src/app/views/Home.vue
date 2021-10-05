@@ -8,10 +8,16 @@
       <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
       <i class="fas fa-chevron-down text-dark"></i>
     </div>
+
     <Dashboard/>
+
+    <!-- Small info starts here -->
     <div class="infotop__container">
       <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
     </div>
+    <!-- Small info ends here -->
+
+    <!-- Presentation starts here -->
     <div class="presentation__container">
       <div class="presentation__grid">
         <div class="presentation__whatis">
@@ -32,6 +38,44 @@
         </div>
       </div>
     </div>
+    <!-- Presentation ends here -->
+
+    <!-- Testimonials starts here -->
+    <div class="testimonials__container">
+      <div class="testimonials__grid">
+        <div class="testimonials__title">
+          <h4 class="text-dark">TESTIMONIOS</h4>
+          <h1 class="text-dark">LO QUE LA GENTE OPINA DE NOSOTROS</h1>
+        </div>
+        <div class="testimonials__cards">
+          <div class="testimonial__item">
+            <div>
+              <strong class="text-dark">"</strong>
+            </div>
+            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <h5 class="text-dark">- Axell Lopez</h5>
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
+          </div>
+          <div class="testimonial__item">
+            <div>
+              <strong class="text-dark">"</strong>
+            </div>
+            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <h5 class="text-dark">- Maria Moreno</h5>
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
+          </div>
+          <div class="testimonial__item">
+            <div>
+              <strong class="text-dark">"</strong>
+            </div>
+            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <h5 class="text-dark">- Luis Ruiz</h5>
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonials ends here -->
 
     <!-- Modal -->
     <div class="modal fade" id="rewardsModal" tabindex="-1" aria-labelledby="rewardsModalLabel" aria-hidden="true">
@@ -118,11 +162,11 @@
       grid-column: 3;
       text-align: center;
       margin: 0 auto;
-      padding: 250px 0px 150px;
+      padding: 300px 0px 150px;
 
       h1 {
         font-family: 'Times New Roman', Times, serif;
-        font-size: 6em;
+        font-size: 5.5em;
       }
 
       p {
@@ -200,6 +244,73 @@
           }
         }
       }
+    }
+
+    .testimonials__container {
+      width: 100%;
+      height: auto;
+      background-color: #f5fce2;
+      grid-column: 1/6;
+      padding: 250px 300px;
+
+      .testimonials__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 2fr;
+
+        .testimonials__title {
+          text-align: center;
+          padding-bottom: 150px;
+
+          h4 {
+            font-size: 1.3em;
+          }
+        }
+
+        .testimonials__cards {
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+
+          .testimonial__item {
+            max-width: 400px;
+            max-height: 400px;
+            padding: 30px 30px 0px;
+            margin-bottom: 150px;
+            border-radius: 30px;
+            background-color: white;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            div:first-of-type {
+              text-align: center;
+              font-family: 'Times New Roman', Times, serif;
+              font-size: 4em;
+              line-height: 30px;
+              padding-top: 30px;
+            }
+
+            p {
+              text-align: center;
+            }
+
+            h5 {
+              text-align: center;
+            }
+
+            img {
+              width: 150px;
+              height: 150px;
+              position: relative;
+              left: 28%;
+              bottom: -50px;
+              border-radius: 50%;
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+          }
+        }
+      }
+
+
     }
   }
 </style>

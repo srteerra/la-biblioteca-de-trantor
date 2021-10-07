@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="container first_container">
-      <p class="title fs-1 fw-bold text-uppercase">Acerca</p>
+      <h1 class="fw-bold text-uppercase">Acerca</h1>
       <div class="space"></div>
-      <p class="text">
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
         similique veritatis quod mollitia assumenda autem qui quaerat tenetur
         officiis, inventore aperiam quis suscipit! Similique atque libero natus
@@ -25,7 +25,7 @@
       </p>
     </div>
     <div class="second_container">
-      <p class="text-center fw-bold fs-1 text-uppercase p-4">echa un vistazo</p>
+      <h1 class="text-center fw-bold text-uppercase pb-5">echa un vistazo</h1>
       <div class="carousel">
         <div
           id="carouselExampleControls"
@@ -83,59 +83,65 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
-  font-family: sans-serif;
-}
-.first_container {
-  padding-top: 200px;
-  width: 70%;
-  p {
-    text-align: justify;
+  .main {
+    font-family: sans-serif;
   }
-  .text{
-    padding-top: 50px;
-    padding-bottom: 70px;
+
+  .first_container {
+    padding: 300px 100px 200px;
+    width: 70%;
+
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 4.5em;
+    }
+
+    p {
+      padding: 50px 0;
+      text-align: justify;
+    }
+
+    .space {
+      border-top: 2px solid black;
+      width: 10%;
+      height: 30px;
+    }
   }
-}
 
-.space {
-  border-top: 5px solid black;
-  width: 10%;
-  height: 30px;
-}
+  .second_container {
+    background-color: #f5fce2;
+    padding: 150px 100px;
 
-.second_container {
-  background-color: #f5fce2;
-}
+    h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 3em;
+    }
 
-.center {
-  width: 80%;
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
+    .carousel {
+      width: 80%;
+      height: 70vh;
+      margin-left: auto;
+      margin-right: auto;
 
-.carousel {
-  width: 80%;
-  height: 70vh;
-  margin-left: auto;
-  margin-right: auto;
-}
-.border {
-  border-radius: 10px;
-}
-.border img {
-  border-radius: 10px;
-  width: 100%;
-}
+      .border {
+        border-radius: 10px;
 
-.carousel-item {
-  height: 70vh;
-}
+        img {
+          border-radius: 10px;
+          width: 100%;
+        }
+      }
 
-.descrip {
-  width: 40%;
-  text-align: center;
-  margin: auto;
-}
+      .carousel-item {
+        height: 70vh;
+      }
+    }
+  }
+
+  .descrip {
+    width: 40%;
+    text-align: center;
+    margin: auto;
+  }
 
 </style> 

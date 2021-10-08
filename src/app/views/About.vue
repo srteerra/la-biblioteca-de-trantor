@@ -1,8 +1,9 @@
 <template>
   <div class="main">
-    <div class="container first_container">
+    <!--First container-->
+    <div class="container first__container">
       <h1 class="fw-bold text-uppercase">Acerca</h1>
-      <div class="space"></div>
+      <div class="space__div"></div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
         similique veritatis quod mollitia assumenda autem qui quaerat tenetur
@@ -24,30 +25,34 @@
         dignissimos dolorem sed at cupiditate.
       </p>
     </div>
-    <div class="second_container">
+    <!--First container-->
+
+    <!--Second container-->
+    <div class="second__container">
       <h1 class="text-center fw-bold text-uppercase pb-5">echa un vistazo</h1>
-      <div class="carousel">
+      <!--Carousel componenet-->
+      <div class="container carousel">
         <div
           id="carouselExampleControls"
           class="carousel slide"
           data-bs-ride="carousel"
         >
-          <div class="border carousel-inner">
-            <div class="carousel-item active">
+          <div class="carousel-inner">
+            <div class="border1 carousel-item active">
               <img
                 src="../assets/img/slide-1.jpg"
                 class="d-block w-100"
                 alt="asd"
               />
             </div>
-            <div class="border carousel-item">
+            <div class="carousel-item">
               <img
                 src="../assets/img/slide-2.jpg"
                 class="d-block w-100"
                 alt="asd"
               />
             </div>
-            <div class="border carousel-item">
+            <div class="carousel-item">
               <img
                 src="../assets/img/slide-3.jpg"
                 class="d-block w-100"
@@ -65,14 +70,15 @@
           </button>
         </div>
       </div>
-
-      <div>
-        <p class="descrip p-5">
+      <!--/Carousel componenet-->
+      <div class="description__div">
+        <p class="p-5">
           Una organización sin fines de lucro para inculcar el hermoso habito de
           la lectura a las jóvenes generaciones de México.
         </p>
       </div>
     </div>
+    <!--/Second container-->
   </div>
 </template>
 
@@ -86,8 +92,7 @@ export default {
   .main {
     font-family: sans-serif;
   }
-
-  .first_container {
+  .first__container {
     padding: 300px 100px 200px;
     width: 70%;
 
@@ -101,14 +106,14 @@ export default {
       text-align: justify;
     }
 
-    .space {
+    .space__div {
       border-top: 2px solid black;
       width: 10%;
       height: 30px;
     }
   }
 
-  .second_container {
+  .second__container {
     background-color: #f5fce2;
     padding: 150px 100px;
 
@@ -119,26 +124,21 @@ export default {
 
     .carousel {
       width: 80%;
-      height: 70vh;
       margin-left: auto;
       margin-right: auto;
-
       .border {
         border-radius: 10px;
-
-        img {
-          border-radius: 10px;
-          width: 100%;
-        }
       }
 
       .carousel-item {
-        height: 70vh;
+        img{
+          border-radius: 10px;
+        }
       }
     }
   }
 
-  .descrip {
+  .description__div p{
     width: 40%;
     text-align: center;
     margin: auto;

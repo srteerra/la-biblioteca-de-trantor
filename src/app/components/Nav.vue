@@ -19,7 +19,6 @@
                         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quiero patrocinar</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item text-dark" href="#">Soy empresa</a></li>
-                            <li><a class="dropdown-item text-dark" href="#">Donar</a></li>
                             <li><hr class="dropdown-divider text-dark"></li>
                             <li><a class="dropdown-item text-dark" href="#">Contactar</a></li>
                         </ul>
@@ -28,7 +27,6 @@
                         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quiero becar</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item text-dark" href="#">Soy escuela</a></li>
-                            <li><a class="dropdown-item text-dark" href="#">Donar</a></li>
                             <li><hr class="dropdown-divider text-dark"></li>
                             <li><a class="dropdown-item text-dark" href="#">Contactar</a></li>
                         </ul>

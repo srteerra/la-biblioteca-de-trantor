@@ -58,9 +58,6 @@
                             <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Quiero patrocinar</a>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Donar</a>
-                        </li>
-                        <li class="p-0 m-0">
                             <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Quiero becar</a>
                         </li>
                     </ul>

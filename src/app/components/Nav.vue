@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 py-4 px-5 position-fixed">
         <div class="container-fluid">
             <router-link to="/" class="navbar-brand">
-                <img src="../assets/logos/logo-icon-dark.png" alt="" id='mylogo'>
+                <img src="../assets/img/planet-2.png" class="opacity-50" alt="" id='mylogo'>
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-dark"></span>
@@ -35,7 +35,7 @@
                     </li>
                 </ul>
                 <div class='text-center'>
-                    <router-link to="/" class="fw-bold text-dark">Ingresar</router-link>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="fw-bold text-dark bg-transparent border-0">Ingresar</button>
                     <span class="me-2 text-dark">o</span>
                     <button type="button" class="btn btn-outline-dark py-3 px-4 rounded-pill">Participar</button>
                 </div>

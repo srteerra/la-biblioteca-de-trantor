@@ -4,7 +4,7 @@
     <div class="container first__container">
       <h1 class="fw-bold text-uppercase">Acerca</h1>
       <div class="space__div"></div>
-      <p>
+      <p class="lh-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
         similique veritatis quod mollitia assumenda autem qui quaerat tenetur
         officiis, inventore aperiam quis suscipit! Similique atque libero natus
@@ -29,9 +29,10 @@
 
     <!--Second container-->
     <div class="second__container">
+      <h5 class="text-center fw-normal text-uppercase pb-1">Galeria</h5>
       <h1 class="text-center fw-bold text-uppercase pb-5">echa un vistazo</h1>
       <!--Carousel componenet-->
-      <div class="container carousel">
+      <div class="container carousel pt-5">
         <div
           id="carouselExampleControls"
           class="carousel slide"
@@ -97,7 +98,7 @@ export default {
     width: 70%;
 
     h1 {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: sans-serif;
       font-size: 4.5em;
     }
 
@@ -118,7 +119,7 @@ export default {
     padding: 150px 100px;
 
     h1 {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: sans-serif;
       font-size: 3em;
     }
 

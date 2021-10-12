@@ -31,14 +31,14 @@
     <div class="second__container">
       <h1 class="text-center fw-bold text-uppercase pb-5">echa un vistazo</h1>
       <!--Carousel componenet-->
-      <div class="container carousel">
+      <div class="container-fluid carousel  w-100 p-0">
         <div
           id="carouselExampleControls"
           class="carousel slide"
           data-bs-ride="carousel"
         >
           <div class="carousel-inner">
-            <div class="border1 carousel-item active">
+            <div class="carousel-item active">
               <img
                 src="../assets/img/slide-1.jpg"
                 class="d-block w-100"
@@ -71,8 +71,8 @@
         </div>
       </div>
       <!--/Carousel componenet-->
-      <div class="description__div">
-        <p class="p-5">
+      <div class="description__div p-5">
+        <p>
           Una organización sin fines de lucro para inculcar el hermoso habito de
           la lectura a las jóvenes generaciones de México.
         </p>
@@ -93,7 +93,7 @@ export default {
     font-family: sans-serif;
   }
   .first__container {
-    padding: 300px 100px 200px;
+    padding: 300px 10px 200px;
     width: 70%;
 
     h1 {
@@ -115,33 +115,30 @@ export default {
 
   .second__container {
     background-color: #f5fce2;
-    padding: 150px 100px;
+    padding: 150px 0px;
 
     h1 {
       font-family: 'Times New Roman', Times, serif;
       font-size: 3em;
     }
-
-    .carousel {
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      .border {
-        border-radius: 10px;
-      }
-
-      .carousel-item {
-        img{
+    .slide img{
+      height: 65vh;
+      object-fit: cover;
+      .carousel{
+        .border {
           border-radius: 10px;
         }
       }
-    }
+    }   
   }
 
-  .description__div p{
-    width: 40%;
+  .description__div{
     text-align: center;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  
+
 
 </style> 

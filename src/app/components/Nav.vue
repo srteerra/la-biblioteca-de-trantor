@@ -35,7 +35,7 @@
                 <div class='text-center'>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="fw-bold text-dark bg-transparent border-0">Ingresar</button>
                     <span class="me-2 text-dark">o</span>
-                    <button type="button" class="btn btn-outline-dark py-3 px-4 rounded-pill">Participar</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#participateModal" class="btn btn-outline-dark py-3 px-4 rounded-pill">Participar</button>
                 </div>
             </div>
         </div>

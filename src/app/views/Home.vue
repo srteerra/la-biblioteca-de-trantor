@@ -6,7 +6,9 @@
     <div class="title__container">
       <h1 class="text-dark">LA BIBLIOTECA DE TRANTOR</h1>
       <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
-      <i class="fas fa-chevron-down text-dark"></i>
+      <a href="#drop-dashboard" id="drop-dashboard">
+        <i class="fas fa-chevron-down text-dark"></i>
+      </a>
     </div>
 
     <Dashboard/>
@@ -90,10 +92,10 @@
             <h3 class="mb-5">Estas son las recompensas:</h3>
             <p class="text-dark text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perferendis consectetur voluptas itaque saepe.</p>
             <ol>
-              <li>Objecto</li>
-              <li>Objecto</li>
-              <li>Objecto</li>
-              <li>Objecto</li>
+              <li>Objeto</li>
+              <li>Objeto</li>
+              <li>Objeto</li>
+              <li>Objeto</li>
             </ol>
             <p class="text-dark text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perferendis consectetur voluptas itaque saepe.</p>
           </div>

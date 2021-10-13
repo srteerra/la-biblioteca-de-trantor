@@ -10,10 +10,10 @@
 
                     <ul class="list-unstyled mb-0">
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light">{{ mail }}</a>
+                            <a href="#!" class="text-light text-center text-lg-start">{{ mail }}</a>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light">{{ phone }}</a>
+                            <a href="#!" class="text-light text-center text-lg-start">{{ phone }}</a>
                         </li>
                         <!-- Section: Social media -->
                         <section class="mb-4">

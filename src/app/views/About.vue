@@ -2,7 +2,7 @@
   <div class="main">
     <!--First container-->
     <div class="container first__container">
-      <h1 class="fw-bold text-uppercase">Acerca</h1>
+      <h1 class="fw-bold fs-1 text-uppercase">Acerca</h1>
       <div class="space__div"></div>
       <p class="lh-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
@@ -99,7 +99,6 @@ export default {
 
     h1 {
       font-family: sans-serif;
-      font-size: 4.5em;
     }
 
     p {

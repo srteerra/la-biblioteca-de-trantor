@@ -98,7 +98,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button
-              class="accordion-button"
+              class="collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -106,30 +106,33 @@
               aria-controls="collapseOne"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
+              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
             id="collapseOne"
-            class="accordion-collapse collapse show"
+            class="accordion-collapse collapse"
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                nobis, eum reiciendis, quos voluptates nisi consectetur non,
+                asperiores delectus rem assumenda! Cumque ratione asperiores
+                animi minima soluta perferendis, architecto maxime?Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
+                reiciendis, quos voluptates nisi consectetur non, asperiores
+                delectus rem assumenda! Cumque ratione asperiores animi minima
+                soluta perferendis, architecto maxime?
+              </p>
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button
-              class="accordion-button collapsed"
+              class="collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -137,6 +140,7 @@
               aria-controls="collapseTwo"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
+              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -146,21 +150,23 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                nobis, eum reiciendis, quos voluptates nisi consectetur non,
+                asperiores delectus rem assumenda! Cumque ratione asperiores
+                animi minima soluta perferendis, architecto maxime?Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
+                reiciendis, quos voluptates nisi consectetur non, asperiores
+                delectus rem assumenda! Cumque ratione asperiores animi minima
+                soluta perferendis, architecto maxime?
+              </p>
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button
-              class="accordion-button collapsed"
+              class="collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
@@ -168,6 +174,7 @@
               aria-controls="collapseThree"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
+              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -177,14 +184,50 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                nobis, eum reiciendis, quos voluptates nisi consectetur non,
+                asperiores delectus rem assumenda! Cumque ratione asperiores
+                animi minima soluta perferendis, architecto maxime?Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
+                reiciendis, quos voluptates nisi consectetur non, asperiores
+                delectus rem assumenda! Cumque ratione asperiores animi minima
+                soluta perferendis, architecto maxime?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button
+              class="collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+            >
+              Lorem ipsum dolor sit amet quas provident fugit?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                nobis, eum reiciendis, quos voluptates nisi consectetur non,
+                asperiores delectus rem assumenda! Cumque ratione asperiores
+                animi minima soluta perferendis, architecto maxime?Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
+                reiciendis, quos voluptates nisi consectetur non, asperiores
+                delectus rem assumenda! Cumque ratione asperiores animi minima
+                soluta perferendis, architecto maxime?
+              </p>
             </div>
           </div>
         </div>
@@ -251,11 +294,29 @@ export default {
 }
 
 .acordion__container {
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding: 10px;
-  .accordion-item{
-    border-radius: 10px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
+  h1{
+    padding-bottom: 20px;
+  }
+  .accordion-item {
+    border: none;
+    margin: 10px 0;
+    button {
+      border-radius: 50px;
+      border: 2px solid #000;
+      width: 100%;
+      background-color: white;
+      text-align: left;
+      font-size: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      button:hover{
+        cursor: pointer;
+      }
+    }
   }
 }
 </style> 

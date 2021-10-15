@@ -98,7 +98,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button
-              class="collapsed"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -106,7 +106,6 @@
               aria-controls="collapseOne"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
-              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -132,7 +131,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button
-              class="collapsed"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -140,7 +139,6 @@
               aria-controls="collapseTwo"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
-              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -166,7 +164,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button
-              class="collapsed"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
@@ -174,7 +172,6 @@
               aria-controls="collapseThree"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
-              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -200,7 +197,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingFour">
             <button
-              class="collapsed"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseFour"
@@ -208,7 +205,6 @@
               aria-controls="collapseFour"
             >
               Lorem ipsum dolor sit amet quas provident fugit?
-              <i class="fas fa-chevron-down"></i>
             </button>
           </h2>
           <div
@@ -238,6 +234,7 @@
 </template>
 
 <script>
+
 export default {
   name: "about",
 };
@@ -300,22 +297,16 @@ export default {
   h1{
     padding-bottom: 20px;
   }
+
   .accordion-item {
     border: none;
-    margin: 10px 0;
+    margin: 20px 0;
     button {
-      border-radius: 50px;
-      border: 2px solid #000;
+      border-bottom: 2px solid #000;
       width: 100%;
       background-color: white;
-      text-align: left;
       font-size: 20px;
       padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      button:hover{
-        cursor: pointer;
-      }
     }
   }
 }

@@ -4,7 +4,7 @@
     <img src="../assets/img/planet-2.png" alt="" id="planet-2">
 
     <div class="title__container">
-      <h1 class="text-dark">LA BIBLIOTECA DE TRANTOR</h1>
+      <h1 class="text-dark fs-1 fw-bolder">LA BIBLIOTECA DE TRANTOR</h1>
       <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
       <a href="#drop-dashboard" id="drop-dashboard">
         <i class="fas fa-chevron-down text-dark"></i>
@@ -47,7 +47,7 @@
       <div class="testimonials__grid">
         <div class="testimonials__title">
           <h4 class="text-dark">TESTIMONIOS</h4>
-          <h1 class="text-dark">LO QUE LA GENTE OPINA DE NOSOTROS</h1>
+          <h1 class="text-dark fs-2 fw-bolder">LO QUE LA GENTE OPINA DE NOSOTROS</h1>
         </div>
         <div class="testimonials__cards">
           <div class="testimonial__item">
@@ -166,11 +166,6 @@
       margin: 0 auto;
       padding: 300px 0px 150px;
 
-      h1 {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 5.5em;
-      }
-
       p {
         width: 80%;
         margin: 0 auto;
@@ -212,12 +207,6 @@
 
           h1 {
             padding-bottom: 50px;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 5em;
-          }
-
-          p {
-            line-height: 40px;
           }
         }
         
@@ -237,12 +226,6 @@
 
           h1 {
             padding-bottom: 50px;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 5em;
-          }
-
-          p {
-            line-height: 40px;
           }
         }
       }
@@ -253,7 +236,7 @@
       height: auto;
       background-color: #f5fce2;
       grid-column: 1/6;
-      padding: 250px 300px;
+      padding: 150px 300px;
 
       .testimonials__grid {
         display: grid;
@@ -263,10 +246,6 @@
         .testimonials__title {
           text-align: center;
           padding-bottom: 150px;
-
-          h4 {
-            font-size: 1.3em;
-          }
         }
 
         .testimonials__cards {
@@ -311,8 +290,6 @@
           }
         }
       }
-
-
     }
   }
 </style>

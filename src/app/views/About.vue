@@ -2,7 +2,7 @@
   <div class="main">
     <!--First container-->
     <div class="container first__container">
-      <h1 class="fw-bold fs-1 text-uppercase">Acerca</h1>
+      <h1 class="fw-bold fs-1">Acerca</h1>
       <div class="space__div"></div>
       <p class="lh-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
@@ -30,7 +30,13 @@
     <!--Second container-->
     <div class="second__container">
       <h5 class="text-center fw-normal text-uppercase pb-1">Galeria</h5>
-      <h1 class="text-center fw-bold text-uppercase pb-5">echa un vistazo</h1>
+      <h1 class="text-center fw-bold fs-2 text-uppercase pb-5">echa un vistazo</h1>
+      <div class="description__div pb-5">
+        <p>
+          Una organización sin fines de lucro para inculcar el hermoso habito de
+          la lectura a las jóvenes generaciones de México.
+        </p>
+      </div>
       <!--Carousel componenet-->
       <div class="container-fluid carousel  w-100 p-0">
         <div
@@ -72,7 +78,7 @@
         </div>
       </div>
       <!--/Carousel componenet-->
-      <div class="description__div p-5">
+      <div class="description__div pt-5">
         <p>
           Una organización sin fines de lucro para inculcar el hermoso habito de
           la lectura a las jóvenes generaciones de México.
@@ -90,39 +96,29 @@ export default {
 </script>
 
 <style lang="scss">
-  .main {
-    font-family: sans-serif;
-  }
+
   .first__container {
     padding: 300px 10px 200px;
     width: 70%;
-
-    h1 {
-      font-family: sans-serif;
-    }
 
     p {
       padding: 50px 0;
       text-align: justify;
     }
+  }
 
-    .space__div {
+  .space__div {
       border-top: 2px solid black;
       width: 10%;
       height: 30px;
-    }
   }
 
   .second__container {
     background-color: #f5fce2;
     padding: 150px 0px;
 
-    h1 {
-      font-family: sans-serif;
-      font-size: 3em;
-    }
     .slide img{
-      height: 65vh;
+      height: 80vh;
       object-fit: cover;
       .carousel{
         .border {

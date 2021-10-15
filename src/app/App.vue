@@ -14,7 +14,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body p-5">
-            <h1 class="fw-bold">Iniciar sesion</h1>
+            <h1 class="fw-bold fs-2">Iniciar sesion</h1>
             <p class="mb-5">Por favor ingresa tus credenciales correctamente:</p>
             <form>
               <div class="mb-3">
@@ -53,7 +53,7 @@
           </div>
           <div class="modal-body p-5">
             <div class="">
-              <h1 class="fw-bold">Quiero participar</h1>
+              <h1 class="fw-bold fs-2">Quiero participar</h1>
               <p class="mb-2">Por favor ingresa tu informacion correctamente:</p>
               <p class="mb-5">Tu registro sera revisado y autorizado, asi que si completas el formulario por favor espera hasta que verifiquemos tu informacion.</p>
               <div class="">

@@ -17,6 +17,11 @@ const routes =[
         name:"contact",
         path:"/contact-us",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Contact")
+    },
+    {
+        name:"sponsorship",
+        path:"/sponsorship",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Sponsorship")
     }
 ]
 

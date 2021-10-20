@@ -22,6 +22,11 @@ const routes =[
         name:"sponsorship",
         path:"/sponsorship",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Sponsorship")
+    },
+    {
+        name:"scholarship",
+        path:"/scholarship",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Scholoarship")
     }
 ]
 

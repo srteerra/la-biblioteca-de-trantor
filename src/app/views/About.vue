@@ -313,6 +313,7 @@ export default {
       background-color: white;
       font-size: 20px;
       padding: 10px;
+      z-index: 0;
     }
   }
 }

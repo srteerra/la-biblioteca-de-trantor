@@ -1,7 +1,7 @@
 <template>
   <div class="main__container">
     <div class="container intro__container">
-      <h1 class="text-dark fs-1 fw-bold">FOR SPONSORSHIP</h1>
+      <h1 class="text-dark fs-1 fw-bold">PATROCINAR</h1>
       <div class="intro__space__div"></div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
@@ -25,7 +25,7 @@
     </div>
     <div class="container banner__container">
       <div class="banner__text__container">
-        <h1>WORK TOGETHER<br />FOR BETTER</h1>
+        <h1>TRABAJAR JUNTOS<br />PARA MEJORAR</h1>
       </div>
     </div>
     <div class="container text__container">
@@ -110,7 +110,7 @@ export default {
     height: 280px;
     position: relative;
     filter: grayscale(2);
-    background-image: url(../assets/img/banner.jpg);
+    background-image: url(../assets/img/meeting.jpg);
     background-position: center;
     background-size: cover;
     margin-bottom: 50px;

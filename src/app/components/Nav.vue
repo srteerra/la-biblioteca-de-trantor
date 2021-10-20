@@ -26,7 +26,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quiero becar</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="p-0"><a class="dropdown-item text-dark" href="#">Soy escuela</a></li>
+                            <li class="p-0"><router-link to="/scholarship" class="dropdown-item text-dark">Soy escuela</router-link></li>
                             <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                             <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contactar</router-link></li>
                         </ul>

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Nav />
+    <!-- <Nav/> -->
+    <NavLogged/>
     <router-view :key="$route.fullPath" />
     <Footer/>
 
@@ -126,6 +127,7 @@
 <script>
   import Test from "./components/Test";
   import Nav from "./components/Nav";
+  import NavLogged from "./components/Nav-logged";
   import Footer from "./components/Footer";
   
   export default {
@@ -138,6 +140,7 @@
     components: {
       Test,
       Nav,
+      NavLogged,
       Footer
     },
     methods: {

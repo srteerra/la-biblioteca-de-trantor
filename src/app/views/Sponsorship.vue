@@ -40,30 +40,30 @@
     </div>
     <div class="container contact__container">
       <div class="row">
-        <div class="col-6">
-          <ul>
-            <p>Oficina</p>
-            <li>
+        <div class="col-lg-6 col-md-6 col-12">
+          <ul class="list-unstyled">
+            <p class="fw-bold text-uppercase text-center">Oficina</p>
+            <li class="p-0 m-0">
               {{ mail_1 }}
             </li>
-            <li>
+            <li class="p-0 m-0">
               {{ phone_1 }}
             </li>
-            <li>
+            <li class="p-0 m-0">
               {{ phone_2 }}
             </li>
           </ul>
         </div>
-        <div class="col-6">
-          <ul>
-            <p>Oficina</p>
-            <li>
+        <div class="col-lg-6 col-md-6 col-12">
+          <ul class="list-unstyled">
+            <p class="fw-bold text-uppercase text-center">Otros contactos</p>
+            <li class="p-0 m-0">
               {{ mail_2 }}
             </li>
-            <li>
+            <li class="p-0 m-0">
               {{ phone_3 }}
             </li>
-            <li>
+            <li class="p-0 m-0">
               {{ phone_4 }}
             </li>
           </ul>
@@ -107,7 +107,7 @@ export default {
     }
   }
   .banner__container {
-    height: 250px;
+    height: 280px;
     position: relative;
     filter: grayscale(2);
     background-image: url(../assets/img/banner.jpg);
@@ -117,11 +117,18 @@ export default {
     .banner__text__container {
       position: absolute;
       left: 10%;
-      top: 28%;
+      top: 24%;
       h1 {
         color: #fff;
         font-weight: bold;
+        font-size: 40px;
       }
+    }
+  }
+  .contact__container{
+    padding: 50px 0;
+    ul{
+      text-align: center;
     }
   }
 }

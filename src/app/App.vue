@@ -1,7 +1,7 @@
 <template>
   <div>
     <Nav/>
-    <!-- <NavLogged/> -->
+    <!--<NavLogged/>-->
     <router-view :key="$route.fullPath" />
     <Footer/>
 

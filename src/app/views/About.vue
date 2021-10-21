@@ -242,7 +242,7 @@
 <script>
 
 export default {
-  name: "about",
+  name: 'about',
 };
 </script>
 
@@ -296,23 +296,16 @@ export default {
     margin-right: auto;
   }
 
-  .acordion__container {
-    padding: 200px 0;
-
-    h1{
-      padding-bottom: 20px;
-    }
-
-    .accordion-item {
-      border: none;
-      margin: 20px 0;
-      button {
-        border-bottom: 2px solid #000;
-        width: 100%;
-        background-color: white;
-        font-size: 20px;
-        padding: 10px;
-      }
+  .accordion-item {
+    border: none;
+    margin: 20px 0;
+    button {
+      border-bottom: 2px solid #000;
+      width: 100%;
+      background-color: white;
+      font-size: 20px;
+      padding: 10px;
+      z-index: 0;
     }
   }
 </style> 

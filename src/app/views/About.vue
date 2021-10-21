@@ -247,73 +247,72 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
-  font-family: sans-serif;
-}
-.first__container {
-  padding: 300px 10px 200px;
-  width: 70%;
-
-  h1 {
+  .main {
     font-family: sans-serif;
-    font-size: 4.5em;
+  }
+  .first__container {
+    padding: 300px 10px 200px;
+    width: 70%;
+
+    h1 {
+      font-family: sans-serif;
+      font-size: 4.5em;
+    }
+
+    p {
+      padding: 50px 0;
+      text-align: justify;
+    }
+
+    .space__div {
+      border-top: 2px solid black;
+      width: 10%;
+      height: 30px;
+    }
   }
 
-  p {
-    padding: 50px 0;
-    text-align: justify;
-  }
+  .second__container {
+    background-color: #f5fce2;
+    padding: 150px 0px;
 
-  .space__div {
-    border-top: 2px solid black;
-    width: 10%;
-    height: 30px;
-  }
-}
-
-.second__container {
-  background-color: #f5fce2;
-  padding: 150px 0px;
-
-  h1 {
-    font-family: sans-serif;
-    font-size: 3em;
-  }
-  .slide img {
-    height: 65vh;
-    object-fit: cover;
-    .carousel {
-      .border {
-        border-radius: 10px;
+    h1 {
+      font-family: sans-serif;
+      font-size: 3em;
+    }
+    .slide img {
+      height: 65vh;
+      object-fit: cover;
+      .carousel {
+        .border {
+          border-radius: 10px;
+        }
       }
     }
   }
-}
 
-.description__div {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.acordion__container {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding: 10px;
-  h1{
-    padding-bottom: 20px;
+  .description__div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .accordion-item {
-    border: none;
-    margin: 20px 0;
-    button {
-      border-bottom: 2px solid #000;
-      width: 100%;
-      background-color: white;
-      font-size: 20px;
-      padding: 10px;
+  .acordion__container {
+    padding: 200px 0;
+
+    h1{
+      padding-bottom: 20px;
+    }
+
+    .accordion-item {
+      border: none;
+      margin: 20px 0;
+      button {
+        border-bottom: 2px solid #000;
+        width: 100%;
+        background-color: white;
+        font-size: 20px;
+        padding: 10px;
+      }
     }
   }
-}
 </style> 

@@ -16,17 +16,17 @@
                         <router-link to="/about" class="nav-link text-dark">Acerca</router-link>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quiero patrocinar</a>
+                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soy empresa</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="p-0"><router-link to="/sponsorship" class="dropdown-item text-dark">Soy empresa</router-link></li>
+                            <li class="p-0"><router-link to="/sponsorship" class="dropdown-item text-dark">Quiero patrocinar</router-link></li>
                             <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                             <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contactar</router-link></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quiero becar</a>
+                        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soy escuela</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="p-0"><router-link to="/scholarship" class="dropdown-item text-dark">Soy escuela</router-link></li>
+                            <li class="p-0"><router-link to="/scholarship" class="dropdown-item text-dark">Quiero becar</router-link></li>
                             <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                             <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contactar</router-link></li>
                         </ul>

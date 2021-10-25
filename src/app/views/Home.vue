@@ -1,7 +1,7 @@
 <template>
   <main>
-    <img src="../assets/img/planet-1.png" alt="" id="planet-1">
-    <img src="../assets/img/planet-2.png" alt="" id="planet-2">
+    <!-- <img src="../assets/img/planet-1.png" alt="" id="planet-1">
+    <img src="../assets/img/planet-2.png" alt="" id="planet-2"> -->
 
     <div class="title__container">
       <h1 class="text-dark fs-1 fw-bolder">LA BIBLIOTECA DE TRANTOR</h1>
@@ -20,8 +20,8 @@
     <!-- Small info ends here -->
 
     <!-- Presentation starts here -->
-    <div class="presentation__container container-fluid px-5">
-      <div class="presentation__grid row py-5 px-lg-5">
+    <div class="presentation__container container-fluid px-0">
+      <div class="presentation__grid row py-4 px-lg-5">
         <div class="col-12 py-5">
           <div class="pb-5 mb-5">
             <div class="presentation__whatis text-center text-lg-start col-lg-12 p-5">
@@ -49,13 +49,13 @@
     <!-- Presentation ends here -->
 
     <!-- Testimonials starts here -->
-    <div class="testimonials__container">
-      <div class="testimonials__grid">
-        <div class="testimonials__title">
+    <div class="testimonials__container container-fluid">
+      <div class="testimonials__grid row py-5">
+        <div class="testimonials__title p-5">
           <h4 class="text-dark">TESTIMONIOS</h4>
           <h1 class="text-dark fs-2 fw-bolder">LO QUE LA GENTE OPINA DE NOSOTROS</h1>
         </div>
-        <div class="testimonials__cards">
+        <div class="testimonials__cards px-0 px-lg-5">
           <div class="testimonial__item">
             <div>
               <strong class="text-dark">"</strong>
@@ -227,13 +227,8 @@
       width: 100%;
       height: auto;
       background-color: #f5fce2;
-      grid-column: 1/6;
-      padding: 150px 300px;
 
       .testimonials__grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 2fr;
 
         .testimonials__title {
           text-align: center;

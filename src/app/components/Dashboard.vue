@@ -2,7 +2,7 @@
   <div class="dashboard__container container-fluid">
         <div class="row">
             <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto">
-                <div class="dashboard__card p-5">
+                <div class="dashboard__card px-3 py-5">
                     <div class="dashboard__content p-0 p-md-4">
                         <div class="dashboard__head">
                             <h2 class="text-dark">TABLA DE PUTUACIONES</h2>

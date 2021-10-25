@@ -20,23 +20,29 @@
     <!-- Small info ends here -->
 
     <!-- Presentation starts here -->
-    <div class="presentation__container">
-      <div class="presentation__grid">
-        <div class="presentation__whatis">
-          <h1 class="text-dark">¿Que es?</h1>
-          <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
-          <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
-          <router-link to="/" class="btn btn-outline-dark py-3 px-4 mt-3 rounded-pill">Explora mas <span><i class="fas fa-arrow-right ps-2"></i></span></router-link>
-        </div>
-        <div class="presentation__whatis__image">
-          <img src="../assets/img/planets-1.png" alt="" id="planets-1">
-        </div>
-        <div class="presentation__why__image">
-          <img src="../assets/img/planets-2.png" alt="" id="planets-2">
-        </div>
-        <div class="presentation__why">
-          <h1 class="text-dark">¿Por que?</h1>
-          <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+    <div class="presentation__container container-fluid px-5">
+      <div class="presentation__grid row py-5 px-lg-5">
+        <div class="col-12 py-5">
+          <div class="pb-5 mb-5">
+            <div class="presentation__whatis text-center text-lg-start col-lg-12 p-5">
+              <div class="presentation__whatis__image d-none d-lg-block">
+                <img src="../assets/img/planets-1.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="" id="planets-1">
+              </div>
+              <h1 class="text-dark">¿Que es?</h1>
+              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <router-link to="/" class="btn btn-outline-dark py-3 px-4 mt-3 rounded-pill">Explora mas <span><i class="fas fa-arrow-right ps-2"></i></span></router-link>
+            </div>
+          </div>
+          <div class="pt-5 mt-5">
+            <div class="presentation__why text-center text-lg-end col-lg-12 p-5">
+              <div class="presentation__why__image d-none d-lg-block">
+                <img src="../assets/img/planets-2.png" class="col-md-6 float-md-start mb-3 ms-md-3" alt="" id="planets-2">
+              </div>
+              <h1 class="text-dark">¿Por que?</h1>
+              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -181,7 +187,6 @@
     .infotop__container {
       max-width: 80%;
       height: auto;
-      grid-column: 3;
       text-align: center;
       margin: 0 auto;
       padding: 50px 0px 150px;
@@ -191,17 +196,11 @@
       width: 100%;
       height: auto;
       background-color: white;
-      grid-column: 1/6;
-      padding: 200px;
 
       .presentation__grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr .2fr 1fr;
 
         .presentation__whatis {
           text-align: start;
-          grid-row: 1;
 
           h1 {
             padding-bottom: 50px;
@@ -209,19 +208,14 @@
         }
         
         .presentation__whatis__image {
-          grid-row: 1;
           justify-self: center;
         }
 
         .presentation__why__image {
-          grid-row: 3;
-          justify-self: start;
+          justify-self: center;
         }
 
         .presentation__why {
-          text-align: end;
-          grid-row: 3;
-
           h1 {
             padding-bottom: 50px;
           }

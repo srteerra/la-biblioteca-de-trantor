@@ -128,8 +128,6 @@
   main {
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: .4fr .4fr 1fr .4fr .4fr;
     background-color: #f5fce2;
 
     #planet-1 {

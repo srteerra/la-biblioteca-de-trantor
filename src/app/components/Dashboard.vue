@@ -2,8 +2,8 @@
   <div class="dashboard__container container-fluid">
         <div class="row">
             <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto">
-                <div class="dashboard__card">
-                    <div class="dashboard__content">
+                <div class="dashboard__card p-5">
+                    <div class="dashboard__content p-0 p-md-4">
                         <div class="dashboard__head">
                             <h2 class="text-dark">TABLA DE PUTUACIONES</h2>
                             <h4 class="text-dark">Ago - Feb</h4>
@@ -97,12 +97,10 @@ export default {
             height: auto;
             background-color: white;
             box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-            padding: 60px 60px 0;
             border-radius: 10%;
             z-index: 2;
 
             .dashboard__content {
-                padding: 20px;
 
                 .dashboard__head {
                     margin: 0 auto;

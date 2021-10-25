@@ -5,22 +5,22 @@
 
     <div class="title__container">
       <h1 class="text-dark fs-1 fw-bolder">LA BIBLIOTECA DE TRANTOR</h1>
-      <p class="text-dark">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
+      <p class="text-dark fs-6 pt-4">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
       <a href="#drop-dashboard" id="drop-dashboard">
-        <i class="fas fa-chevron-down text-dark"></i>
+        <i class="fas fa-chevron-down text-dark fs-3 mt-5"></i>
       </a>
     </div>
 
     <Dashboard/>
 
     <!-- Small info starts here -->
-    <div class="infotop__container">
-      <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
+    <div class="infotop__container p-5 my-5">
+      <p class="text-dark fs-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
     </div>
     <!-- Small info ends here -->
 
     <!-- Presentation starts here -->
-    <div class="presentation__container container-fluid px-0">
+    <div class="presentation__container container-fluid p-5">
       <div class="presentation__grid row py-4 px-lg-5">
         <div class="col-12 py-5">
           <div class="pb-5 mb-5">
@@ -28,9 +28,9 @@
               <div class="presentation__whatis__image d-none d-lg-block">
                 <img src="../assets/img/planets-1.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="" id="planets-1">
               </div>
-              <h1 class="text-dark">¿Que es?</h1>
-              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
-              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <h1 class="text-dark fs-1 pb-5">¿Que es?</h1>
+              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
               <router-link to="/" class="btn btn-outline-dark py-3 px-4 mt-3 rounded-pill">Explora mas <span><i class="fas fa-arrow-right ps-2"></i></span></router-link>
             </div>
           </div>
@@ -39,8 +39,8 @@
               <div class="presentation__why__image d-none d-lg-block">
                 <img src="../assets/img/planets-2.png" class="col-md-6 float-md-start mb-3 ms-md-3" alt="" id="planets-2">
               </div>
-              <h1 class="text-dark">¿Por que?</h1>
-              <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <h1 class="text-dark fs-1 pb-5">¿Por que?</h1>
+              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
             </div>
           </div>
         </div>
@@ -171,16 +171,9 @@
       padding: 300px 0px 150px;
 
       p {
-        width: 80%;
+        width: 60%;
         margin: 0 auto;
-        padding-top: 10px;
         font-family: sans-serif;
-        font-size: 1.2em;
-      }
-
-      i {
-        margin-top: 50px;
-        font-size: 2em;
       }
     }
 
@@ -189,7 +182,6 @@
       height: auto;
       text-align: center;
       margin: 0 auto;
-      padding: 50px 0px 150px;
     }
 
     .presentation__container {
@@ -201,10 +193,6 @@
 
         .presentation__whatis {
           text-align: start;
-
-          h1 {
-            padding-bottom: 50px;
-          }
         }
         
         .presentation__whatis__image {
@@ -213,12 +201,6 @@
 
         .presentation__why__image {
           justify-self: center;
-        }
-
-        .presentation__why {
-          h1 {
-            padding-bottom: 50px;
-          }
         }
       }
     }

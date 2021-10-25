@@ -2,11 +2,11 @@
   <div class="dashboard__container container-fluid">
         <div class="row">
             <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto">
-                <div class="dashboard__card px-3 py-5">
+                <div class="dashboard__card px-3 px-lg-5 py-5">
                     <div class="dashboard__content p-0 p-md-4">
                         <div class="dashboard__head">
-                            <h2 class="text-dark">TABLA DE PUTUACIONES</h2>
-                            <h4 class="text-dark">Ago - Feb</h4>
+                            <h2 class="text-dark fs-2 fw-bold">TABLA DE PUTUACIONES</h2>
+                            <h4 class="text-dark fs-3 fw-bold">Ago - Feb</h4>
                             <hr class="text-dark">
                         </div>
                         <div class="dashboard__body">
@@ -108,7 +108,6 @@ export default {
 
                     h2 {
                         font-family: 'Times New Roman', Times, serif;
-                        font-weight: 700;
                     }
 
                     h4 {

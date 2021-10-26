@@ -20,8 +20,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="user in users" :key="user.id">
-                                        <td>{{user.userPlace}}</td>
+                                    <tr v-for="(user, x) in users" v-bind:key="user">
+                                        <td>{{x + 1}}</td>
                                         <td>{{user.userName}}</td>
                                         <td>{{user.userBooks}}</td>
                                         <td>{{user.userScore}}</td>
@@ -44,38 +44,38 @@
         name: 'dashboard',
         data() {
             return {
-                competitionDate: "10/26/2021 - 04/26/2022",
+                competitionDate: "10/26/2021 - 04/26/2022", // Date competition HERE
                 users: [
-                    { userPlace: "1", userName: "Miriam Rodriguez", userBooks: "12", userScore: "9.8"},
-                    { userPlace: "2", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "3", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "4", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "5", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "6", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "7", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "8", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "9", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "10", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "11", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "12", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "13", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "14", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "15", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "16", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "17", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "18", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "19", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "20", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "21", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "22", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "23", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "24", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "25", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "26", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "27", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "28", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "29", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
-                    { userPlace: "30", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"}
+                    { userName: "Miriam Rodriguez", userBooks: "12", userScore: "9.8"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"}
                 ]
             }
         }

@@ -16,7 +16,7 @@
                         <router-link to="/about" class="nav-link text-dark">Acerca</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/about" class="nav-link text-dark">Calificar</router-link>
+                        <router-link to="/upload" class="nav-link text-dark">Calificar</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/about" class="nav-link text-dark">Informacion</router-link>
@@ -30,9 +30,9 @@
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                                 <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Ver perfil</router-link></li>
-                                <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Contacto</router-link></li>
+                                <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contacto</router-link></li>
                                 <li class="p-0"><hr class="dropdown-divider text-dark"></li>
-                                <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Cerrar sesion</router-link></li>
+                                <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Cerrar sesion</router-link></li>
                             </ul>
                         </div>
                     </li>

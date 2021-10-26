@@ -254,11 +254,6 @@ export default {
     padding: 300px 10px 200px;
     width: 70%;
 
-    h1 {
-      font-family: sans-serif;
-      font-size: 4.5em;
-    }
-
     p {
       padding: 50px 0;
       text-align: justify;
@@ -275,10 +270,6 @@ export default {
     background-color: #f5fce2;
     padding: 150px 0px;
 
-    h1 {
-      font-family: sans-serif;
-      font-size: 3em;
-    }
     .slide img {
       height: 65vh;
       object-fit: cover;

@@ -27,6 +27,11 @@ const routes =[
         name:"scholarship",
         path:"/scholarship",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Scholoarship")
+    },
+    {
+        name:"upload",
+        path:"/upload",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Upload")
     }
 ]
 

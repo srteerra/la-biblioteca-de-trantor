@@ -168,7 +168,7 @@
       grid-column: 3;
       text-align: center;
       margin: 0 auto;
-      padding: 300px 0px 150px;
+      padding: 300px 0px 100px;
 
       p {
         width: 60%;

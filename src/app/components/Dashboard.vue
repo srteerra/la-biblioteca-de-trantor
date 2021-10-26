@@ -1,77 +1,35 @@
 <template>
   <div class="dashboard__container container-fluid">
         <div class="row">
-            <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto">
+            <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto p-0">
+                <img src="../assets/img/badge.png" alt="" id="badge__img" class="d-none d-md-block">
                 <div class="dashboard__card px-3 px-lg-5 py-5">
                     <div class="dashboard__content p-0 p-md-4">
-                        <div class="dashboard__head">
-                            <h2 class="text-dark fs-2 fw-bold">TABLA DE PUTUACIONES</h2>
-                            <h4 class="text-dark fs-3 fw-bold">Ago - Feb</h4>
-                            <hr class="text-dark">
+                        <div class="text-center pb-3">
+                            <h1 class="fs-2">TABLA DE PUNTUACIONES</h1>
+                            <h5 class="fs-5"> {{ competitionDate }} </h5>
                         </div>
-                        <div class="dashboard__body">
-                            <div class="dashboard__item rounded-pill">
-                                <p>1</p>
-                                <p>Miriam Rodriguez</p>
-                                <p>12 libros</p>
-                                <p>9.8</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>2</p>
-                                <p>Raul Vazquez Castillo</p>
-                                <p>11 libros</p>
-                                <p>9.6</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>3</p>
-                                <p>Luis Hernandez</p>
-                                <p>10 libros</p>
-                                <p>9.8</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>4</p>
-                                <p>Carolina Sanchez</p>
-                                <p>9 books</p>
-                                <p>9.1</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>5</p>
-                                <p>Maria De Leon</p>
-                                <p>9 books</p>
-                                <p>9.1</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>6</p>
-                                <p>Carlos Martinez Perez</p>
-                                <p>8 books</p>
-                                <p>9.0</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>7</p>
-                                <p>Ana Gonzalez</p>
-                                <p>8 libros</p>
-                                <p>8.8</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>8</p>
-                                <p>Lucero Morales</p>
-                                <p>7 libros</p>
-                                <p>8.7</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>9</p>
-                                <p>Rodrigo De La Torre</p>
-                                <p>7 libros</p>
-                                <p>8.5</p>
-                            </div>
-                            <div class="dashboard__item rounded-pill">
-                                <p>10</p>
-                                <p>Sebastian Lopez Ruiz</p>
-                                <p>6 libros</p>
-                                <p>8.4</p>
-                            </div>
+                        <div class="dashboard__body table-responsive">
+                            <table class="table table-borderless text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Lugar</th>
+                                        <th>Nombre</th>
+                                        <th>Libros</th>
+                                        <th>Puntos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in users" :key="user.id">
+                                        <td>{{user.userPlace}}</td>
+                                        <td>{{user.userName}}</td>
+                                        <td>{{user.userBooks}}</td>
+                                        <td>{{user.userScore}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="dashboard__footer">
+                        <div class="dashboard__footer pt-3">
                             <button type="button" class="rewards__btn text-dark" data-bs-toggle="modal" data-bs-target="#rewardsModal">Ver recompensas</button>
                         </div>
                     </div>
@@ -82,12 +40,57 @@
 </template>
 
 <script>
-export default {
-    name: 'dashboard'
-}
+    export default {
+        name: 'dashboard',
+        data() {
+            return {
+                competitionDate: "10/26/2021 - 04/26/2022",
+                users: [
+                    { userPlace: "1", userName: "Miriam Rodriguez", userBooks: "12", userScore: "9.8"},
+                    { userPlace: "2", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "3", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "4", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "5", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "6", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "7", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "8", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "9", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "10", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "11", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "12", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "13", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "14", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "15", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "16", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "17", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "18", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "19", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "20", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "21", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "22", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "23", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "24", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "25", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "26", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "27", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "28", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "29", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},
+                    { userPlace: "30", userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"}
+                ]
+            }
+        }
+    }
 </script>
 
 <style lang="scss">
+    #badge__img {
+        width: 15%;
+        position: relative;
+        right: -90%;
+        top: 12%;
+        opacity: 50%;
+    }
+
     .dashboard__container {
         width: 100%;
         height: auto;
@@ -97,48 +100,33 @@ export default {
             height: auto;
             background-color: white;
             box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-            border-radius: 10%;
+            border-radius: 5vw;
             z-index: 2;
 
             .dashboard__content {
+                table {
+                    tbody {
+                        tr {
 
-                .dashboard__head {
-                    margin: 0 auto;
-                    text-align: center;
-
-                    h2 {
-                        font-family: 'Times New Roman', Times, serif;
+                            &:nth-of-type(1) {
+                                background-color: rgb(251, 255, 189);
+                            }
+                            &:nth-of-type(2) {
+                                background-color: rgb(243, 243, 243);
+                            }
+                            &:nth-of-type(3) {
+                                background-color: rgb(245, 220, 180);
+                            }
+                        }
                     }
-
-                    h4 {
-                        font-family: 'Times New Roman', Times, serif;
-                    }
-
                 }
 
                 .dashboard__body {
-                    height: 500px;
+                    max-height: 500px;
                     overflow-y: scroll;
 
                     &::-webkit-scrollbar {
                         display: none;
-                    }
-
-                    .dashboard__item {
-                        background-color: rgb(240, 240, 240);
-                        width: 100%;
-                        height: auto;
-                        display: grid;
-                        padding: 20px 0px;
-                        margin: 30px 0;
-                        grid-template-columns: .5fr 1fr 1fr .5fr;
-                        grid-template-rows: auto;
-
-                        p {
-                            padding: 0;
-                            margin: 0;
-                            text-align: center;
-                        }
                     }
                 }
 

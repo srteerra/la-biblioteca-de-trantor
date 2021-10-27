@@ -98,13 +98,13 @@
     <!--/Second container-->
 
     <!-- FAQ section -->
-    <div class="container acordion__container">
-      <h1>FAQ</h1>
+    <div class="container accordion__container">
+      <h1 class="fw-bold fs-1">FAQ</h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -137,7 +137,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -170,7 +170,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
@@ -203,7 +203,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingFour">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button collapsed fw-bold"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseFour"
@@ -248,64 +248,54 @@ export default {
 
 <style lang="scss">
   .main {
-    font-family: sans-serif;
-  }
-  .first__container {
-    padding: 300px 10px 200px;
-    width: 70%;
+    .first__container {
+      padding: 300px 10px 100px;
+      width: 70%;
 
-    h1 {
-      font-family: sans-serif;
-      font-size: 4.5em;
+      p {
+        padding: 50px 0;
+        text-align: justify;
+      }
+
+      .space__div {
+        border-top: 2px solid black;
+        width: 10%;
+        height: 30px;
+      }
     }
 
-    p {
-      padding: 50px 0;
-      text-align: justify;
-    }
-
-    .space__div {
-      border-top: 2px solid black;
-      width: 10%;
-      height: 30px;
-    }
-  }
-
-  .second__container {
-    background-color: #f5fce2;
-    padding: 150px 0px;
-
-    h1 {
-      font-family: sans-serif;
-      font-size: 3em;
-    }
-    .slide img {
-      height: 65vh;
-      object-fit: cover;
-      .carousel {
-        .border {
-          border-radius: 10px;
+    .second__container {
+      background-color: #f5fce2;
+      padding: 80px 0px;
+      .slide img {
+        height: 65vh;
+        object-fit: cover;
+        .carousel {
+          .border {
+            border-radius: 10px;
+          }
         }
       }
     }
-  }
 
-  .description__div {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .accordion-item {
-    border: none;
-    margin: 20px 0;
-    button {
-      border-bottom: 2px solid #000;
-      width: 100%;
-      background-color: white;
-      font-size: 20px;
-      padding: 10px;
-      z-index: 0;
+    .description__div {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .accordion__container{
+      padding: 50px 20px;
+      .accordion-item {
+        border: none;
+        margin: 30px 10px;
+        button {
+          border-bottom: 2px solid #000 !important;
+          width: 100%;
+          background-color: white;
+          padding: 10px;
+          z-index: 1;
+        }
+      }
     }
   }
 </style> 

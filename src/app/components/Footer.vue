@@ -13,7 +13,7 @@
                             <a href="#!" class="text-light text-center text-lg-start">{{ mail }}</a>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start">{{ phone }}</a>
+                            <p class="text-light text-center text-lg-start">{{ phone }}</p>
                         </li>
                         <!-- Section: Social media -->
                         <section class="mb-4">
@@ -37,13 +37,13 @@
 
                     <ul class="list-unstyled">
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Acerca</a>
+                            <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Acerca</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Aprende mas</a>
+                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Aprende mas</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Explorar</a>
+                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Explorar</router-link>
                         </li>
                     </ul>
                 </div>
@@ -55,10 +55,10 @@
 
                     <ul class="list-unstyled mb-0">
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Quiero patrocinar</a>
+                            <router-link to="/sponsorship" class="text-light text-center text-lg-start p-0 m-0">Quiero patrocinar</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Quiero becar</a>
+                            <router-link to="/scholarship" class="text-light text-center text-lg-start p-0 m-0">Quiero becar</router-link>
                         </li>
                     </ul>
                 </div>
@@ -70,13 +70,13 @@
 
                     <ul class="list-unstyled">
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Contactanos</a>
+                            <router-link to="/contact-us" class="text-light text-center text-lg-start p-0 m-0">Contactanos</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</a>
+                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <a href="#!" class="text-light text-center text-lg-start p-0 m-0">Preguntas frecuentes</a>
+                            <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Preguntas frecuentes</router-link>
                         </li>
                     </ul>
                 </div>
@@ -89,7 +89,7 @@
         <!-- Copyright -->
         <div class="footer__grid w-100 text-center text-lg-start text-light py-4 last">
             Copyright ©2021 
-            <a class="text-light text-center text-lg-start p-0 m-0" href="#">La Biblioteca de Trantor. Todos los derechos reservados</a>
+            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">La Biblioteca de Trantor. Todos los derechos reservados</router-link>
         </div>
         <!-- Copyright -->
     </footer>

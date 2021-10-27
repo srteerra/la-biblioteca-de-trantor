@@ -25,7 +25,7 @@
     </div>
     <div class="container banner__container">
       <div class="banner__text__container">
-        <h1>TRABAJAR JUNTOS<br />PARA MEJORAR</h1>
+        <h1 class="fw-bold fs-2 text-light">TRABAJAR JUNTOS<br />PARA MEJORAR</h1>
       </div>
     </div>
     <div class="container text__container">
@@ -117,12 +117,7 @@ export default {
     .banner__text__container {
       position: absolute;
       left: 10%;
-      top: 24%;
-      h1 {
-        color: #fff;
-        font-weight: bold;
-        font-size: 40px;
-      }
+      top: 30%;
     }
   }
   .contact__container{

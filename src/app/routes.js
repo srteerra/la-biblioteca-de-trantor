@@ -32,6 +32,11 @@ const routes =[
         name:"upload",
         path:"/upload",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Upload")
+    },
+    {
+        name:"explore",
+        path:"/explore",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Explore")
     }
 ]
 

@@ -43,7 +43,7 @@
                             <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Aprende mas</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Explorar</router-link>
+                            <router-link to="/explore" class="text-light text-center text-lg-start p-0 m-0">Explorar</router-link>
                         </li>
                     </ul>
                 </div>

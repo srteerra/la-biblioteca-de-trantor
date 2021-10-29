@@ -29,7 +29,7 @@
                             <button class="btn dropdown profile__img rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Ver perfil</router-link></li>
+                                <li class="p-0"><router-link to="/profile" class="dropdown-item text-dark">Ver perfil</router-link></li>
                                 <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contacto</router-link></li>
                                 <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                                 <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Cerrar sesion</router-link></li>

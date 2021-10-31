@@ -40,7 +40,7 @@
                             <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Acerca</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Aprende mas</router-link>
+                            <router-link to="" class="text-light text-center text-lg-start p-0 m-0">Aprende mas</router-link>
                         </li>
                         <li class="p-0 m-0">
                             <router-link to="/explore" class="text-light text-center text-lg-start p-0 m-0">Explorar</router-link>
@@ -73,7 +73,7 @@
                             <router-link to="/contact-us" class="text-light text-center text-lg-start p-0 m-0">Contactanos</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
+                            <router-link to="" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
                         </li>
                         <li class="p-0 m-0">
                             <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Preguntas frecuentes</router-link>
@@ -89,7 +89,7 @@
         <!-- Copyright -->
         <div class="footer__grid w-100 text-center text-lg-start text-light py-4 last">
             Copyright ©2021 
-            <router-link to="/" class="text-light text-center text-lg-start p-0 m-0">La Biblioteca de Trantor. Todos los derechos reservados</router-link>
+            <router-link to="" class="text-light text-center text-lg-start p-0 m-0">La Biblioteca de Trantor. Todos los derechos reservados</router-link>
         </div>
         <!-- Copyright -->
     </footer>

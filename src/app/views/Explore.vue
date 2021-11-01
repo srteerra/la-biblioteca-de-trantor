@@ -1,9 +1,11 @@
 <template>
   <div class="main">
     <div class="container firstsec__container">
+      <!-- Title -->
       <h1>Explorar</h1>
       <div class="space__title"></div>
-      <img class="img-one" src="../assets/img/library.jpg" />
+      <!-- First paragraph -->
+      <img class="float-start p__image1" src="../assets/img/library.jpg" />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, est
         adipisci! Perferendis ad ullam quos expedita ex quidem, delectus tempora
@@ -49,7 +51,9 @@
         doloremque rerum doloribus minima sint nulla nostrum maiores quae libero
         veritatis sit animi dicta corporis sapiente reprehenderit vitae.
       </p>
+      <!-- Banner -->
       <div class="fbanner__container"></div>
+      <!-- Second paragraph -->
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non sed
         aliquid dignissimos repellat nesciunt, corrupti quo quidem quis eius
@@ -85,7 +89,8 @@
         aperiam dolores repellat soluta.
       </p>
       <br /><br />
-      <img class="img-two" src="../assets/img/reader.jpg" />
+      <!-- Third paragraph -->
+      <img class="p__image2 float-end" src="../assets/img/reader.jpg" />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
         aliquam, fugiat temporibus aspernatur veniam nemo placeat suscipit
@@ -104,6 +109,21 @@
         magnam recusandae culpa laudantium ex aperiam architecto et ipsum,
         voluptate nobis blanditiis sapiente optio? Veritatis, animi!
       </p>
+      <br />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ratione
+        fuga ducimus voluptatem distinctio, ullam sunt vero nesciunt quibusdam
+        autem a illum recusandae dolorum qui, architecto perspiciatis reiciendis
+        quam commodi id provident aperiam dolores ab ipsa. Porro, velit
+        molestiae? Incidunt consectetur, aliquam maxime quasi dignissimos
+        ratione totam quaerat optio accusantium praesentium, cumque tempora
+        quibusdam nostrum molestias explicabo consequatur? Eveniet aut ea
+        consectetur possimus! A eligendi in, et voluptas porro aliquid hic
+        maxime commodi error itaque minus provident fugiat quam quaerat
+        quibusdam molestias perspiciatis repellat, corrupti cumque obcaecati
+        assumenda ipsum. Molestias voluptatibus quo velit? Minima dolorum
+        nostrum facilis cumque quod quae.
+      </p>
     </div>
   </div>
 </template>
@@ -117,6 +137,9 @@ export default {
 
 <style lang="scss">
 .main {
+  p {
+      text-align: justify;
+    }
   .firstsec__container {
     padding: 300px 10px 100px;
     width: 70%;
@@ -125,13 +148,13 @@ export default {
       width: 15%;
       height: 30px;
     }
-    .img-one {
-      float: left;
+    .p__image1{
       width: 40%;
       margin-right: 20px;
     }
-    p {
-      text-align: justify;
+    .p__image2{
+      width: 40%;
+      margin-left: 20px;
     }
     .fbanner__container {
       height: 280px;
@@ -140,21 +163,6 @@ export default {
       background-size: cover;
       margin-bottom: 50px;
       border-radius: 2px;
-    }
-    .img-two {
-      float: right;
-      width: 40%;
-      margin-left: 20px;
-    }
-  }
-}
-
-@media (max-width: 700px) {
-  .firstsec__container {
-    .img-one,
-    .img-two {
-      width: 100% !important;
-      padding-bottom: 20px;
     }
   }
 }

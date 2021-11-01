@@ -134,7 +134,7 @@
     name: "App",
     data() {
       return {
-        rol: "user",
+        rol: "user"
       };
     },
     components: {

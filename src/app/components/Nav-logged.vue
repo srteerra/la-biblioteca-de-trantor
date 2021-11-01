@@ -23,7 +23,8 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 text-end">
-                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>Angel Lopez<span class="fw-bold ps-2 text-dark">#6616</span></li>
+                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>
+                        {{ userNickname }} <span class="fw-bold ps-2 text-dark">#6616</span></li>
                     <li class='text-end p-lg-0'>
                         <div class="nav-item dropdown text-center">
                             <button class="btn dropdown profile__img rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -44,7 +45,12 @@
 
 <script>
 export default {
-    name:"Nav"
+    name:"Nav",
+    data() {
+        return {
+            userNickname: "ImAngel"
+        }
+    }
 }
 </script>
 

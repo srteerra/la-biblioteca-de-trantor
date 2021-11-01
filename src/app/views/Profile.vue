@@ -45,8 +45,7 @@
                             id="userNameV"
                             type="text"
                             :placeholder="userName"
-                            aria-label="Disabled input"
-                            disabled>
+                            :v-model="userName">
                         <label
                             for="userEmailV"
                             class="form-label">

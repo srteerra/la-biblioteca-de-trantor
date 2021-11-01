@@ -3,7 +3,7 @@
     <!-- <img src="../assets/img/planet-1.png" alt="" id="planet-1">
     <img src="../assets/img/planet-2.png" alt="" id="planet-2"> -->
 
-    <div class="title__container">
+    <div class="title__container pb-5 pb-md-0">
       <h1 class="text-dark fs-1 fw-bolder">LA BIBLIOTECA DE TRANTOR</h1>
       <p class="text-dark fs-6 pt-4">Una organizacion sin fines de lucro que busca inculcar el bello habito de la lectura en las jovenes generaciones de Mexico</p>
       <a href="#drop-dashboard" id="drop-dashboard">

@@ -44,7 +44,7 @@
         name: 'dashboard',
         data() {
             return {
-                competitionDate: "10/26/2021 - 04/26/2022", // Date competition HERE
+                competitionDate: "Shurima Star", // Competition name HERE
                 users: [
                     { userName: "Miriam Rodriguez", userBooks: "12", userScore: "9.8"},
                     { userName: "Carlos Sanchez", userBooks: "11", userScore: "9.5"},

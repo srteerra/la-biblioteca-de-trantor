@@ -109,7 +109,6 @@ export default {
   .banner__container {
     height: 280px;
     position: relative;
-    filter: grayscale(2);
     background-image: url(../assets/img/meeting.jpg);
     background-position: center;
     background-size: cover;

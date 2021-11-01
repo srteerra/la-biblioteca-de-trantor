@@ -37,6 +37,11 @@ const routes =[
         name:"profile",
         path:"/profile",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Profile")
+    },
+    {
+        name:"explore",
+        path:"/explore",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Explore")
     }
 ]
 

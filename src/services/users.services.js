@@ -151,15 +151,6 @@ class UsersServices {
 
    
   }
-
-  /*
-  
-
-  async getAccessToken(user) {
-    let accessToken = await redis_client.get(user.toString())
-    return accessToken
-  }
-
   async genereateTokens(user_id) {
     let refresh_token = jwt.sign(
       {
@@ -179,14 +170,20 @@ class UsersServices {
         expiresIn: process.env.JWT_ACCESS_TIME,
       }
     );
-    await redis_client.get(user_id.toString(), async (err, data) => {
-      if (err) throw boom.conflict("Invalid request");
-      await redis_client.set(user_id.toString(), JSON.stringify({ token: refresh_token }))
-    });
+    
 
     return { access_token, refresh_token }
 
   }
+  /*
+  
+
+  async getAccessToken(user) {
+    let accessToken = await redis_client.get(user.toString())
+    return accessToken
+  }
+
+  
 
   async logout(user, token) {
 

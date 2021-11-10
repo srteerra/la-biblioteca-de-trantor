@@ -23,7 +23,7 @@
 <style lang="scss">
     .main__container {
         padding: 200px 10px 100px;
-        width: 70%;
+
         .loans{
             margin-bottom: 100px;
         }

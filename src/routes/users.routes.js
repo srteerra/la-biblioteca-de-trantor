@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const UsersServices = require("../services/users.services");
+const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
 router.get("/:id", async (req, res, next) => {
   try {
@@ -14,7 +15,7 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/", async (req, res, next) => {
+router.get("/",auth.verifytoken, async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);
@@ -24,7 +25,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", auth.verifytoken, async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -40,7 +41,7 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-router.patch("/:id", async (req, res, next) => {
+router.patch("/:id", auth.verifytoken, async (req, res, next) => {
   try {
     await service.update(
       req.params.id,
@@ -58,7 +59,7 @@ router.patch("/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", auth.verifytoken, async (req, res, next) => {
   try {
     await service.delete(
       req.params.id,
@@ -81,11 +82,17 @@ router.post("/login", async (req, res, next) => {
     await service.login(
       email,
       password,
-      (token) => {
-        req.session.user=token
+      (data) => {
+        req.session.user=data.tokens
+        data.data = {
+          ...data.data,
+          access_token:data.tokens.access_token,
+          refresh_token:data.tokens.refresh_token
+        }
+        data=data.data
         res.status(200).json({
           message:'success',
-          token
+          data
         });
         
       },
@@ -95,17 +102,23 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+router.post('/refreshtoken', auth.verifyRefreshToken, async (req, res) => {
+  try {
+    const token = await service.genereateAccessToken(req.userId)
+    req.session.user.access_token=token
+    res.status(200).json({
+      access_token:token
+    })
 
-/*
-
-
-
+  } catch (error) {
+    next(error)
+  }
+})
 router.post("/logout", auth.verifytoken, async (req, res, next) => {
   try {
-    let token = req.headers.authorization.split(" ")[1];
-    await service.logout(req.session.userAccess, token)
+    
     req.session.destroy(null);
-    req.logout();
+  
     res.status(200).json({
       message: "success"
     })
@@ -114,27 +127,4 @@ router.post("/logout", auth.verifytoken, async (req, res, next) => {
   }
 })
 
-router.post('/token', auth.verifyRefreshToken, async (req, res) => {
-  try {
-    const { email, password } = req.body
-    const token = await service.login(email, password)
-    res.status(200).json({
-      token: token
-    })
-
-  } catch (error) {
-    next(error)
-  }
-})
-
-exports.readAll=(req,res)=>{
-    mysqlConnection.query('SELECT * FROM users',(err,rows,fields)=>{
-        if (!err) {
-            res.json(rows)
-        }else{
-            console.log(err)
-        }
-    })
-}
-*/
 module.exports = router;

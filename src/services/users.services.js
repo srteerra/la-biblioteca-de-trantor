@@ -138,8 +138,8 @@ class UsersServices {
           
           if (!result) throw boom.unauthorized("Invalidate Password");
           delete rows[0].password
-          cb(rows[0])
-          //return await this.genereateTokens(findUser._id);
+          cb({data:rows[0],tokens:await this.genereateTokens(rows[0].id)})
+          //return ;
           
         } catch (error) {
           next(error);
@@ -175,26 +175,18 @@ class UsersServices {
     return { access_token, refresh_token }
 
   }
-  /*
-  
-
-  async getAccessToken(user) {
-    let accessToken = await redis_client.get(user.toString())
-    return accessToken
+  async genereateAccessToken(user_id){
+    let access_token = jwt.sign(
+      {
+        user: user_id,
+      },
+      process.env.JWT_ACCESS_SECRET,
+      {
+        expiresIn: process.env.JWT_ACCESS_TIME,
+      }
+    );
+    return access_token
   }
-
-  
-
-  async logout(user, token) {
-
-    //remove the refresh token
-    await redis_client.del(user.toString())
-    //blacklist current acces token
-    await redis_client.set('BL_' + user, token)
-    await redis_client.expire('BL_' + user, 3600);
-
-    return
-  }*/
 }
 
 module.exports = UsersServices;

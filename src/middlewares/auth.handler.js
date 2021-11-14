@@ -4,6 +4,7 @@ const boom = require("@hapi/boom");
 const verifytoken = async (req, res, next) => {
   try {
     if (!req.session.user) throw boom.unauthorized("session unauthorized");
+    if (!req.headers.authorization) throw boom.unauthorized("Token unauthorized");
     let token = req.headers.authorization.split(" ")[1];
    
     let sessionToken = req.session.user.access_token

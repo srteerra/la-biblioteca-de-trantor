@@ -2,7 +2,31 @@ const router = require("express").Router();
 const UsersServices = require("../services/users.services");
 const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
-router.get("/:id", async (req, res, next) => {
+
+router.get("/address", async (req, res, next) => {
+  try {
+    console.log('ok')
+    await service.findAddress(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/address/:id", async (req, res, next) => {
+  try {
+    await service.findOneAddress(
+      req.params.id,
+      function(data) {
+        return res.status(200).json(data);
+      },
+      next
+    );
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/:id",auth.verifytoken, async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,
@@ -78,10 +102,10 @@ router.delete("/:id", auth.verifytoken, async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { user_email, user_password } = req.body;
     await service.login(
-      email,
-      password,
+      user_email,
+      user_password,
       (data) => {
         req.session.user=data.tokens
         data.data = {
@@ -95,6 +119,22 @@ router.post("/login", async (req, res, next) => {
           data
         });
         
+      },
+      next
+    );
+  } catch (error) {
+    next(error);
+  }
+});
+router.post("/signup",  async (req, res, next) => {
+  try {
+    await service.create(
+      req.body,
+      function(data) {
+        return res.status(200).json({
+          message: "signup",
+          data,
+        });
       },
       next
     );

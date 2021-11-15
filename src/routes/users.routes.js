@@ -39,7 +39,7 @@ router.get("/:id",auth.verifytoken, async (req, res, next) => {
     next(error);
   }
 });
-router.get("/",auth.verifytoken, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);
@@ -49,7 +49,7 @@ router.get("/",auth.verifytoken, async (req, res, next) => {
   }
 });
 
-router.post("/", auth.verifytoken, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     await service.create(
       req.body,

@@ -4,6 +4,9 @@ const express = require("express");
 const helmet = require("helmet");
 const compression = require("compression");
 const morgan = require("morgan");
+const path = require('path')
+const cors = require("cors");
+
 const { routerApi } = require("./routes/api.routes");
 const errors = require("./middlewares/error.handler");
 const session = require("express-session");
@@ -37,6 +40,13 @@ app.use(
     }),
   })
 );
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+    posedHeaders: ["set-cookie"],
+  })
+);
 //----------------Routes--------------
 routerApi(app);
 //---------------Errors-----------------
@@ -44,7 +54,7 @@ app.use(errors.logErrors);
 app.use(errors.boomErrorHandler);
 app.use(errors.errorHandler);
 //STATIC FILES
-
+app.use(express.static(path.join(__dirname,'public')))
 //RUN SERVER
 app.listen(app.get("port"), () => {
   console.log("SERVER ON PORT: ", app.get("port"));

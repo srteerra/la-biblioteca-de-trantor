@@ -9,7 +9,7 @@ class UsersServices {
 
   async findOne(id, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT user_id,user_email,user_firstname,user_lastname,user_phone,user_birthday,user_school FROM users WHERE user_id = ?",
       [id],
       (err, rows, fields) => {
         try {
@@ -26,7 +26,7 @@ class UsersServices {
 
   async find(cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users",
+      "SELECT user_id,user_email,user_firstname,user_lastname,user_phone,user_birthday,user_school FROM users",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -39,29 +39,61 @@ class UsersServices {
     );
   }
 
+  async findAddress(cb, next) {
+    mysqlConnection.query(
+      "SELECT user_id,address_id FROM users",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
+  async findOneAddress(id, cb, next) {
+    mysqlConnection.query(
+      "SELECT user_id,address_id FROM users WHERE user_id = ?",
+      [id],
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          if (rows.length === 0) throw boom.notFound("User not found");
+
+          cb(rows[0]);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
   async create(data, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE email = ?",
-      [data.email],
+      "SELECT * FROM users WHERE user_email = ?",
+      [data.user_email],
       async (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length > 0) throw boom.unauthorized("Email existed");
-          data.password = await encryptPassword(data.password);
-          var query = mysqlConnection.query(
-            "INSERT INTO users SET ?",
-            data,
-            function(err, results, fields) {
-              try {
-                if (err) throw boom.conflict("Invalid request");
-                data.id = results.insertId;
-                delete data.password;
-                cb(data);
-              } catch (error) {
-                next(error);
-              }
+          data.user_password = await encryptPassword(data.user_password);
+          mysqlConnection.query("INSERT INTO users SET ?", data, function(
+            err,
+            results,
+            fields
+          ) {
+            try {
+              if (err) throw boom.conflict("Invalid request");
+
+              data.user_id = results.insertId;
+              delete data.user_password;
+              cb(data);
+            } catch (error) {
+              next(error);
             }
-          );
+          });
         } catch (error) {
           next(error);
         }
@@ -71,14 +103,14 @@ class UsersServices {
 
   async update(id, changes, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT user_id,user_email FROM users WHERE user_id = ?",
       [id],
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-            "UPDATE users SET ? WHERE id = ?",
+            "UPDATE users SET ? WHERE user_id = ?",
             [changes, id],
             function(err, results, fields) {
               try {
@@ -102,18 +134,19 @@ class UsersServices {
   }
   async delete(id, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT * FROM users WHERE user_id = ?",
       [id],
       (err, rows) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-            "DELETE FROM users WHERE id = ?",
+            "DELETE FROM users WHERE user_id = ?",
             [id],
             (err, result) => {
               try {
                 if (err) throw boom.conflict("Invalid request");
+                delete rows[0].user_password
                 cb(rows);
               } catch (error) {
                 next(error);
@@ -126,30 +159,28 @@ class UsersServices {
       }
     );
   }
-  async login(email, password,cb,next) {
+  async login(email, password, cb, next) {
     mysqlConnection.query(
-      "SELECT * FROM users WHERE email = ?",
+      "SELECT * FROM users WHERE user_email = ?",
       [email],
       async (err, rows) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
-          let result = await comparePassword(password,rows[0].password)
-          
+          let result = await comparePassword(password, rows[0].user_password);
+
           if (!result) throw boom.unauthorized("Invalidate Password");
-          delete rows[0].password
-          cb({data:rows[0],tokens:await this.genereateTokens(rows[0].id)})
+          delete rows[0].user_password;
+          cb({
+            data: rows[0],
+            tokens: await this.genereateTokens(rows[0].user_id),
+          });
           //return ;
-          
         } catch (error) {
           next(error);
         }
       }
     );
-
-   
-
-   
   }
   async genereateTokens(user_id) {
     let refresh_token = jwt.sign(
@@ -170,12 +201,10 @@ class UsersServices {
         expiresIn: process.env.JWT_ACCESS_TIME,
       }
     );
-    
 
-    return { access_token, refresh_token }
-
+    return { access_token, refresh_token };
   }
-  async genereateAccessToken(user_id){
+  async genereateAccessToken(user_id) {
     let access_token = jwt.sign(
       {
         user: user_id,
@@ -185,7 +214,7 @@ class UsersServices {
         expiresIn: process.env.JWT_ACCESS_TIME,
       }
     );
-    return access_token
+    return access_token;
   }
 }
 

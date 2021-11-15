@@ -8,6 +8,7 @@
     "start": "npm run build:prod",
     "build:dev": "webpack --mode=development --stats-children",
     "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch --mode=development --stats-children ",
     "server": "webpack serve --mode=development --stats-children "
   },
   "repository": {

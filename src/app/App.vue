@@ -17,15 +17,15 @@
           <div class="modal-body p-5">
             <h1 class="fw-bold fs-2">Iniciar sesion</h1>
             <p class="mb-5">Por favor ingresa tus credenciales correctamente:</p>
-            <form>
+            <form method="POST" action="/login">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="user_email" class="form-control rounded-pill" id="user_email" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">No compartas tu informacion con nadie mas.</div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
+                <input type="password" name="user_password" class="form-control rounded-pill" id="user_password">
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -59,27 +59,15 @@
               <p class="mb-5">Tu registro sera revisado y autorizado, asi que si completas el formulario por favor espera hasta que verifiquemos tu informacion.</p>
               <div class="">
                 <div class="container">
-                  <form class="row">
+                  <form class="row" method="POST" action="/signup">
                     <div class="col-12 col-lg-6">
                       <div class="mb-3">
-                        <label for="registerName" class="form-label">Nombre</label>
-                        <input type="name" class="form-control rounded-pill" id="registerName">
-                      </div>
-                      <div class="mb-3">
-                        <label for="registerLastname" class="form-label">Apellido</label>
-                        <input type="lastname" class="form-control rounded-pill" id="registerLastname">
-                      </div>
-                      <div class="mb-3">
-                        <label for="registerPhone" class="form-label">Numero de telefono</label>
-                        <input type="phone" class="form-control rounded-pill" id="registerPhone">
-                      </div>
-                      <div class="mb-3">
                         <label for="registerEmail" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control rounded-pill" id="registerEmail">
+                        <input type="email" name="user_email" class="form-control rounded-pill" id="registerEmail">
                       </div>
                       <div class="mb-3">
                         <label for="registerPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control rounded-pill" id="registerPassword">
+                        <input type="password" name="user_password" class="form-control rounded-pill" id="registerPassword">
                       </div>
                       <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="registerCheck">
@@ -107,8 +95,8 @@
                     <div class="container-fluid justify-content-center p-0 mt-5">
                       <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal">Entendido</button>
                       <div class="d-flex mt-2">
-                        <p class="">No tienes una cuenta?</p>
-                        <router-link to="/" class="text-dark ps-2">Registrate</router-link>
+                        <p class="">Tienes una cuenta?</p>
+                        <router-link to="/" class="text-dark ps-2">Logear</router-link>
                       </div>
                     </div>
                   </form>

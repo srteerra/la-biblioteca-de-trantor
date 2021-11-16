@@ -1,7 +1,10 @@
 <template>
   <div>
-    <Nav/>
-    <!-- <NavLogged/> -->
+    <NavLogged v-if="userRole === studentRole"/>
+    <NavLoggedAdmin v-else-if="userRole === adminRole"/>
+    <NavLoggedReviewer v-else-if="userRole === reviewerRole"/>
+    <Nav v-else/>
+
     <router-view :key="$route.fullPath" />
     <Footer/>
 
@@ -17,7 +20,7 @@
           <div class="modal-body p-5">
             <h1 class="fw-bold fs-2">Iniciar sesion</h1>
             <p class="mb-5">Por favor ingresa tus credenciales correctamente:</p>
-            <form method="POST" action="/login">
+            <form method="POST" action="/api/v1/users/login">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
                 <input type="email" name="user_email" class="form-control rounded-pill" id="user_email" aria-describedby="emailHelp">
@@ -59,7 +62,7 @@
               <p class="mb-5">Tu registro sera revisado y autorizado, asi que si completas el formulario por favor espera hasta que verifiquemos tu informacion.</p>
               <div class="">
                 <div class="container">
-                  <form class="row" method="POST" action="/signup">
+                  <form class="row" method="POST" action="/api/v1/users/signup">
                     <div class="col-12 col-lg-6">
                       <div class="mb-3">
                         <label for="registerEmail" class="form-label">Correo electronico</label>
@@ -122,7 +125,14 @@
     name: "App",
     data() {
       return {
-        rol: "user"
+        userRole: "", // Main key
+
+        // Roles
+        studentRole: "student",
+        adminRole: "admin",
+        reviewerRole: "reviewer"
+
+
       };
     },
     components: {

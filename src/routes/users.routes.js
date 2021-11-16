@@ -26,7 +26,7 @@ router.get("/address/:id", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/:id", async (req, res, next) => {
+router.get("/:id",auth.verifytoken, async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,
@@ -39,7 +39,7 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/", async (req, res, next) => {
+router.get("/",auth.verifytoken, async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);
@@ -49,7 +49,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", auth.verifytoken, async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -65,7 +65,7 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-router.patch("/:id", async (req, res, next) => {
+router.patch("/:id", auth.verifytoken, async (req, res, next) => {
   try {
     await service.update(
       req.params.id,
@@ -83,7 +83,7 @@ router.patch("/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", auth.verifytoken, async (req, res, next) => {
   try {
     await service.delete(
       req.params.id,
@@ -126,7 +126,7 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
-router.post("/signup", async (req, res, next) => {
+router.post("/signup",  async (req, res, next) => {
   try {
     await service.create(
       req.body,

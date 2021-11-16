@@ -14,7 +14,7 @@
         <tbody>
           <tr v-for="loan in loans" v-bind:key="loan">
             <td>{{loan.loan_id}}</td>
-            <td>{{loan.book_id}}</td>
+            <td>{{loan.book_title}}</td>
             <td>{{loan.loan_dateOrdered}}</td>
             <td>{{loan.loan_status}}</td>
           </tr>

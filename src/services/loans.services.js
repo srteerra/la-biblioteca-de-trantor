@@ -9,7 +9,7 @@ class LoansServices{
 
     async find(cb, next) {
         mysqlConnection.query(
-          "SELECT loan_id,loan_dateOrdered, loan_status FROM loans",
+          "SELECT loan_id, book_title, loan_dateOrdered, loan_status FROM loans INNER JOIN books ON loans.book_id = books.book_id;",
           (err, rows, fields) => {
             try {
               if (err) throw boom.conflict("Invalid request");

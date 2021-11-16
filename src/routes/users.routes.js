@@ -3,7 +3,7 @@ const UsersServices = require("../services/users.services");
 const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
 
-router.get("/address", async (req, res, next) => {
+router.get("/address",auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     console.log('ok')
     await service.findAddress(function(data) {
@@ -13,7 +13,7 @@ router.get("/address", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/address/:id", async (req, res, next) => {
+router.get("/address/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.findOneAddress(
       req.params.id,
@@ -26,7 +26,7 @@ router.get("/address/:id", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/:id",auth.verifytoken, async (req, res, next) => {
+router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,
@@ -49,7 +49,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", auth.verifytoken, async (req, res, next) => {
+router.post("/", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -65,7 +65,7 @@ router.post("/", auth.verifytoken, async (req, res, next) => {
     next(error);
   }
 });
-router.patch("/:id", auth.verifytoken, async (req, res, next) => {
+router.patch("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.update(
       req.params.id,
@@ -83,7 +83,7 @@ router.patch("/:id", auth.verifytoken, async (req, res, next) => {
   }
 });
 
-router.delete("/:id", auth.verifytoken, async (req, res, next) => {
+router.delete("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.delete(
       req.params.id,

@@ -9,7 +9,7 @@ class BooksServices {
 
   async findOne(id, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT *FROM books WHERE book_id = ?",
       [id],
       (err, rows, fields) => {
         try {
@@ -26,7 +26,7 @@ class BooksServices {
 
   async find(cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users",
+      "SELECT * FROM books",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -41,21 +41,21 @@ class BooksServices {
 
   async create(data, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE email = ?",
-      [data.email],
+      "SELECT * FROM books WHERE book_title = ?",
+      [data.book_title],
       async (err, rows, fields) => {
         try {
+          
           if (err) throw boom.conflict("Invalid request");
-          if (rows.length > 0) throw boom.unauthorized("Email existed");
-          data.password = await encryptPassword(data.password);
+          if (rows.length > 0) throw boom.unauthorized("Book existed");
+          
           var query = mysqlConnection.query(
-            "INSERT INTO users SET ?",
+            "INSERT INTO books SET ?",
             data,
             function(err, results, fields) {
               try {
                 if (err) throw boom.conflict("Invalid request");
-                data.id = results.insertId;
-                delete data.password;
+                data.book_id = results.insertId;
                 cb(data);
               } catch (error) {
                 next(error);
@@ -71,14 +71,14 @@ class BooksServices {
 
   async update(id, changes, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT * FROM books WHERE book_id = ?",
       [id],
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
-          if (rows.length === 0) throw boom.notFound("User not found");
+          if (rows.length === 0) throw boom.notFound("Book not found");
           mysqlConnection.query(
-            "UPDATE users SET ? WHERE id = ?",
+            "UPDATE books SET ? WHERE book_id = ?",
             [changes, id],
             function(err, results, fields) {
               try {
@@ -102,14 +102,14 @@ class BooksServices {
   }
   async delete(id, cb, next) {
     mysqlConnection.query(
-      "SELECT id,email,firstname,lastname,phone,age,school FROM users WHERE id = ?",
+      "SELECT * FROM books WHERE book_id = ?",
       [id],
       (err, rows) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-            "DELETE FROM users WHERE id = ?",
+            "DELETE FROM books WHERE book_id = ?",
             [id],
             (err, result) => {
               try {

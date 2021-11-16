@@ -26,7 +26,7 @@ class UsersServices {
 
   async find(cb, next) {
     mysqlConnection.query(
-      "SELECT user_id,user_email,user_firstname,user_lastname,user_phone,user_birthday,user_school FROM users",
+      "SELECT * FROM users",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -86,7 +86,6 @@ class UsersServices {
           ) {
             try {
               if (err) throw boom.conflict("Invalid request");
-
               data.user_id = results.insertId;
               delete data.user_password;
               cb(data);
@@ -146,7 +145,7 @@ class UsersServices {
             (err, result) => {
               try {
                 if (err) throw boom.conflict("Invalid request");
-                delete rows[0].user_password
+                delete rows[0].user_password;
                 cb(rows);
               } catch (error) {
                 next(error);

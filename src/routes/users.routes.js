@@ -39,7 +39,7 @@ router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
     next(error);
   }
 });
-router.get("/",auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);

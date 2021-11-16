@@ -2,7 +2,7 @@ const router = require("express").Router();
 const BooksServices = require("../services/books.services");
 const auth = require("../middlewares/auth.handler")
 const service = new BooksServices();
-router.get("/:id", async (req, res, next) => {
+router.get("/:id",auth.verifytoken,auth.allowAccessAll, async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,
@@ -15,7 +15,7 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/",auth.verifytoken, async (req, res, next) => {
+router.get("/",auth.verifytoken,auth.allowAccessAll, async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);
@@ -25,7 +25,7 @@ router.get("/",auth.verifytoken, async (req, res, next) => {
   }
 });
 
-router.post("/", auth.verifytoken, async (req, res, next) => {
+router.post("/", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -41,7 +41,7 @@ router.post("/", auth.verifytoken, async (req, res, next) => {
     next(error);
   }
 });
-router.patch("/:id", auth.verifytoken, async (req, res, next) => {
+router.patch("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.update(
       req.params.id,
@@ -59,7 +59,7 @@ router.patch("/:id", auth.verifytoken, async (req, res, next) => {
   }
 });
 
-router.delete("/:id", auth.verifytoken, async (req, res, next) => {
+router.delete("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.delete(
       req.params.id,

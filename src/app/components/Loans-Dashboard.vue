@@ -12,11 +12,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(loan) in loans" v-bind:key="loan">
-            <td>{{loan.loanId}}</td>
-            <td>{{loan.bookTitle}}</td>
-            <td>{{loan.loanDate}}</td>
-            <td>{{loan.loanStatus}}</td>
+          <tr v-for="loan in loans" v-bind:key="loan">
+            <td>{{loan.loan_id}}</td>
+            <td>{{loan.book_title}}</td>
+            <td>{{loan.loan_dateOrdered}}</td>
+            <td>{{loan.loan_status}}</td>
           </tr>
         </tbody>
       </table>   
@@ -25,23 +25,22 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'loans',
     data(){
       return{
-        hola:"crack",
-        loans: [
-          {loanId:"1205",bookTitle:"El medico",loanDate:"11-06-2021",loanStatus:"active"},
-          {loanId:"1345",bookTitle:"Moby Dick",loanDate:"11-05-2021",loanStatus:"active"},
-          {loanId:"1234",bookTitle:"Blancanieves",loanDate:"12-03-2021",loanStatus:"active"},
-          {loanId:"9023",bookTitle:"La bella y la bestia",loanDate:"11-12-2021",loanStatus:"active"},
-          {loanId:"8713",bookTitle:"Frankenstein",loanDate:"12-17-2021",loanStatus:"active"},
-          {loanId:"9012",bookTitle:"Los Juegos del Hambre",loanDate:"11-04-2021",loanStatus:"active"},
-          {loanId:"8181",bookTitle:"Play",loanDate:"10-08-2021",loanStatus:"active"}
-        ]
-      }
+        loans:''
+      };
+    },
+    beforeMount(){
+      axios.get('/api/v1/loans')
+      .then(res=>{
+          this.loans=res.data
+         
+      })
     }
-  }
+  };
 </script>
 
 <style lang="scss">

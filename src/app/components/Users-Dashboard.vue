@@ -9,16 +9,18 @@
                         <th>Nickname</th>
                         <th>Nombre completo</th>
                         <th>Correo electronico</th>
+                        <th>Numero de telefono</th>
                         <th>Escuela</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(user) in users" v-bind:key="user">
-                        <td>{{user.userId}}</td>
-                        <td>{{user.userNickname}}</td>
-                        <td>{{user.userName}}</td>
-                        <td>{{user.userEmail}}</td>
-                        <td>{{user.userSchool}}</td>
+                    <tr v-for="(user) in users1" v-bind:key="user">
+                        <td>{{user.user_id}}</td>
+                        <td>{{user.user_nickname}}</td>
+                        <td>{{user.user_firstname}} {{user.user_lastname}}</td>
+                        <td>{{user.user_email}}</td>
+                        <td>{{user.user_phone}}</td>
+                        <td>{{user.user_school}}</td>
                     </tr>
                 </tbody>
             </table>   
@@ -27,10 +29,12 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'users',
     data(){
         return{
+            users1: '',
             users:[
                 {userId:"123",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
                 {userId:"112",userNickname:"Reader114",userName:"Roberto Gomez Estrada",userEmail:"Reader11@gmail.com",userSchool:"UTCJ"},
@@ -46,6 +50,12 @@ export default {
                 {userId:"567",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"}
             ]
         }
+    },
+    beforeMount(){
+      axios.get('/api/v1/users')
+      .then(res=>{
+          this.users1=res.data
+      })
     }
 }
 </script>

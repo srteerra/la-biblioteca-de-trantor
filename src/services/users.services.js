@@ -146,7 +146,7 @@ class UsersServices {
             (err, result) => {
               try {
                 if (err) throw boom.conflict("Invalid request");
-                delete rows[0].user_password
+                delete rows[0].user_password;
                 cb(rows);
               } catch (error) {
                 next(error);

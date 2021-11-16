@@ -9,7 +9,7 @@ class LoansServices{
 
     async find(cb, next) {
         mysqlConnection.query(
-          "SELECT loan_id, loan_dateOrdered, loan_status FROM loans",
+          "SELECT loan_id,loan_dateOrdered, loan_status FROM loans",
           (err, rows, fields) => {
             try {
               if (err) throw boom.conflict("Invalid request");

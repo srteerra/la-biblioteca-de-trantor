@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="loan in loans1" v-bind:key="loan">
+          <tr v-for="loan in loans" v-bind:key="loan">
             <td>{{loan.loan_id}}</td>
             <td>{{loan.book_id}}</td>
             <td>{{loan.loan_dateOrdered}}</td>

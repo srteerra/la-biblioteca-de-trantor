@@ -69,6 +69,7 @@
                             <label for="inputState" class="form-label">Tipo de vivienda</label>
                             <select
                                 id="inputState"
+                                name="user_addressType"
                                 class="form-select"
                                 :v-model="userTypeAddress">
                                     <option selected>...</option>
@@ -78,19 +79,20 @@
                         </div>
                         <div class="col-md-2">
                             <label 
-                                for="inputPassword4"
+                                for="useraddressNumber"
                                 class="form-label">
                                 Numero de vivienda
                             </label>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputPassword4"
+                                id="useraddressNumber"
+                                name="user_addressNumber"
                                 :v-model="userNumberAddress">
                         </div>
                         <div class="col-12">
                             <label
-                                for="inputAddress"
+                                for="userAddress1"
                                 class="form-label">
                                 Calle
                             </label>
@@ -98,7 +100,8 @@
                                 type="text"
                                 autocomplete="address-line1"
                                 class="form-control"
-                                id="inputAddress"
+                                id="userAddress1"
+                                name="user_address1"
                                 :v-model="userAddress1"
                                 placeholder="">
                         </div>
@@ -113,6 +116,7 @@
                                 autocomplete="address-line2"
                                 class="form-control"
                                 id="inputAddress2"
+                                name="user_address2"
                                 :v-model="userAddress2"
                                 placeholder="">
                         </div>
@@ -127,6 +131,7 @@
                                 autocomplete="address-line3"
                                 class="form-control"
                                 id="inputAddress3"
+                                name="user_address3"
                                 :v-model="userAddress3"
                                 placeholder="">
                         </div>
@@ -140,7 +145,8 @@
                                 type="city"
                                 class="form-control"
                                 :v-model="userCity"
-                                id="inputCity">
+                                id="inputCity"
+                                name="user_city">
                         </div>
                         <div class="col-md-4">
                             <label
@@ -148,7 +154,7 @@
                                 class="form-label">
                                 Estado
                             </label>
-                            <select id="inputState" class="form-select" :v-model="userState">
+                            <select id="inputState" name="user_state" class="form-select" :v-model="userState">
                                 <option selected>...</option>
                                 <option>Sonora</option>
                                 <option>Chihuahua</option>
@@ -167,7 +173,8 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputZip">
+                                id="inputZip"
+                                name="user_zip">
                         </div>
                         <div class="col-12">
                             <div class="form-check">

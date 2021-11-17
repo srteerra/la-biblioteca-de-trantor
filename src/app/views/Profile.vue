@@ -58,27 +58,6 @@
                             :placeholder="userEmail"
                             aria-label="Disabled input"
                             disabled>
-                        <label
-                            for="userPassV"
-                            class="form-label">
-                            Nueva contraseña
-                        </label>
-                        <input
-                            class="form-control mb-4"
-                            id="userNewPassV"
-                            type="text"
-                            placeholder=""
-                            required>
-                        <label
-                            for="userPassV"
-                            class="form-label">
-                            Confirmar contraseña
-                        </label>
-                        <input
-                            class="form-control mb-4"
-                            id="userConPassV"
-                            type="text"
-                            placeholder="">
                         <div class="col-12 p-0">
                             <button type="submit" class="btn btn-dark rounded-pill px-5">Guardar</button>
                         </div>

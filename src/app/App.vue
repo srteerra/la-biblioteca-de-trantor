@@ -22,13 +22,13 @@
             <p class="mb-5">Por favor ingresa tus credenciales correctamente:</p>
             <form method="POST" action="/api/v1/users/login">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                <input type="email" name="user_email" class="form-control rounded-pill" id="user_email" aria-describedby="emailHelp">
+                <label for="loginEmail" class="form-label">Correo electronico</label>
+                <input type="email" name="user_email" class="form-control rounded-pill" id="loginEmail" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">No compartas tu informacion con nadie mas.</div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" name="user_password" class="form-control rounded-pill" id="user_password">
+                <label for="loginPassword" class="form-label">Contraseña</label>
+                <input type="password" name="user_password" class="form-control rounded-pill" id="loginPassword">
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -64,6 +64,10 @@
                 <div class="container">
                   <form class="row" method="POST" action="/api/v1/users/signup">
                     <div class="col-12 col-lg-6">
+                      <div class="mb-3">
+                        <label for="registerNickname" class="form-label">Nickname</label>
+                        <input type="text" name="user_nickname" class="form-control rounded-pill" id="registerNickname">
+                      </div>
                       <div class="mb-3">
                         <label for="registerEmail" class="form-label">Correo electronico</label>
                         <input type="email" name="user_email" class="form-control rounded-pill" id="registerEmail">

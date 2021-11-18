@@ -3,7 +3,7 @@
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
                 <img src="../assets/img/avatar.png" class="rounded-pill" alt="" id='myAvatar'>
-                <p class="text-dark fs-5 pt-3">{{ userName }}</p>
+                <p class="text-dark fs-5 pt-3">{{ this.$route.params.user }}</p>
             </div>
         </div>
         <div class="profile__tabs row container mx-auto pt-5">
@@ -79,20 +79,20 @@
                         </div>
                         <div class="col-md-2">
                             <label 
-                                for="useraddressNumber"
+                                for="userAddressNumber"
                                 class="form-label">
                                 Numero de vivienda
                             </label>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="useraddressNumber"
+                                id="userAddressNumber"
                                 name="user_addressNumber"
                                 :v-model="userNumberAddress">
                         </div>
                         <div class="col-12">
                             <label
-                                for="userAddress1"
+                                for="userStreet1"
                                 class="form-label">
                                 Calle
                             </label>
@@ -101,13 +101,13 @@
                                 autocomplete="address-line1"
                                 class="form-control"
                                 id="userAddress1"
-                                name="user_address1"
-                                :v-model="userAddress1"
+                                name="user_street1"
+                                :v-model="userStreet1"
                                 placeholder="">
                         </div>
                         <div class="col-12">
                             <label
-                                for="inputAddress2"
+                                for="userStreet2"
                                 class="form-label">
                                 Calle 2
                             </label>
@@ -115,24 +115,9 @@
                                 type="text"
                                 autocomplete="address-line2"
                                 class="form-control"
-                                id="inputAddress2"
-                                name="user_address2"
-                                :v-model="userAddress2"
-                                placeholder="">
-                        </div>
-                        <div class="col-12">
-                            <label
-                                for="inputAddress3"
-                                class="form-label">
-                                Colonia
-                            </label>
-                            <input
-                                type="text"
-                                autocomplete="address-line3"
-                                class="form-control"
-                                id="inputAddress3"
-                                name="user_address3"
-                                :v-model="userAddress3"
+                                id="userStreet2"
+                                name="user_street2"
+                                :v-model="userStreet2"
                                 placeholder="">
                         </div>
                         <div class="col-md-6">
@@ -192,12 +177,8 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="" class="row col-12 col-md-6 py-5">
                         <div class="col-12 mb-4">
-                            <label for="inputPhoneNumber" class="form-label">Numero de telefono</label>
-                            <input type="text" autocomplete="tel" class="form-control" id="inputPhoneNumber" placeholder="">
-                        </div>
-                        <div class="col-12 mb-4">
-                            <label for="inputEmailAlt" class="form-label">Correo secundario</label>
-                            <input type="text" autocomplete="email" class="form-control" id="inputEmailAlt">
+                            <label for="userNumber" class="form-label">Numero de telefono</label>
+                            <input type="text" name="user_phone" autocomplete="tel" class="form-control" id="userNumber" placeholder="">
                         </div>
                         <div class="col-12 mb-4">
                             <div class="form-check">
@@ -226,9 +207,8 @@
                 userEmail: "angellopez@example.com",
                 userTypeAddress: "",
                 userNumberAddress: "",
-                userAddress1: "",
-                userAddress2: "",
-                userAddress3: "",
+                userStreet1: "",
+                userStreet2: "",
                 userCity: "",
                 userState: "",
                 userZip: ""

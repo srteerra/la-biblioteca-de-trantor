@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
 Vue.use(Router)
 const routes =[
     {
@@ -34,11 +35,6 @@ const routes =[
         component: ()=> import (/* webpackChunkName:"home" */"./views/Upload")
     },
     {
-        name:"profile",
-        path:"/profile",
-        component: ()=> import (/* webpackChunkName:"home" */"./views/Profile")
-    },
-    {
         name:"explore",
         path:"/explore",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Explore")
@@ -52,14 +48,24 @@ const routes =[
         name:"reviewer",
         path:"/reviewer",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Reviewer")
+    },
+    {
+        name:"profile",
+        path:"/profile/:user",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Profile"),
+        beforeEnter: ((to, from, next) => {
+            console.log(Vue.$cookies)
+            console.log(from)
+            if (Vue.$cookies.get('access_token')) next()
+            else next({ name: 'home' })
+        })
     }
 ]
 
 const router = new Router({
     linkExactActiveClass:"link-active",
-    routes,
-    mode: "history",
+    routes
+    // mode: "history",
 })
-
 
 export default router

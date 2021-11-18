@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NavLogged v-if="userRole === studentRole"/>
-    <NavLoggedAdmin v-else-if="userRole === adminRole"/>
-    <NavLoggedReviewer v-else-if="userRole === reviewerRole"/>
+    <Nav-Logged v-if="role === userRole"/>
+    <NavLoggedAdmin v-else-if="role === adminRole"/>
+    <NavLoggedReviewer v-else-if="role === judgeRole"/>
     <Nav v-else/>
 
     <router-view :key="$route.fullPath" />
@@ -20,22 +20,22 @@
           <div class="modal-body p-5">
             <h1 class="fw-bold fs-2">Iniciar sesion</h1>
             <p class="mb-5">Por favor ingresa tus credenciales correctamente:</p>
-            <form method="POST" action="/api/v1/users/login">
+            <form method="POST">
               <div class="mb-3">
                 <label for="loginEmail" class="form-label">Correo electronico</label>
-                <input type="email" name="user_email" class="form-control rounded-pill" id="loginEmail" aria-describedby="emailHelp">
+                <input type="email" v-model="email" class="form-control rounded-pill" id="loginEmail" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">No compartas tu informacion con nadie mas.</div>
               </div>
               <div class="mb-3">
                 <label for="loginPassword" class="form-label">Contraseña</label>
-                <input type="password" name="user_password" class="form-control rounded-pill" id="loginPassword">
+                <input type="password" v-model="password" class="form-control rounded-pill" id="loginPassword">
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
               </div>
               <div class="container-fluid justify-content-center p-0 mt-5">
-                <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal">Entendido</button>
+                <button v-on:click.prevent="login" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal">Entendido</button>
                 <div class="d-flex mt-2">
                   <p class="">No tienes una cuenta?</p>
                   <router-link to="/" class="text-dark ps-2">Registrate</router-link>
@@ -120,6 +120,9 @@
 </template>
 
 <script>
+  import vue from 'vue';
+  import vuex from 'vuex';
+  import axios from 'axios';
   import Test from "./components/Test";
   import Nav from "./components/Nav";
   import NavLogged from "./components/Nav-logged";
@@ -129,12 +132,14 @@
     name: "App",
     data() {
       return {
-        userRole: "", // Main key
+        role: "", // Main key
+        email: "",
+        password: "",
 
         // Roles
-        studentRole: "student",
+        userRole: "user",
         adminRole: "admin",
-        reviewerRole: "reviewer"
+        judgeRole: "judge"
 
       };
     },
@@ -145,9 +150,18 @@
       Footer
     },
     methods: {
-      mensaje() {
-        //alert('hello i am a alert!')
-        this.rol = "admin";
+      login() {
+        var data = {
+          user_email: this.email,
+          user_password: this.password
+        }
+        axios.post('/api/v1/users/login', data)
+        .then(res => {
+          console.log(vuex)
+          vue.$cookies.set('access_token', res.data.data.access_token)
+          vue.$cookies.set('refresh_token', res.data.data.refresh_token)
+          this.$router.push(`/profile/${res.data.data.user_nickname}`)
+        })
       },
     },
   };

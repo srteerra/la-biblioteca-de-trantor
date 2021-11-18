@@ -38,7 +38,10 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "node-dev": "^7.0.0",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-cookies": "^1.7.4",
+    "vue-session": "^1.0.0",
+    "vue-sessionstorage": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

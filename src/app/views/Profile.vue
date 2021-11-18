@@ -3,7 +3,7 @@
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
                 <img src="../assets/img/avatar.png" class="rounded-pill" alt="" id='myAvatar'>
-                <p class="text-dark fs-5 pt-3">{{ userName }}</p>
+                <p class="text-dark fs-5 pt-3">{{ this.$route.params.user }}</p>
             </div>
         </div>
         <div class="profile__tabs row container mx-auto pt-5">
@@ -58,27 +58,6 @@
                             :placeholder="userEmail"
                             aria-label="Disabled input"
                             disabled>
-                        <label
-                            for="userPassV"
-                            class="form-label">
-                            Nueva contraseña
-                        </label>
-                        <input
-                            class="form-control mb-4"
-                            id="userNewPassV"
-                            type="text"
-                            placeholder=""
-                            required>
-                        <label
-                            for="userPassV"
-                            class="form-label">
-                            Confirmar contraseña
-                        </label>
-                        <input
-                            class="form-control mb-4"
-                            id="userConPassV"
-                            type="text"
-                            placeholder="">
                         <div class="col-12 p-0">
                             <button type="submit" class="btn btn-dark rounded-pill px-5">Guardar</button>
                         </div>
@@ -90,6 +69,7 @@
                             <label for="inputState" class="form-label">Tipo de vivienda</label>
                             <select
                                 id="inputState"
+                                name="user_addressType"
                                 class="form-select"
                                 :v-model="userTypeAddress">
                                     <option selected>...</option>
@@ -99,19 +79,20 @@
                         </div>
                         <div class="col-md-2">
                             <label 
-                                for="inputPassword4"
+                                for="userAddressNumber"
                                 class="form-label">
                                 Numero de vivienda
                             </label>
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputPassword4"
+                                id="userAddressNumber"
+                                name="user_addressNumber"
                                 :v-model="userNumberAddress">
                         </div>
                         <div class="col-12">
                             <label
-                                for="inputAddress"
+                                for="userStreet1"
                                 class="form-label">
                                 Calle
                             </label>
@@ -119,13 +100,14 @@
                                 type="text"
                                 autocomplete="address-line1"
                                 class="form-control"
-                                id="inputAddress"
-                                :v-model="userAddress1"
+                                id="userAddress1"
+                                name="user_street1"
+                                :v-model="userStreet1"
                                 placeholder="">
                         </div>
                         <div class="col-12">
                             <label
-                                for="inputAddress2"
+                                for="userStreet2"
                                 class="form-label">
                                 Calle 2
                             </label>
@@ -133,22 +115,9 @@
                                 type="text"
                                 autocomplete="address-line2"
                                 class="form-control"
-                                id="inputAddress2"
-                                :v-model="userAddress2"
-                                placeholder="">
-                        </div>
-                        <div class="col-12">
-                            <label
-                                for="inputAddress3"
-                                class="form-label">
-                                Colonia
-                            </label>
-                            <input
-                                type="text"
-                                autocomplete="address-line3"
-                                class="form-control"
-                                id="inputAddress3"
-                                :v-model="userAddress3"
+                                id="userStreet2"
+                                name="user_street2"
+                                :v-model="userStreet2"
                                 placeholder="">
                         </div>
                         <div class="col-md-6">
@@ -161,7 +130,8 @@
                                 type="city"
                                 class="form-control"
                                 :v-model="userCity"
-                                id="inputCity">
+                                id="inputCity"
+                                name="user_city">
                         </div>
                         <div class="col-md-4">
                             <label
@@ -169,7 +139,7 @@
                                 class="form-label">
                                 Estado
                             </label>
-                            <select id="inputState" class="form-select" :v-model="userState">
+                            <select id="inputState" name="user_state" class="form-select" :v-model="userState">
                                 <option selected>...</option>
                                 <option>Sonora</option>
                                 <option>Chihuahua</option>
@@ -188,7 +158,8 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="inputZip">
+                                id="inputZip"
+                                name="user_zip">
                         </div>
                         <div class="col-12">
                             <div class="form-check">
@@ -206,12 +177,8 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="" class="row col-12 col-md-6 py-5">
                         <div class="col-12 mb-4">
-                            <label for="inputPhoneNumber" class="form-label">Numero de telefono</label>
-                            <input type="text" autocomplete="tel" class="form-control" id="inputPhoneNumber" placeholder="">
-                        </div>
-                        <div class="col-12 mb-4">
-                            <label for="inputEmailAlt" class="form-label">Correo secundario</label>
-                            <input type="text" autocomplete="email" class="form-control" id="inputEmailAlt">
+                            <label for="userNumber" class="form-label">Numero de telefono</label>
+                            <input type="text" name="user_phone" autocomplete="tel" class="form-control" id="userNumber" placeholder="">
                         </div>
                         <div class="col-12 mb-4">
                             <div class="form-check">
@@ -240,9 +207,8 @@
                 userEmail: "angellopez@example.com",
                 userTypeAddress: "",
                 userNumberAddress: "",
-                userAddress1: "",
-                userAddress2: "",
-                userAddress3: "",
+                userStreet1: "",
+                userStreet2: "",
                 userCity: "",
                 userState: "",
                 userZip: ""

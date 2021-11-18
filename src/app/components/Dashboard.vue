@@ -97,7 +97,6 @@ export default {
       axios.get('/api/v1/users')
       .then(res=>{
           this.users1=res.data
-         
       })
   }
 };

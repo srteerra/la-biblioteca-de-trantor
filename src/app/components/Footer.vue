@@ -73,7 +73,10 @@
                             <router-link to="/contact-us" class="text-light text-center text-lg-start p-0 m-0">Contactanos</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <router-link to="" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
+                            <router-link to="/admin" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
+                        </li>
+                        <li class="p-0 m-0">
+                            <router-link to="/reviewer" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug2</router-link>
                         </li>
                         <li class="p-0 m-0">
                             <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Preguntas frecuentes</router-link>

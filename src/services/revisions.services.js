@@ -4,12 +4,12 @@ const boom = require("@hapi/boom");
 const { encryptPassword, comparePassword } = require("../lib/helpers");
 //const {v4: uuidv4} = require('uuid')
 
-class LoansServices{
+class RevisionsServices{
   constructor(){}
 
-  async find(cb, next) {
+  async findAll(cb, next) {
     mysqlConnection.query(
-      "SELECT loan_id, book_title, loan_dateOrdered, loan_status FROM loans INNER JOIN books ON loans.book_id = books.book_id;",
+      "SELECT * FROM revisions;",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -20,14 +20,15 @@ class LoansServices{
         }
       }
     );
-  }
+  } 
 
-  async findOneLoan(id, cb, next) {
+  async findOneRevision(id, cb, next) {
     mysqlConnection.query(
-      "SELECT loan_id,loan_dateOrdered, loan_status, book_id FROM loans WHERE loan_id = ?;",
+      "SELECT * FROM revisions WHERE revision_id = ?",
       [id],
       (err, rows, fields) => {
         try {
+          console.log(err)
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
 
@@ -40,4 +41,4 @@ class LoansServices{
   }
 }
 
-module.exports = LoansServices;
+module.exports = RevisionsServices;

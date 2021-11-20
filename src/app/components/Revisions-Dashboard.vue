@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <h2 class="text-secondary">Revisiones</h2>
-        <div class="container table responsive revisions-dashboard__container">
+        <div class="container table_responsive revisions-dashboard__container">
             <table class="table table-borderless table-striped text-center">
                 <thead>
                     <tr>
@@ -21,20 +21,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(revision) in revisions" v-bind:key="revision">
-                        <td>{{revision.user}}</td>
-                        <td>{{revision.rev_1}}</td>
-                        <td>{{revision.rev_2}}</td>
-                        <td>{{revision.rev_3}}</td>
-                        <td>{{revision.rev_4}}</td>
-                        <td>{{revision.rev_5}}</td>
-                        <td>{{revision.rev_6}}</td>
-                        <td>{{revision.rev_7}}</td>
-                        <td>{{revision.rev_8}}</td>
-                        <td>{{revision.rev_9}}</td>
-                        <td>{{revision.rev_10}}</td>
-                        <td>{{revision.rev_11}}</td>
-                        <td>{{revision.rev_12}}</td>
+                    <tr v-for="revision in revisions1" v-bind:key="revision">
+                        <td>{{revision.user_id}}</td>
+                        <td>{{revision.revision_1}}</td>
+                        <td>{{revision.revision_2}}</td>
+                        <td>{{revision.revision_3}}</td>
+                        <td>{{revision.revision_4}}</td>
+                        <td>{{revision.revision_5}}</td>
+                        <td>{{revision.revision_6}}</td>
+                        <td>{{revision.revision_7}}</td>
+                        <td>{{revision.revision_8}}</td>
+                        <td>{{revision.revision_9}}</td>
+                        <td>{{revision.revision_10}}</td>
+                        <td>{{revision.revision_11}}</td>
+                        <td>{{revision.revision_12}}</td>
                     </tr>
                 </tbody>
             </table>   
@@ -43,22 +43,19 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'revisions',
     data(){
         return{
-            revisions:[
-                {user:"123",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"112",rev_1:"8",rev_2:"8",rev_3:"9",rev_4:"9",rev_5:"9",rev_6:"10",rev_7:"8",rev_8:"9",rev_9:"9",rev_10:"8",rev_11:"10",rev_12:"9"},
-                {user:"837",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"012",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"111",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"123",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"123",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"123",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"},
-                {user:"123",rev_1:"9",rev_2:"10",rev_3:"8",rev_4:"10",rev_5:"9",rev_6:"10",rev_7:"10",rev_8:"9",rev_9:"10",rev_10:"8",rev_11:"10",rev_12:"10"}
-            ]
+            revisions1:''
         }
+    },
+    beforeMount(){
+        axios.get('/api/v1/revisions')
+      .then(res=>{
+          this.revisions1=res.data
+      })
     }
 }
 </script>

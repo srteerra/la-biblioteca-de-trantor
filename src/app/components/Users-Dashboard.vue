@@ -25,6 +25,11 @@
                 </tbody>
             </table>   
         </div>
+        <select v-model="selected">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
     </div>
 </template>
 
@@ -34,21 +39,9 @@ export default {
     name: 'users',
     data(){
         return{
+            selected: null,
             users1: '',
-            users:[
-                {userId:"123",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"112",userNickname:"Reader114",userName:"Roberto Gomez Estrada",userEmail:"Reader11@gmail.com",userSchool:"UTCJ"},
-                {userId:"837",userNickname:"JuanS",userName:"Juan Emilio Sanchez Lopez",userEmail:"SJuan12@gmail.com",userSchool:"UTCJ"},
-                {userId:"012",userNickname:"Zoren",userName:"Abrham Josue Chavez Gomez",userEmail:"Zor9087@gmail.com",userSchool:"UTCJ"},
-                {userId:"111",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"153",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"202",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"404",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"982",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"656",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"435",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"},
-                {userId:"567",userNickname:"Car2020",userName:"Carlos Alberto Sanchez Vazquez",userEmail:"G89@gmail.com",userSchool:"UTCJ"}
-            ]
+            users2: ''
         }
     },
     beforeMount(){
@@ -56,6 +49,21 @@ export default {
       .then(res=>{
           this.users1=res.data
       })
+
+      axios.get('/api/v1/users')
+      .then(res=>{
+          this.users2=res.data
+      })
+    },
+    computed: {
+        usersList() {
+            if (this.selected == 1) {
+                return this.users1
+            }
+            else {
+                return this.users2
+            }
+        }
     }
 }
 </script>

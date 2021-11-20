@@ -1,6 +1,5 @@
 <template>
     <div class="container main__container">
-        <Loans class="loans"/>
         <Users/>
     </div>
 </template>

@@ -157,7 +157,6 @@
         }
         axios.post('/api/v1/users/login', data)
         .then(res => {
-          console.log(vuex)
           vue.$cookies.set('access_token', res.data.data.access_token)
           vue.$cookies.set('refresh_token', res.data.data.refresh_token)
           this.$router.push(`/profile/${res.data.data.user_nickname}`)

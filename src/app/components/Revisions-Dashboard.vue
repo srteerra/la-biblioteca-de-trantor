@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <h2 class="text-secondary">Revisiones</h2>
-        <div class="container table_responsive revisions-dashboard__container">
+        <div class="container-fluid table_responsive revisions-dashboard__container">
             <table class="table table-borderless table-striped text-center">
                 <thead>
                     <tr>

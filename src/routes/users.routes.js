@@ -125,6 +125,7 @@ router.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+
 router.post("/signup",  async (req, res, next) => {
   try {
     await service.create(

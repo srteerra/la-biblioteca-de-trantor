@@ -55,8 +55,8 @@ const routes =[
         component: ()=> import (/* webpackChunkName:"home" */"./views/Books")
     },
     {
-        name:"reviewer",
-        path:"/reviewer",
+        name:"judge",
+        path:"/judge/revisions",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Reviewer")
     },
     {

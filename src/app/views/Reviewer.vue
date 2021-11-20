@@ -42,7 +42,7 @@
 import Revisions from '../components/Revisions-Dashboard';
 
 export default {
-    name: 'reviewer',
+    name: 'judge',
     data(){
 
     },

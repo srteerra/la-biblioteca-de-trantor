@@ -3,10 +3,36 @@ const UsersServices = require("../services/users.services");
 const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
 
-router.get("/address",auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.get("/orderTypeAddressDESC", async (req, res, next) => {
   try {
-    console.log('ok')
-    await service.findAddress(function(data) {
+    await service.orderByTypeAddressDESC(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/orderTypeAddressASC", async (req, res, next) => {
+  try {
+    await service.orderByTypeAddressASC(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/orderNameDESC", async (req, res, next) => {
+  try {
+    await service.orderByNameDESC(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+router.get("/orderNameASC", async (req, res, next) => {
+  try {
+    await service.orderByNameASC(function(data) {
       return res.status(200).json(data);
     });
   } catch (error) {
@@ -39,6 +65,7 @@ router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
     next(error);
   }
 });
+
 router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {

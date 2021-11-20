@@ -39,9 +39,54 @@ class UsersServices {
     );
   }
 
-  async findAddress(cb, next) {
+  async orderByTypeAddressDESC(cb, next) {
     mysqlConnection.query(
-      "SELECT user_id,address_id FROM users",
+      "SELECT * FROM users ORDER BY user_addressType DESC",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
+  async orderByTypeAddressASC(cb, next) {
+    mysqlConnection.query(
+      "SELECT * FROM users ORDER BY user_addressType ASC",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
+  async orderByNameDESC(cb, next) {
+    mysqlConnection.query(
+      "SELECT * FROM users ORDER BY user_firstname DESC",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
+  async orderByNameASC(cb, next) {
+    mysqlConnection.query(
+      "SELECT * FROM users ORDER BY user_firstname ASC",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");

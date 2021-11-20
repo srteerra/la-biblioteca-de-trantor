@@ -62,7 +62,6 @@ export default {
 
 <style lang="scss">
     .users-dashboard__container{
-        max-height: 300px;
         width: 70%;
         overflow-y: scroll;
         &::-webkit-scrollbar {

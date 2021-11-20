@@ -40,9 +40,19 @@ const routes =[
         component: ()=> import (/* webpackChunkName:"home" */"./views/Explore")
     },
     {
-        name:"admin",
-        path:"/admin",
-        component: ()=> import (/* webpackChunkName:"home" */"./views/Admin")
+        name:"users",
+        path:"/admin/users",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Users")
+    },
+    {
+        name:"loans",
+        path:"/admin/loans",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Loans")
+    },
+    {
+        name:"books",
+        path:"/admin/books",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Books")
     },
     {
         name:"reviewer",

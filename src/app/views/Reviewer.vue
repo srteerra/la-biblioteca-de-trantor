@@ -6,30 +6,30 @@
             </div>
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="review-form__container">
-                    <form action="" method="">
+                    <form method="POST">
                         <h2 class="text-center">Revisar</h2>
                         <label class="form-label pb-1 fw-bold">Usuario</label>
-                        <input type="text" class="form-control rounded-pill" name="">
+                        <input type="text" class="form-control rounded-pill" v-model="user">
                         <label class="form-label pb-1 fw-bold">Numero de revision</label>
-                        <select class="form-select list__container">
+                        <select class="form-select list__container" v-model="revNumber">
                             <option selected></option>
-                            <option>Reivision 1</option>
-                            <option>Reivision 2</option>
-                            <option>Reivision 3</option>
-                            <option>Reivision 4</option>
-                            <option>Reivision 5</option>
-                            <option>Reivision 6</option>
-                            <option>Reivision 7</option>
-                            <option>Reivision 8</option>
-                            <option>Reivision 9</option>
-                            <option>Reivision 10</option>
-                            <option>Reivision 11</option>
-                            <option>Reivision 12</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
                         </select>
                         <label class="form-label pb-1 fw-bold">Calificacion</label>
-                        <input type="text" class="form-control rounded-pill" name="">
+                        <input type="text" class="form-control rounded-pill" v-model="calification">
                         <div class="text-center">
-                            <button type="submit" class="rounded-pill btn-dark">Enviar</button>
+                            <button v-on:click.prevent="update" type="submit" class="rounded-pill btn-dark">Enviar</button>
                         </div>
                     </form>
                 </div>
@@ -39,15 +39,30 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Revisions from '../components/Revisions-Dashboard';
 
 export default {
     name: 'judge',
     data(){
-
+        return{
+            user:"",
+            calification:"",
+            revNumber:""
+        }
     },
     components:{
         Revisions
+    },
+    methods:{
+        update(){
+            var data = {
+                /*user_id : this.user,
+                revision_1: this.revNumber + ' = ' + this.calificacion*/
+                //value: this.calification
+            }
+            axios.patch(`/api/v1/revisions/update/${parseInt(this.user)}/revision_${this.revNumber}/${parseInt(this.calification)}`)
+        }
     }
 }
 </script>
@@ -72,7 +87,5 @@ export default {
                 margin: 20px;
             }
         }
-
-
     }
 </style>

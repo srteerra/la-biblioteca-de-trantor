@@ -52,4 +52,22 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.patch("/update/:id/:revision", async (req, res,next) => {
+  try {
+    await service.update(
+      req.params.id,
+      req.params.revision,
+      //req.params.calif,
+      function(data) {
+        return res.status(200).json({
+          message: "Updated",
+          data,
+        });
+      },
+    );
+  } catch (error) {
+    next(error)
+  }
+});
+
 module.exports = router;

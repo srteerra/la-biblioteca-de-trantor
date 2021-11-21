@@ -57,11 +57,12 @@ export default {
     methods:{
         update(){
             var data = {
-                /*user_id : this.user,
-                revision_1: this.revNumber + ' = ' + this.calificacion*/
+                /*user_id : this.user,*/
+                //revision_1: this.revNumber,
                 //value: this.calification
             }
-            axios.patch(`/api/v1/revisions/update/${parseInt(this.user)}/revision_${this.revNumber}/${parseInt(this.calification)}`)
+            axios.patch(`/api/v1/revisions/update/${(this.user)}/${this.revNumber}/${this.calification}`)
+            ///revision_${this.revNumber}/${parseFloat(this.calification)}
         }
     }
 }

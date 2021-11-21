@@ -34,7 +34,7 @@ router.post("/", auth.verifytoken,auth.restricted, async (req, res, next) => {
       req.body,
       function(data) {
         return res.status(200).json({
-          message: "Creted",
+          message: "Created",
           data,
         });
       },

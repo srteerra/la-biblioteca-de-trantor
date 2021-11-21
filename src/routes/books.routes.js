@@ -3,9 +3,9 @@ const BooksServices = require("../services/books.services");
 const auth = require("../middlewares/auth.handler")
 const service = new BooksServices();
 
-router.get("/AllPerUser", async (req, res, next) => {
+router.get("/booksInUse", async (req, res, next) => {
   try {
-    await service.findPerUser(function(data) {
+    await service.booksInUse(function(data) {
       return res.status(200).json(data);
     });
   } catch (error) {

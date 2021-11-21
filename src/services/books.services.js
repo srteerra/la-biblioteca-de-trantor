@@ -7,7 +7,7 @@ const { encryptPassword, comparePassword } = require("../lib/helpers");
 class BooksServices {
   constructor() {}
 
-  async findPerUser(cb, next) {
+  async booksInUse(cb, next) {
     mysqlConnection.query(
       "SELECT book_id, book_title, book_author, book_category, book_status, user_nickname FROM books INNER JOIN users ON books.user_id = users.user_id;",
       (err, rows, fields) => {

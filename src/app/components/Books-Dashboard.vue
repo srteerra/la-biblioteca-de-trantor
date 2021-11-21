@@ -15,26 +15,57 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <table class="table table-borderless table-striped text-center">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Autor</th>
-                                <th>Categoria</th>
-                                <th>Estatus</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-show="filterSearch(book)" v-for="book in books" v-bind:key="book">
-                                <td>{{book.book_id}}</td>
-                                <td>{{book.book_title}}</td>
-                                <td>{{book.book_author}}</td>
-                                <td>{{book.book_category}}</td>
-                                <td>{{book.book_status}}</td>
-                            </tr>
-                        </tbody>
-                    </table>   
+                    <div>
+                        <table class="table table-borderless table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Titulo</th>
+                                    <th>Autor</th>
+                                    <th>Categoria</th>
+                                    <th>Estatus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-show="filterSearch(book)" v-for="book in books" v-bind:key="book">
+                                    <td>{{book.book_id}}</td>
+                                    <td>{{book.book_title}}</td>
+                                    <td>{{book.book_author}}</td>
+                                    <td>{{book.book_category}}</td>
+                                    <td>{{book.book_status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-5">
+                        <h2 class="text-secondary">Historial de cambios</h2>
+                        <table class="table table-borderless table-striped text-center mt-5">
+                            <thead>
+                                <tr>
+                                    <th>ID del libro</th>
+                                    <th>Fecha de modificacion</th>
+                                    <th>Accion</th>
+                                    <th>Titulo del libro</th>
+                                    <th>Autor del libro</th>
+                                    <th>Categoria del libro</th>
+                                    <th>Estatus del libro</th>
+                                    <th>Usuario en uso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="log in booksLog" v-bind:key="log">
+                                    <td>{{log.book_log_bookId}}</td>
+                                    <td>{{log.book_log_date.substring(0,10)}}</td>
+                                    <td>{{log.book_log_action}}</td>
+                                    <td>{{log.book_log_title}}</td>
+                                    <td>{{log.book_log_author}}</td>
+                                    <td>{{log.book_log_category}}</td>
+                                    <td>{{log.book_log_status}}</td>
+                                    <td>{{log.book_log_user}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-4">
                    <div class="container p-5 border">
@@ -63,6 +94,7 @@
                                     <div class="text-center d-grid">
                                         <button v-on:click.prevent="addBook" type="submit" class="btn btn-dark">Agregar</button>
                                         <p v-if="bookverifyAdd" class="text-success pt-3">Se ha agregado un libro!</p>
+                                        <p v-if="bookerrorAdd" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
                                 </form>
                             </div>
@@ -79,6 +111,7 @@
                                     <div class="text-center d-grid">
                                         <button v-on:click.prevent="editBook" type="submit" class="btn btn-dark">Editar</button>
                                         <p v-if="bookverifyEdit" class="text-success pt-3">Se ha editado correctamente!</p>
+                                        <p v-if="bookerrorEdit" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
                                 </form>
                             </div>
@@ -89,6 +122,7 @@
                                     <div class="text-center d-grid">
                                         <button v-on:click.prevent="deleteBook" type="submit" class="btn btn-dark">Eliminar</button>
                                         <p v-if="bookverifyDelete" class="text-success pt-3">Se ha eliminado correctamente!</p>
+                                        <p v-if="bookerrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
                                 </form>
                             </div>
@@ -106,6 +140,7 @@
         data() {
             return {
                 books: '',
+                booksLog: '',
 
                 filterField: '',
                 filterFieldInUse: 0,
@@ -115,15 +150,18 @@
                 bookauthorAdd: '',
                 bookcategoryAdd: '',
                 bookverifyAdd: 0,
+                bookerrorAdd: 0,
 
                 bookidEdit: '',
                 booktitleEdit: '',
                 bookauthorEdit: '',
                 bookcategoryEdit: '',
                 bookverifyEdit: 0,
+                bookerrorEdit: 0,
 
                 bookidDelete: '',
                 bookverifyDelete: 0,
+                bookerrorDelete: 0,
             }
         },
         methods: {
@@ -151,6 +189,7 @@
                     this.bookverifyAdd = 1
                 } catch (error) {
                     console.log(error)
+                    this.bookerrorAdd = 1
                 }
             },
             editBook() {
@@ -164,6 +203,7 @@
                     this.bookverifyEdit = 1
                 } catch (error) {
                     console.log(error)
+                    this.bookerrorEdit = 1
                 }
             },
             deleteBook() {
@@ -172,13 +212,21 @@
                     this.bookverifyDelete = 1
                 } catch (error) {
                     console.log(error)
+                    this.bookerrorDelete = 1
                 }
             }
         },
         beforeMount() {
+            // GET all books
             axios.get('/api/v1/books')
             .then(res=>{
                 this.books=res.data
+            })
+
+            // GET all books logs
+            axios.get('/api/v1/bookslog')
+            .then(res=>{
+                this.booksLog=res.data
             })
         }
     }

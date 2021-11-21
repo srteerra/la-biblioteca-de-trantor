@@ -52,7 +52,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.patch("/update/:id/:revision/:calif", async (req, res,next) => {
+router.patch("/update/:id/:revision", async (req, res,next) => {
   try {
     //const { user_id, revision_1 } = req.body;
     console.log(req.body)
@@ -61,7 +61,6 @@ router.patch("/update/:id/:revision/:calif", async (req, res,next) => {
       revision_1,*/
       req.params.id,
       req.params.revision,
-      req.params.calif,
       req.body,
       function(data) {
         return res.status(200).json({

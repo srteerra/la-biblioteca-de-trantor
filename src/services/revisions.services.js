@@ -40,8 +40,8 @@ class RevisionsServices{
     );
   }
 
-  async update(id, revision, calif, cb/*, next*/) {
-    console.log(id, revision, calif)
+  async update(id, revision, changes, cb) {
+    console.log(id, revision, changes)
     mysqlConnection.query(
       "SELECT * FROM revisions WHERE user_id = ?",
       [id],
@@ -50,11 +50,10 @@ class RevisionsServices{
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-            `UPDATE revisions SET  ? = ? WHERE user_id =  ?`,
-            [revision, calif, id],
+            `UPDATE revisions SET revision_${revision} = ${changes} WHERE user_id = ?`,
+            [revision, changes, id],
             function(err, results, fields) {
               try {
-                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in changes) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {
@@ -63,12 +62,12 @@ class RevisionsServices{
                 }
                 cb(rows[0]);
               } catch (error) {
-                console.log(error);
+                // next(error);
               }
             }
           );
         } catch (error) {
-          console.log(error);
+          // next(error);
         }
       }
     );

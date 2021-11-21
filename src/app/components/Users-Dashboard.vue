@@ -2,15 +2,13 @@
     <div class="main">
         <h2 class="text-secondary">Usuarios</h2>
         <div class="container table responsive users-dashboard__container">
-            <div class="row">
-                <div class="col-3">
-                    <select v-model="selectedOrder" class="my-4 form-select border">
-                        <option selected>Ordenar por...</option>
-                        <option>Ordenar por nombres ascendiente</option>
-                        <option>Ordenar por nombres descendiente</option>
-                        <option>Ordenar por vivienda ascendiente</option>
-                        <option>Ordenar por vivienda descendiente</option>
-                    </select>
+            <div class="row my-4">
+                <div class="col col-lg-3 form-group">
+                    <input type="text" class="form-control border" v-model="filterField" placeholder="Buscar por nickname">
+                </div>
+                <div class="col form-group">
+                    <label>Ocultar usuarios con datos incompletos</label>
+                    <input type="checkbox" class="" v-model="filterFieldComplete">
                 </div>
             </div>
             <div class="row">
@@ -28,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(user) in usersOrders " v-bind:key="user">
+                        <tr v-show="filterSearch(user)" v-for="(user) in users " v-bind:key="user">
                             <td>{{user.user_id}}</td>
                             <td>{{user.user_nickname}}</td>
                             <td>{{user.user_firstname}}</td>
@@ -51,62 +49,29 @@ export default {
     name: 'users',
     data(){
         return{
-            selectedOrder: 'Ordenar por...',
             users: '',
-
-            //Address type
-            users_AddressType_DESC: '',
-            users_AddressType_ASC: '',
-
-            //Name
-            users_Name_DESC: '',
-            users_Name_ASC: '',
+            filterField: '',
+            filterFieldComplete: 0
         }
+    },
+    methods: {
+        filterSearch(user) {
+            console.log(user.user_nickname+" "+this.filterField+" "+this.filterFieldInUse)
+            var show = true
+
+            if(user.user_nickname.toLocaleLowerCase().indexOf(this.filterField.toLocaleLowerCase()) < 0)
+                show = false
+            else if(user.user_firstname == null && this.filterFieldComplete)
+                show = false
+            
+            return show
+        },
     },
     beforeMount(){
       axios.get('/api/v1/users')
       .then(res=>{
           this.users=res.data
       })
-
-      // ADDRESS ORDERS REQUEST  
-      axios.get('/api/v1/users/orderTypeAddressDESC')
-      .then(res=>{
-          this.users_AddressType_DESC=res.data
-      })
-      axios.get('/api/v1/users/orderTypeAddressASC')
-      .then(res=>{
-          this.users_AddressType_ASC=res.data
-      })
-
-      // NAME ORDERS REQUEST    
-      axios.get('/api/v1/users/orderNameDESC')
-      .then(res=>{
-          this.users_Name_DESC=res.data
-      })
-      axios.get('/api/v1/users/orderNameASC')
-      .then(res=>{
-          this.users_Name_ASC=res.data
-      })
-    },
-    computed: {
-        usersOrders() {
-            if (this.selectedOrder === 'Ordenar por vivienda ascendiente') {
-                return this.users_AddressType_ASC
-            }
-            else if (this.selectedOrder === 'Ordenar por vivienda descendiente') {
-                return this.users_AddressType_DESC
-            }
-            else if (this.selectedOrder === 'Ordenar por nombres ascendiente') {
-                return this.users_Name_ASC
-            }
-            else if (this.selectedOrder === 'Ordenar por nombres descendiente') {
-                return this.users_Name_DESC
-            }
-            else {
-                return this.users
-            }
-        }
     }
 }
 </script>

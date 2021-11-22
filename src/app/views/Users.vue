@@ -11,9 +11,6 @@
                             <button class="nav-link active" id="pills-userAdd-tab" data-bs-toggle="pill" data-bs-target="#pills-userAdd" type="button" role="tab" aria-controls="pills-userAdd" aria-selected="true">Agregar</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-userEdit-tab" data-bs-toggle="pill" data-bs-target="#pills-userEdit" type="button" role="tab" aria-controls="pills-userEdit" aria-selected="false">Editar</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-userDelete-tab" data-bs-toggle="pill" data-bs-target="#pills-userDelete" type="button" role="tab" aria-controls="pills-userDelete" aria-selected="false">Eliminar</button>
                         </li>
                     </ul>
@@ -29,13 +26,13 @@
                                 <input type="text" v-model="userPasswordAdd" class="form-control mb-3" name="">
                                 <div class="py-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioAdmin" v-model="userRoleAdd" value="Admin"> Admin
+                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioAdmin" v-model="userRoleAdd" value="admin"> Admin
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioJudge" v-model="userRoleAdd" value="Judge"> Juez
+                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioJudge" v-model="userRoleAdd" value="judge"> Juez
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioUser" v-model="userRoleAdd" value="User"> Usuario
+                                        <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioUser" v-model="userRoleAdd" value="user"> Usuario
                                     </div>
                                 </div>
                                 <div class="text-center d-grid">
@@ -45,31 +42,14 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane fade" id="pills-userEdit" role="tabpanel" aria-labelledby="pills-userEdit-tab">
-                            <form method="POST">
-                                <label class="form-label fw-bold">ID del libro</label>
-                                <input type="text" v-model="bookidEdit" class="form-control mb-3" name="">
-                                <label class="form-label fw-bold">Titulo del libro</label>
-                                <input type="text" v-model="booktitleEdit" class="form-control mb-3" name="">
-                                <label class="form-label fw-bold">Autor del libro</label>
-                                <input type="text" v-model="bookauthorEdit" class="form-control mb-3" name="">
-                                <label class="form-label fw-bold">Categoria del libro</label>
-                                <input type="text" v-model="bookcategoryEdit" class="form-control mb-3" name="">
-                                <div class="text-center d-grid">
-                                    <button v-on:click.prevent="editBook" type="submit" class="btn btn-dark">Editar</button>
-                                    <p v-if="bookverifyEdit" class="text-success pt-3">Se ha editado correctamente!</p>
-                                    <p v-if="bookerrorEdit" class="text-danger pt-3">Ha ocurrido un error</p>
-                                </div>
-                            </form>
-                        </div>
                         <div class="tab-pane fade" id="pills-userDelete" role="tabpanel" aria-labelledby="pills-userDelete-tab">
                             <form method="POST">
-                                <label class="form-label fw-bold">ID del libro</label>
-                                <input type="text" v-model="bookidDelete" class="form-control mb-3" name="">
+                                <label class="form-label fw-bold">ID del usuario</label>
+                                <input type="text" v-model="userIdDelete" class="form-control mb-3" name="">
                                 <div class="text-center d-grid">
-                                    <button v-on:click.prevent="deleteBook" type="submit" class="btn btn-dark">Eliminar</button>
-                                    <p v-if="bookverifyDelete" class="text-success pt-3">Se ha eliminado correctamente!</p>
-                                    <p v-if="bookerrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
+                                    <button v-on:click.prevent="deleteUser" type="submit" class="btn btn-dark">Eliminar</button>
+                                    <p v-if="userverifyDelete" class="text-success pt-3">Se ha eliminado al usuario correctamente!</p>
+                                    <p v-if="usererrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
                             </form>
                         </div>
@@ -81,6 +61,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import Users from '../components/Users-Dashboard';
     export default {
         name: 'users',
@@ -91,18 +72,48 @@
                 userPasswordAdd: '',
                 userverifyAdd: 0,
                 usererrorAdd: 0,
-                userRoleAdd: "Admin"
+                userRoleAdd: "admin",
+
+                userIdDelete: '',
+                userverifyDelete: 0,
+                usererrorDelete: 0,
             }
         },
         computed: {
             RoleSelected() {
-                if(this.userRoleAdd === "Admin")
+                if(this.userRoleAdd === "admin")
                     return "Administrador"
-                else if(this.userRoleAdd === "Judge")
+                else if(this.userRoleAdd === "judge")
                     return "Juez"
-                else if(this.userRoleAdd === "User")
+                else if(this.userRoleAdd === "user")
                     return "Usuario"
             }
+        },
+        methods: {
+            addUser() {
+                try {
+                    var dataUserAdd = {
+                        user_nickname: this.userNicknameAdd,
+                        user_email: this.userEmailAdd,
+                        user_password: this.userPasswordAdd,
+                        user_role: this.userRoleAdd
+                    }
+                    axios.post('/api/v1/users', dataUserAdd)
+                    this.userverifyAdd = 1
+                } catch (error) {
+                    console.log(error)
+                    this.usererrorAdd = 1
+                }
+            },
+            deleteUser() {
+                try {
+                    axios.delete(`/api/v1/users/${this.userIdDelete}`)
+                    this.userverifyDelete = 1
+                } catch (error) {
+                    console.log(error)
+                    this.usererrorDelete = 1
+                }
+            },
         },
         components: {
             Users

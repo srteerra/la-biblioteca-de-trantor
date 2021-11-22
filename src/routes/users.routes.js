@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -62,7 +62,7 @@ router.patch("/:id", auth.verifytoken,auth.restricted, async (req, res, next) =>
   }
 });
 
-router.delete("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     await service.delete(
       req.params.id,

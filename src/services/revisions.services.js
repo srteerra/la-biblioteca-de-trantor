@@ -9,7 +9,7 @@ class RevisionsServices{
 
   async findAll(cb, next) {
     mysqlConnection.query(
-      "SELECT * FROM revisions;",
+      "SELECT revisions.*, user_nickname FROM revisions INNER JOIN users ON revisions.user_id = users.user_id;",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -39,8 +39,11 @@ class RevisionsServices{
       }
     );
   }
+  
+  // Query with competition_id param added
+  // update revisions set revision_1 = 10 where user_id = 1 and competition_id = 1;
 
-  /*async update(id, revision, calif, cb, next) {
+  async update(id, revision, calif, cb, next) {
     console.log(id, revision, calif)
     mysqlConnection.query(
       "SELECT * FROM revisions WHERE user_id = ?",
@@ -53,6 +56,7 @@ class RevisionsServices{
             "UPDATE revisions SET revision_" + [revision] + " = " + [calif] + " WHERE user_id = " + [id],
             function(err, results, fields) {
               try {
+                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in calif) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {
@@ -70,9 +74,9 @@ class RevisionsServices{
         }
       }
     );
-  }*/
+  }
 
-  async update(id, revision, cb, next) {
+  async delete(id, revision, cb, next) {
     console.log(id, revision)
     mysqlConnection.query(
       "SELECT * FROM revisions WHERE user_id = ?",

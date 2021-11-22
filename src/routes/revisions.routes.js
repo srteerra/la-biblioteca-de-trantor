@@ -52,15 +52,33 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.patch("/update/:id/:revision", async (req, res,next) => {
+router.patch("/update/:id/:revision/:calif", async (req, res,next) => {
   try {
+    console.log(req.body)
     await service.update(
       req.params.id,
       req.params.revision,
-      //req.params.calif,
+      req.params.calif,
       function(data) {
         return res.status(200).json({
           message: "Updated",
+          data,
+        });
+      },
+    );
+  } catch (error) {
+    next(error)
+  }
+});
+
+router.patch("/delete/:id/:revision", async (req, res,next) => {
+  try {
+    await service.delete(
+      req.params.id,
+      req.params.revision,
+      function(data) {
+        return res.status(200).json({
+          message: "Deleted",
           data,
         });
       },

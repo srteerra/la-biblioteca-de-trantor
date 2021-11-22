@@ -5,7 +5,8 @@
             <table class="table table-borderless table-striped text-center">
                 <thead>
                     <tr>
-                        <th>Usuario</th>
+                        <th>ID</th>
+                        <th>Nickname</th>
                         <th>Revision 1</th>
                         <th>Revision 2</th>
                         <th>Revision 3</th>
@@ -23,6 +24,7 @@
                 <tbody>
                     <tr v-for="revision in revisions1" v-bind:key="revision">
                         <td>{{revision.user_id}}</td>
+                        <td>{{revision.user_nickname}}</td>
                         <td>{{revision.revision_1}}</td>
                         <td>{{revision.revision_2}}</td>
                         <td>{{revision.revision_3}}</td>

@@ -9,7 +9,7 @@ class RevisionsServices{
 
   async findAll(cb, next) {
     mysqlConnection.query(
-      "SELECT * FROM revisions;",
+      "SELECT revisions.*, user_nickname FROM revisions INNER JOIN users ON revisions.user_id = users.user_id;",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -35,6 +35,83 @@ class RevisionsServices{
           cb(rows[0]);
         } catch (error) {
           next(error);
+        }
+      }
+    );
+  }
+  
+  // Query with competition_id param added
+  // update revisions set revision_1 = 10 where user_id = 1 and competition_id = 1;
+
+<<<<<<< HEAD
+  async update(id, revision, changes, cb) {
+    console.log(id, revision, changes)
+=======
+  async update(id, revision, calif, cb, next) {
+    console.log(id, revision, calif)
+>>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
+    mysqlConnection.query(
+      "SELECT * FROM revisions WHERE user_id = ?",
+      [id],
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          if (rows.length === 0) throw boom.notFound("User not found");
+          mysqlConnection.query(
+<<<<<<< HEAD
+            `UPDATE revisions SET revision_${revision} = ${changes} WHERE user_id = ?`,
+            [revision, changes, id],
+=======
+            "UPDATE revisions SET revision_" + [revision] + " = " + [calif] + " WHERE user_id = " + [id],
+>>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
+            function(err, results, fields) {
+              try {
+                if (err) throw boom.conflict("Invalid request");
+                for (const key in calif) {
+                  if (Object.hasOwnProperty.call(rows[0], key)) {
+                    rows[0][key] = calif[key];
+                  }
+                }
+                cb(rows[0]);
+              } catch (error) {
+                console.log(error);
+              }
+            }
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    );
+  }
+
+  async delete(id, revision, cb, next) {
+    console.log(id, revision)
+    mysqlConnection.query(
+      "SELECT * FROM revisions WHERE user_id = ?",
+      [id],
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          if (rows.length === 0) throw boom.notFound("User not found");
+          mysqlConnection.query(
+            "UPDATE revisions SET revision_" + [revision] + " = null WHERE user_id = " + [id],
+            function(err, results, fields) {
+              try {
+                if (err) throw boom.conflict("Invalid request");
+                for (const key in revision) {
+                  if (Object.hasOwnProperty.call(rows[0], key)) {
+                    rows[0][key] = revision[key];
+                  }
+                }
+                cb(rows[0]);
+              } catch (error) {
+                // next(error);
+              }
+            }
+          );
+        } catch (error) {
+          // next(error);
         }
       }
     );

@@ -1,11 +1,15 @@
 <template>
+<<<<<<< HEAD
+    
+=======
     <div class="main">
         <h2 class="text-secondary">Revisiones</h2>
         <div class="container-fluid table_responsive revisions-dashboard__container">
             <table class="table table-borderless table-striped text-center">
                 <thead>
                     <tr>
-                        <th>Usuario</th>
+                        <th>ID</th>
+                        <th>Nickname</th>
                         <th>Revision 1</th>
                         <th>Revision 2</th>
                         <th>Revision 3</th>
@@ -23,6 +27,7 @@
                 <tbody>
                     <tr v-for="revision in revisions1" v-bind:key="revision">
                         <td>{{revision.user_id}}</td>
+                        <td>{{revision.user_nickname}}</td>
                         <td>{{revision.revision_1}}</td>
                         <td>{{revision.revision_2}}</td>
                         <td>{{revision.revision_3}}</td>
@@ -40,6 +45,7 @@
             </table>   
         </div>
     </div>
+>>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
 </template>
 
 <script>
@@ -48,24 +54,13 @@ export default {
     name: 'revisions',
     data(){
         return{
-            revisions1:''
+            
         }
     },
-    beforeMount(){
-        axios.get('/api/v1/revisions')
-      .then(res=>{
-          this.revisions1=res.data
-      })
-    }
+    
 }
 </script>
 
 <style lang="scss">
-    .revisions-dashboard__container{
-        max-height: 300px;
-        overflow-y: scroll;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
+    
 </style>

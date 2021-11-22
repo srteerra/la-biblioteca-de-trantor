@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const usersRouter = require('./users.routes')
 const booksRouter = require('./books.routes')
-const loansRouter = require('./loans.routes')
+const booksLogRouter = require('./booksLog.routes')
 const revisionsRouter = require('./revisions.routes')
 
 const routerApi = (app)=>{
@@ -9,7 +9,7 @@ const routerApi = (app)=>{
     app.use('/api/v1',router)
     router.use('/users',usersRouter)
     router.use('/books',booksRouter)
-    router.use('/loans',loansRouter)
+    router.use('/bookslog',booksLogRouter)
     router.use('/revisions',revisionsRouter)
     
 }

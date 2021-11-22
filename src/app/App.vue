@@ -126,13 +126,14 @@
   import Test from "./components/Test";
   import Nav from "./components/Nav";
   import NavLogged from "./components/Nav-logged";
+  import NavLoggedAdmin from "./components/Nav-loggedAdmin";
   import Footer from "./components/Footer";
   
   export default {
     name: "App",
     data() {
       return {
-        role: "", // Main key
+        role: "admin", // Main key
         email: "",
         password: "",
 
@@ -147,6 +148,7 @@
       Test,
       Nav,
       NavLogged,
+      NavLoggedAdmin,
       Footer
     },
     methods: {

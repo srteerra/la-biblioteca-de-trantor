@@ -45,11 +45,6 @@ const routes =[
         component: ()=> import (/* webpackChunkName:"home" */"./views/Users")
     },
     {
-        name:"loans",
-        path:"/admin/loans",
-        component: ()=> import (/* webpackChunkName:"home" */"./views/Loans")
-    },
-    {
         name:"books",
         path:"/admin/books",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Books")

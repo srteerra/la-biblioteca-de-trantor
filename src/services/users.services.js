@@ -9,7 +9,7 @@ class UsersServices {
 
   async findOne(id, cb, next) {
     mysqlConnection.query(
-      "SELECT user_id,user_email,user_firstname,user_lastname,user_phone,user_birthday,user_school FROM users WHERE user_id = ?",
+      "SELECT * FROM users WHERE user_id = ?",
       [id],
       (err, rows, fields) => {
         try {
@@ -39,37 +39,6 @@ class UsersServices {
     );
   }
 
-  async findAddress(cb, next) {
-    mysqlConnection.query(
-      "SELECT user_id,address_id FROM users",
-      (err, rows, fields) => {
-        try {
-          if (err) throw boom.conflict("Invalid request");
-
-          cb(rows);
-        } catch (error) {
-          next(error);
-        }
-      }
-    );
-  }
-
-  async findOneAddress(id, cb, next) {
-    mysqlConnection.query(
-      "SELECT user_id,address_id FROM users WHERE user_id = ?",
-      [id],
-      (err, rows, fields) => {
-        try {
-          if (err) throw boom.conflict("Invalid request");
-          if (rows.length === 0) throw boom.notFound("User not found");
-
-          cb(rows[0]);
-        } catch (error) {
-          next(error);
-        }
-      }
-    );
-  }
   async create(data, cb, next) {
     mysqlConnection.query(
       "SELECT * FROM users WHERE user_email = ?",

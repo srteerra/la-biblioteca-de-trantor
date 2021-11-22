@@ -54,17 +54,35 @@ router.get("/", async (req, res, next) => {
 
 router.patch("/update/:id/:revision", async (req, res,next) => {
   try {
-    //const { user_id, revision_1 } = req.body;
     console.log(req.body)
     await service.update(
-      /*user_id,
-      revision_1,*/
       req.params.id,
       req.params.revision,
+<<<<<<< HEAD
       req.body,
+=======
+      req.params.calif,
+>>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
       function(data) {
         return res.status(200).json({
           message: "Updated",
+          data,
+        });
+      },
+    );
+  } catch (error) {
+    next(error)
+  }
+});
+
+router.patch("/delete/:id/:revision", async (req, res,next) => {
+  try {
+    await service.delete(
+      req.params.id,
+      req.params.revision,
+      function(data) {
+        return res.status(200).json({
+          message: "Deleted",
           data,
         });
       },

@@ -3,29 +3,7 @@ const UsersServices = require("../services/users.services");
 const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
 
-router.get("/address",auth.verifytoken,auth.restricted, async (req, res, next) => {
-  try {
-    console.log('ok')
-    await service.findAddress(function(data) {
-      return res.status(200).json(data);
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-router.get("/address/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
-  try {
-    await service.findOneAddress(
-      req.params.id,
-      function(data) {
-        return res.status(200).json(data);
-      },
-      next
-    );
-  } catch (error) {
-    next(error);
-  }
-});
+
 router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
   try {
     await service.findOne(
@@ -39,6 +17,7 @@ router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
     next(error);
   }
 });
+
 router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {

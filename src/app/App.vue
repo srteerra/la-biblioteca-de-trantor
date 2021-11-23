@@ -133,7 +133,7 @@
     name: "App",
     data() {
       return {
-        role: "admin", // Main key
+        role: "", // Main key
         email: "",
         password: "",
 

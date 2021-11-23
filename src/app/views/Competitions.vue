@@ -3,10 +3,30 @@
         <div class="row">
             <div class="col">
                 <div class="container-fluid">
+                    <div class="row mb-5">
+                        <div class="col-12 col-lg-8">
+                            <h2 class="text-secondary">Competencia en curso: 
+                                <p v-for="currC in currentComp1" :key="currC" class="text-success">{{ currC.competition_name }}</p>
+                            </h2>
+                            <form method="POST">
+                                <div class="row pt-2">
+                                    <div class="col-3">
+                                        <select v-model="currComp" class="form-select" >
+                                            <option value="1" selected>Cambia la competencia en curso...</option>
+                                            <option v-for="curr in currentComp1" v-bind:key="curr"> {{ curr.competition_name }} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <button class="btn btn-dark" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-12 col-lg-8">
-                            <h2 class="text-secondary">Competitions</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt culpa sequi, dicta, ipsa aspernatur doloribus totam delectus animi, voluptatum officia placeat praesentium laborum consequatur. Velit hic repellat distinctio tenetur non.</p>
+                            <h2 class="text-secondary">Competiciones</h2>
+                            <p>*Recuerda que debes habilitar el periodo de competencia</p>
                         </div>
                     </div>
                     <div class="row my-4">
@@ -87,6 +107,9 @@
         data() {
             return {
                 competitions1: "",
+                currentComp1: "",
+
+                currComp: 1,
 
                 compNameAdd: "",
                 compDateAdd: "",
@@ -136,6 +159,10 @@
             axios.get('/api/v1/competitions')
             .then(res=>{
                 this.competitions1=res.data
+            })
+            axios.get('/api/v1/currentCompetition')
+            .then(res=>{
+                this.currentComp1=res.data
             })
         },
     }

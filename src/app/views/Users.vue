@@ -60,11 +60,16 @@
                         <div class="tab-pane fade show active" id="pills-userAdd" role="tabpanel" aria-labelledby="pills-userAdd-tab">
                             <form method="POST">
                                 <label class="form-label fw-bold">Nickname</label>
-                                <input type="text" v-model="userNicknameAdd" class="form-control mb-3" name="">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon">@</span>
+                                    <input type="text" v-model="userNicknameAdd" class="form-control" placeholder="Ingresa un nickname">
+                                </div>
+
                                 <label class="form-label fw-bold">Email</label>
-                                <input type="text" v-model="userEmailAdd" class="form-control mb-3" name="">
+                                <input type="email" v-model="userEmailAdd" class="form-control mb-3" placeholder="Ingresa un correo electronico">
+
                                 <label class="form-label fw-bold">Contraseña</label>
-                                <input type="text" v-model="userPasswordAdd" class="form-control mb-3" name="">
+                                <input type="text" v-model="userPasswordAdd" class="form-control mb-3" placeholder="Ingresa una contraseña">
                                 <div class="py-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioAdmin" v-model="userRoleAdd" value="admin"> Admin

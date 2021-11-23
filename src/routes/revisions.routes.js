@@ -52,17 +52,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.patch("/update/:id/:revision", async (req, res,next) => {
+router.patch("/update/:id/:revision/:calif/:competition", async (req, res,next) => {
   try {
     console.log(req.body)
     await service.update(
       req.params.id,
       req.params.revision,
-<<<<<<< HEAD
-      req.body,
-=======
       req.params.calif,
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
+      req.params.competition,
       function(data) {
         return res.status(200).json({
           message: "Updated",

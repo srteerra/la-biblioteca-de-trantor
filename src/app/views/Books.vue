@@ -1,6 +1,6 @@
 <template>
     <div class="main__container">
-        <div class="container-fluid table responsive books-dashboard__container px-5">
+        <div class="container-fluid table responsive px-5">
             <h2 class="text-secondary">Libros</h2>
             <div class="row my-4">
                 <div class="col col-lg-3 form-group">
@@ -94,7 +94,7 @@
                 <div class="col-4">
                     <!-- Books CRUD Panel -->
                     <div class="container p-5 border">
-                        <h3 class="text-center mb-3">Administrador</h3>
+                        <h3 class="text-center mb-3">Administracion</h3>
                         <ul class="nav nav-pills my-4 d-flex justify-content-center" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-bookAdd-tab" data-bs-toggle="pill" data-bs-target="#pills-bookAdd" type="button" role="tab" aria-controls="pills-bookAdd" aria-selected="true">Agregar</button>

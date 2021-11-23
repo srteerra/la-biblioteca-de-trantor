@@ -9,7 +9,7 @@ class RevisionsServices{
 
   async findAll(cb, next) {
     mysqlConnection.query(
-      "SELECT revisions.*, user_nickname FROM revisions INNER JOIN users ON revisions.user_id = users.user_id;",
+      "SELECT revisions.*, user_nickname, competition_name FROM revisions INNER JOIN users ON revisions.user_id = users.user_id INNER JOIN competitions ON revisions.competition_id = competitions.competition_id;",
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
@@ -43,13 +43,8 @@ class RevisionsServices{
   // Query with competition_id param added
   // update revisions set revision_1 = 10 where user_id = 1 and competition_id = 1;
 
-<<<<<<< HEAD
-  async update(id, revision, changes, cb) {
-    console.log(id, revision, changes)
-=======
-  async update(id, revision, calif, cb, next) {
-    console.log(id, revision, calif)
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
+  async update(id, revision, calif, competition, cb, next) {
+    console.log(id, revision, calif, competition)
     mysqlConnection.query(
       "SELECT * FROM revisions WHERE user_id = ?",
       [id],
@@ -58,14 +53,10 @@ class RevisionsServices{
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-<<<<<<< HEAD
-            `UPDATE revisions SET revision_${revision} = ${changes} WHERE user_id = ?`,
-            [revision, changes, id],
-=======
-            "UPDATE revisions SET revision_" + [revision] + " = " + [calif] + " WHERE user_id = " + [id],
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
+            "UPDATE revisions SET revision_" + [revision] + " = " + [calif] + " WHERE user_id = " + [id] + " AND competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '" + [competition] + "');",
             function(err, results, fields) {
               try {
+                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in calif) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {
@@ -95,7 +86,7 @@ class RevisionsServices{
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
-            "UPDATE revisions SET revision_" + [revision] + " = null WHERE user_id = " + [id],
+            "UPDATE revisions SET revision_" + [revision] + " = 0 WHERE user_id = " + [id],
             function(err, results, fields) {
               try {
                 if (err) throw boom.conflict("Invalid request");

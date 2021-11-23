@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <router-link to="/judge/revisions" class="nav-link text-dark">Revisiones</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/admin/competitions" class="nav-link text-dark">Competiciones</router-link>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 text-end">
                     <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>{{ userNickname }}</li>

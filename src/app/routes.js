@@ -52,7 +52,12 @@ const routes =[
     {
         name:"judge",
         path:"/judge/revisions",
-        component: ()=> import (/* webpackChunkName:"home" */"./views/Reviewer")
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Revisions")
+    },
+    {
+        name:"competitions",
+        path:"/admin/competitions",
+        component: ()=> import (/* webpackChunkName:"home" */"./views/Competitions")
     },
     {
         name:"profile",

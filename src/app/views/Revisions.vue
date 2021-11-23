@@ -1,80 +1,66 @@
 <template>
     <div class="container-fluid px-5 main__content">
         <div class="row">
-<<<<<<< HEAD
-            <div class="col-lg-8 col-md-6 col-12 revisions__container">
-                <div class="main">
-                    <h2 class="text-secondary">Revisiones</h2>
+            <div class="col-12">
+                <div class="">
                     <div class="container-fluid table_responsive revisions-dashboard__container">
-                        <table class="table table-borderless table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th>Usuario</th>
-                                    <th>Revision 1</th>
-                                    <th>Revision 2</th>
-                                    <th>Revision 3</th>
-                                    <th>Revision 4</th>
-                                    <th>Revision 5</th>
-                                    <th>Revision 6</th>
-                                    <th>Revision 7</th>
-                                    <th>Revision 8</th>
-                                    <th>Revision 9</th>
-                                    <th>Revision 10</th>
-                                    <th>Revision 11</th>
-                                    <th>Revision 12</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="revision in revisions1" v-bind:key="revision">
-                                    <td>{{revision.user_id}}</td>
-                                    <td>{{revision.revision_1}}</td>
-                                    <td>{{revision.revision_2}}</td>
-                                    <td>{{revision.revision_3}}</td>
-                                    <td>{{revision.revision_4}}</td>
-                                    <td>{{revision.revision_5}}</td>
-                                    <td>{{revision.revision_6}}</td>
-                                    <td>{{revision.revision_7}}</td>
-                                    <td>{{revision.revision_8}}</td>
-                                    <td>{{revision.revision_9}}</td>
-                                    <td>{{revision.revision_10}}</td>
-                                    <td>{{revision.revision_11}}</td>
-                                    <td>{{revision.revision_12}}</td>
-                                </tr>
-                            </tbody>
-                        </table>   
+                        <h2 class="text-secondary">Revisiones</h2>
+                        <div class="row my-4">
+                            <div class="col col-lg-3 form-group">
+                                <input type="text" class="form-control" v-model="filterField" placeholder="Buscar por nombre">
+                            </div>
+                            <div class="col col-lg-3 form-group">
+                                <select v-model="selectedComp" class="form-select" >
+                                    <option v-for="competition in competitions1" v-bind:key="competition"> {{ competition.competition_name }} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-responsive table-borderless table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nickname</th>
+                                        <th>Revision 1</th>
+                                        <th>Revision 2</th>
+                                        <th>Revision 3</th>
+                                        <th>Revision 4</th>
+                                        <th>Revision 5</th>
+                                        <th>Revision 6</th>
+                                        <th>Revision 7</th>
+                                        <th>Revision 8</th>
+                                        <th>Revision 9</th>
+                                        <th>Revision 10</th>
+                                        <th>Revision 11</th>
+                                        <th>Revision 12</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-show="filterSearch(revision)" v-for="revision in revisions1" v-bind:key="revision">
+                                        <td>{{revision.user_id}}</td>
+                                        <td>{{revision.user_nickname}}</td>
+                                        <td>{{revision.revision_1}}</td>
+                                        <td>{{revision.revision_2}}</td>
+                                        <td>{{revision.revision_3}}</td>
+                                        <td>{{revision.revision_4}}</td>
+                                        <td>{{revision.revision_5}}</td>
+                                        <td>{{revision.revision_6}}</td>
+                                        <td>{{revision.revision_7}}</td>
+                                        <td>{{revision.revision_8}}</td>
+                                        <td>{{revision.revision_9}}</td>
+                                        <td>{{revision.revision_10}}</td>
+                                        <td>{{revision.revision_11}}</td>
+                                        <td>{{revision.revision_12}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> 
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="review-form__container">
-                    <form method="POST">
-                        <h2 class="text-center">Revisar</h2>
-                        <label class="form-label pb-1 fw-bold">Usuario</label>
-                        <input type="text" class="form-control rounded-pill" v-model="user">
-                        <label class="form-label pb-1 fw-bold">Numero de revision</label>
-                        <select class="form-select list__container" v-model="revNumber">
-                            <option selected></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                        <label class="form-label pb-1 fw-bold">Calificacion</label>
-                        <input type="text" class="form-control rounded-pill" v-model="calification">
-                        <div class="text-center">
-                            <button v-on:click.prevent="update" type="submit" class="rounded-pill btn-dark">Enviar</button>
-=======
             <div class="col-12">
-                <div class="container p-4 border revisions__panel">
-                    <h3 class="text-center mb-3">Juez</h3>
+                <div class="container w-100 w-md-50 p-4 my-5 border revisions__panel">
+                    <h3 class="text-center mb-3">Calificar</h3>
                     <ul class="nav nav-pills my-4 d-flex justify-content-center" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-revisionAdd-tab" data-bs-toggle="pill" data-bs-target="#pills-revisionAdd" type="button" role="tab" aria-controls="pills-revisionAdd" aria-selected="true">Revisar</button>
@@ -146,13 +132,9 @@
                                     <p v-if="revisionErrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
                             </form>
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 revisions__container">
-                <Revisions/>
             </div>
         </div>
     </div>
@@ -160,19 +142,17 @@
 
 <script>
 import axios from 'axios';
-import Revisions from '../components/Revisions-Dashboard';
 
 export default {
     name: 'judge',
     data(){
         return{
-<<<<<<< HEAD
-            user:"",
-            calification:"",
-            revNumber:"",
+            revisions1: "",
+            competitions1: "",
 
-            revisions1:''
-=======
+            filterField: '',
+            selectedComp: 'Caballeria',
+            
             userIdAdd: "",
             revisionIdAdd: "",
             calification: "",
@@ -182,28 +162,22 @@ export default {
             revisionErrorAdd: 0,
             revisionVerifyDelete: 0,
             revisionErrorDelete: 0
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
         }
     },
-    components:{
-        Revisions
-    },
-    methods:{
-<<<<<<< HEAD
-        update() {
-            var data = {
-                revision_1: this.calification,
-                user: this.user
-            }
+    methods: {
+        filterSearch(revision) {
+            var show = true
 
-            if(this.revNumber == 1)
-                axios.patch(`/api/v1/revisions/update/revision_1`, data)
-            else if(this.revNumber == 2)
-                axios.patch(`/api/v1/revisions/update/revision_2`, data)
-=======
+            if(revision.user_nickname.toLocaleLowerCase().indexOf(this.filterField.toLocaleLowerCase()) < 0)
+                show = false
+            if(revision.competition_name !== this.selectedComp)
+                show = false
+            
+            return show
+        },
         revisionAdd(){
             try {
-                axios.patch(`/api/v1/revisions/update/${this.userIdAdd}/${this.revisionIdAdd}/${this.calification}`)
+                axios.patch(`/api/v1/revisions/update/${this.userIdAdd}/${this.revisionIdAdd}/${this.calification}/${this.selectedComp}`)
                 this.revisionVerifyAdd = 1
             } catch (error) {
                 this.revisionErrorAdd = 1
@@ -216,14 +190,17 @@ export default {
             } catch (error) {
                  this.revisionErrorDelete = 1
             }
->>>>>>> 84074ef32665c1670fd0dbfe9df48392d3f48759
         }
     },
     beforeMount(){
         axios.get('/api/v1/revisions')
         .then(res=>{
             this.revisions1=res.data
-      })
+        })
+        axios.get('/api/v1/competitions')
+        .then(res=>{
+            this.competitions1=res.data
+        })
     }
 }
 </script>
@@ -231,15 +208,5 @@ export default {
 <style lang="scss">
     .main__content {
         padding: 200px 10px 100px;
-        .revisions__panel{
-            width: 60%;
-        }
-    }
-    .revisions-dashboard__container{
-        max-height: 300px;
-        overflow-y: scroll;
-        &::-webkit-scrollbar {
-            display: none;
-        }
     }
 </style>

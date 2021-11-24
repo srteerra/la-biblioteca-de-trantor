@@ -195,10 +195,31 @@
                 </div>
             </div>
         </div>
+        <div class="subscribe__container border container p-5">
+            <h2 class="text-center">Inscribirse</h2>
+            <form method="POST">
+                <div class="row text-center">
+                    <div class="col-lg-6 col-md-12 col-xs-12 text-center py-3">
+                        <select v-model="compSelect" class="form-select competition__dropdown" >
+                            <option class="text-secondary" selected>Competencias</option>
+                            <option v-for="comp in compToSubs" v-bind:key="comp"> {{ comp.competition_name }} </option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-xs-12 py-3">
+                        <div class="text-center">
+                            <button v-on:click.prevent="enroll" type="submit" class="btn btn-dark rounded-pill px-5">Inscribirse</button>
+                        </div>
+                    </div>
+                </div>
+                <p v-if="compverifyEnrolled" class="text-success pt-3">{{error}}</p>
+                <p v-if="comperrorEnrolled" class="text-danger pt-3">{{error}}</p>
+            </form>
+        </div>
     </div>
 </template>
 
 <script>
+    import axios from "axios"
     export default {
         data() {
             return {
@@ -211,7 +232,27 @@
                 userStreet2: "",
                 userCity: "",
                 userState: "",
-                userZip: ""
+                userZip: "",
+
+                compSelect:"",
+                compToSubs:"",
+                
+                compverifyEnrolled:"",
+                comperrorEnrolled:"",
+
+                error:""
+            }
+        },
+        methods:{
+            enroll(){
+                try {
+                    axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`)
+                    .then(res=>{
+                        this.error = res.data
+                    })
+                } catch (error) {
+                    console.log(error)
+                }
             }
         },
         computed: {
@@ -221,7 +262,13 @@
         },
         mounted() {
             this.$store.dispatch("updateUser", this.$route.params.id)
-        }
+        },
+        beforeMount(){
+            axios.get('/api/v1/competitions/compTosubs')
+            .then(res=>{
+                this.compToSubs=res.data
+            })
+        },
     }
 </script>
 
@@ -241,5 +288,9 @@
 
     .profile__container {
         padding: 100px 0;
+    }
+
+    .competition_dropdown{
+        width: 60%;
     }
 </style>

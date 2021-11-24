@@ -40,8 +40,33 @@ class RevisionsServices{
     );
   }
   
-  // Query with competition_id param added
-  // update revisions set revision_1 = 10 where user_id = 1 and competition_id = 1;
+  async enroll(id, competition, cb, next) {
+    console.log(id,competition)
+    mysqlConnection.query(
+      "SELECT * FROM revisions WHERE user_id = " + [id] + ";",
+      async (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          if (rows.length > 0) throw boom.unauthorized("User existed");
+          
+          var query = mysqlConnection.query(
+            "INSERT INTO revisions SET user_id = " + [id] + ", competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '" + [competition] + "');",
+            function(err, results, fields) {
+              try {
+                if (err) throw boom.conflict("Invalid request");
+                id = results.insertId;
+                cb(id);
+              } catch (error) {
+                next(error);
+              }
+            }
+          );
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
 
   async update(id, revision, calif, competition, cb, next) {
     console.log(id, revision, calif, competition)

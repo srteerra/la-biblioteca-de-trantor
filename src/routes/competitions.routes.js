@@ -3,8 +3,17 @@ const CompetitionsServices = require("../services/competitions.services");
 const auth = require("../middlewares/auth.handler")
 const service = new CompetitionsServices();
 
+router.get("/compToSubs", async (req, res, next) => {
+  try {
+    await service.findToSubs(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
-router.get("/:id",auth.verifytoken,auth.allowAccessAll, async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,
@@ -17,6 +26,7 @@ router.get("/:id",auth.verifytoken,auth.allowAccessAll, async (req, res, next) =
     next(error);
   }
 });
+
 router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {
@@ -26,6 +36,7 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+
 router.post("/", async (req, res, next) => {
   try {
     await service.create(
@@ -42,11 +53,28 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+
 router.patch("/:id", async (req, res, next) => {
   try {
-    await service.update(
+    await service.updateStatus(
       req.params.id,
-      req.body,
+      function(data) {
+        return res.status(200).json({
+          message: "Updated",
+          data,
+        });
+      },
+      next
+    );
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.patch("/:id/finish", async (req, res, next) => {
+  try {
+    await service.finishComp(
+      req.params.id,
       function(data) {
         return res.status(200).json({
           message: "Updated",

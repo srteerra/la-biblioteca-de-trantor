@@ -42,6 +42,7 @@
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Fecha de inicio</th>
+                                        <th>Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +50,7 @@
                                         <td>{{comp.competition_id}}</td>
                                         <td>{{comp.competition_name}}</td>
                                         <td>{{comp.competition_date.substring(0,10)}}</td>
+                                        <td>{{comp.competition_status}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -63,6 +65,12 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pills-compDelete-tab" data-bs-toggle="pill" data-bs-target="#pills-compDelete" type="button" role="tab" aria-controls="pills-compDelete" aria-selected="false">Eliminar</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-compActivate-tab" data-bs-toggle="pill" data-bs-target="#pills-compActivate" type="button" role="tab" aria-controls="pills-compActivate" aria-selected="false">Convocar</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-compFinish-tab" data-bs-toggle="pill" data-bs-target="#pills-compFinish" type="button" role="tab" aria-controls="pills-compFinish" aria-selected="false">Finalizar</button>
                                     </li>
                                 </ul>
 
@@ -88,6 +96,28 @@
                                                 <button v-on:click.prevent="deleteComp" type="submit" class="btn btn-dark">Eliminar</button>
                                                 <p v-if="compverifyDelete" class="text-success pt-3">Se ha eliminado la competencia correctamente!</p>
                                                 <p v-if="comperrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-compActivate" role="tabpanel" aria-labelledby="pills-compActivate-tab">
+                                        <form method="POST">
+                                            <label class="form-label fw-bold">ID de la competencia</label>
+                                            <input type="text" v-model="compIdActivate" class="form-control mb-3" name="">
+                                            <div class="text-center d-grid">
+                                                <button v-on:click.prevent="activateComp" type="submit" class="btn btn-dark">Convocar</button>
+                                                <p v-if="compverifyActivate" class="text-success pt-3">Se ha actualizado la competencia correctamente!</p>
+                                                <p v-if="comperrorActivate" class="text-danger pt-3">Ha ocurrido un error</p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-compFinish" role="tabpanel" aria-labelledby="pills-compFinish-tab">
+                                        <form method="POST">
+                                            <label class="form-label fw-bold">ID de la competencia</label>
+                                            <input type="text" v-model="compIdFinish" class="form-control mb-3" name="">
+                                            <div class="text-center d-grid">
+                                                <button v-on:click.prevent="finishComp" type="submit" class="btn btn-dark">Finalizar</button>
+                                                <p v-if="compverifyFinish" class="text-success pt-3">Se ha finalizado la competencia correctamente!</p>
+                                                <p v-if="comperrorFinish" class="text-danger pt-3">Ha ocurrido un error</p>
                                             </div>
                                         </form>
                                     </div>
@@ -119,6 +149,14 @@
                 compIdDelete: "",
                 compverifyDelete: "",
                 comperrorDelete: "",
+
+                compIdActivate: "",
+                compverifyActivate: "",
+                comperrorActivate: "",
+                
+                compIdFinish: "",
+                compverifyFinish: "",
+                comperrorFinish: "",
 
                 filterField: '',
             }
@@ -154,6 +192,22 @@
                     this.comperrorDelete = 1
                 }
             },
+            activateComp() {
+                try {
+                    axios.patch(`/api/v1/competitions/${this.compIdActivate}`)
+                    this.compverifyActivate = 1
+                } catch (error) {
+                    this.comperrorActivate = 1
+                }
+            },
+            finishComp(){
+                try {
+                    axios.patch(`/api/v1/competitions/${this.compIdFinish}/finish`)
+                    this.compverifyFinish = 1
+                } catch (error) {
+                    this.comperrorFinish = 1
+                }
+            }
         },
         beforeMount() {
             axios.get('/api/v1/competitions')

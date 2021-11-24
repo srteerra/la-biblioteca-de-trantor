@@ -52,6 +52,24 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post("/:id/:competition", async (req, res, next) => {
+  try {
+    await service.enroll(
+      req.params.id,
+      req.params.competition,
+      function(data) {
+        return res.status(200).json({
+          message: "enrolled",
+          data,
+        });
+      },
+      next
+    );
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.patch("/update/:id/:revision/:calif/:competition", async (req, res,next) => {
   try {
     console.log(req.body)

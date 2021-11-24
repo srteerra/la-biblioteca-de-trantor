@@ -39,13 +39,26 @@ class CompetitionsServices {
     );
   }
 
+  async findToSubs(cb, next) {
+    mysqlConnection.query(
+      "SELECT * FROM competitions WHERE competition_status = 'Convocatoria'",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
   async create(data, cb, next) {
     mysqlConnection.query(
       "SELECT * FROM competitions WHERE competition_name = ?",
       [data.competition_name],
       async (err, rows, fields) => {
         try {
-          
           if (err) throw boom.conflict("Invalid request");
           if (rows.length > 0) throw boom.unauthorized("Competition existed");
           
@@ -69,23 +82,24 @@ class CompetitionsServices {
     );
   }
 
-  async update(id, changes, cb, next) {
+  async updateStatus(id, cb, next) {
+    console.log(id)
     mysqlConnection.query(
-      "SELECT * FROM books WHERE book_id = ?",
+      "SELECT * FROM competitions WHERE competition_id = ?",
       [id],
       (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("Book not found");
           mysqlConnection.query(
-            "UPDATE books SET ? WHERE book_id = ?",
-            [changes, id],
+            "UPDATE competitions SET competition_status = 'Convocatoria' WHERE competition_id = ?",
+            [id],
             function(err, results, fields) {
               try {
                 if (err) throw boom.conflict("Invalid request");
-                for (const key in changes) {
+                for (const key in id) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {
-                    rows[0][key] = changes[key];
+                    rows[0][key] = id[key];
                   }
                 }
                 cb(rows[0]);
@@ -100,6 +114,40 @@ class CompetitionsServices {
       }
     );
   }
+
+  async finishComp(id, cb, next) {
+    console.log(id)
+    mysqlConnection.query(
+      "SELECT * FROM competitions WHERE competition_id = ?",
+      [id],
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+          if (rows.length === 0) throw boom.notFound("Book not found");
+          mysqlConnection.query(
+            "UPDATE competitions SET competition_status = 'Finalizada' WHERE competition_id = ?",
+            [id],
+            function(err, results, fields) {
+              try {
+                if (err) throw boom.conflict("Invalid request");
+                for (const key in id) {
+                  if (Object.hasOwnProperty.call(rows[0], key)) {
+                    rows[0][key] = id[key];
+                  }
+                }
+                cb(rows[0]);
+              } catch (error) {
+                next(error);
+              }
+            }
+          );
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
   async delete(id, cb, next) {
     mysqlConnection.query(
       "SELECT * FROM competitions WHERE competition_id = ?",

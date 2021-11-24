@@ -121,7 +121,6 @@
 
 <script>
   import vue from 'vue';
-  import vuex from 'vuex';
   import axios from 'axios';
   import Test from "./components/Test";
   import Nav from "./components/Nav";
@@ -133,7 +132,7 @@
     name: "App",
     data() {
       return {
-        role: "admin", // Main key
+        role: "", // Main key
         email: "",
         password: "",
 
@@ -161,7 +160,7 @@
         .then(res => {
           vue.$cookies.set('access_token', res.data.data.access_token)
           vue.$cookies.set('refresh_token', res.data.data.refresh_token)
-          this.$router.push(`/profile/${res.data.data.user_nickname}`)
+          this.$router.push(`/profile/${res.data.data.user_id}`)
         })
       },
     },

@@ -65,6 +65,7 @@ const restricted = async (req, res, next) => {
 
 const allowed = async (token, roles, next) => {
   const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+  console.log(decoded)
   user_id = decoded.user;
   mysqlConnection.query(
     "SELECT user_role FROM users WHERE user_id = ?",[user_id],

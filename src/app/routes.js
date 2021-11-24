@@ -61,7 +61,7 @@ const routes =[
     },
     {
         name:"profile",
-        path:"/profile/:user",
+        path:"/profile/:id",
         component: ()=> import (/* webpackChunkName:"home" */"./views/Profile"),
         beforeEnter: ((to, from, next) => {
             console.log(Vue.$cookies)

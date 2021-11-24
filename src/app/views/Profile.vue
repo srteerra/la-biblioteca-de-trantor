@@ -3,7 +3,7 @@
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
                 <img src="../assets/img/avatar.png" class="rounded-pill" alt="" id='myAvatar'>
-                <p class="text-dark fs-5 pt-3">{{ this.$route.params.user }}</p>
+                <p class="text-dark fs-5 pt-3">{{ userNick }}</p>
             </div>
         </div>
         <div class="profile__tabs row container mx-auto pt-5">
@@ -213,6 +213,14 @@
                 userState: "",
                 userZip: ""
             }
+        },
+        computed: {
+            userNick() {
+                return this.$store.state.user.user_nickname
+            }
+        },
+        mounted() {
+            this.$store.dispatch("updateUser", this.$route.params.id)
         }
     }
 </script>
@@ -228,6 +236,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-color: brown;
     }
 
     .profile__container {

@@ -4,7 +4,7 @@ const auth = require("../middlewares/auth.handler")
 const service = new UsersServices();
 
 
-router.get("/:id",auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     await service.findOne(
       req.params.id,

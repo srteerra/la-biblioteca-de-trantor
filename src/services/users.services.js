@@ -82,6 +82,7 @@ class UsersServices {
             [changes, id],
             function(err, results, fields) {
               try {
+                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in changes) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {

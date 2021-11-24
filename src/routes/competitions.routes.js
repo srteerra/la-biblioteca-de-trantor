@@ -3,7 +3,15 @@ const CompetitionsServices = require("../services/competitions.services");
 const auth = require("../middlewares/auth.handler")
 const service = new CompetitionsServices();
 
-
+router.get("/dashCC", async (req, res, next) => {
+  try {
+    await service.dashboardCC(function(data) {
+      return res.status(200).json(data);
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 router.get("/:id",auth.verifytoken,auth.allowAccessAll, async (req, res, next) => {
   try {
     await service.findOne(

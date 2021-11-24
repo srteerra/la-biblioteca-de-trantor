@@ -126,7 +126,45 @@
     },
     components: {
       Dashboard
-    }
+    },
+    computed: {
+      userNick() {
+          return this.$store.state.user.user_nickname
+      },
+      userEmail() {
+          return this.$store.state.user.user_email
+      },
+      userFirstName() {
+          return this.$store.state.user.user_firstname
+      },
+      userLastName() {
+          return this.$store.state.user.user_lastname
+      },
+      userAddressNumber() {
+          return this.$store.state.user.user_addressNumber
+      },
+      userStreet1() {
+          return this.$store.state.user.user_street1
+      },
+      userStreet2() {
+          return this.$store.state.user.user_street2
+      },
+      userTypeAddress() {
+          return this.$store.state.user.user_addressType
+      },
+      userCity() {
+          return this.$store.state.user.user_city
+      },
+      userState() {
+          return this.$store.state.user.user_state
+      },
+      userZip() {
+          return this.$store.state.user.user_zip
+      },
+      userAvatar() {
+          return this.$store.state.user.user_avatar
+      },
+    },
   }
 </script>
 

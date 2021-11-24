@@ -23,14 +23,13 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 text-end">
-                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>
-                        {{ userNickname }} <span class="fw-bold ps-2 text-dark">#6616</span></li>
+                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>{{ userNick }}</li>
                     <li class='text-end p-lg-0'>
                         <div class="nav-item dropdown text-center">
-                            <button class="btn dropdown profile__img rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="btn dropdown profile__img p-0 rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"/>
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                <li class="p-0"><router-link to="/profile" class="dropdown-item text-dark">Ver perfil</router-link></li>
+                                <li class="p-0"><router-link to="/profile/" class="dropdown-item text-dark">Ver perfil</router-link></li>
                                 <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contacto</router-link></li>
                                 <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                                 <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Cerrar sesion</router-link></li>
@@ -48,9 +47,19 @@ export default {
     name:"Nav",
     data() {
         return {
-            userNickname: "ImAngel"
         }
-    }
+    },
+    computed: {
+        userNick() {
+            return this.$store.state.user.user_nickname
+        },
+        userAvatar() {
+            return this.$store.state.user.user_avatar
+        },
+        userRole() {
+            return this.$store.state.user.user_role
+        },
+    },
 }
 </script>
 
@@ -77,9 +86,5 @@ export default {
     .profile__img {
         width: 50px;
         height: 50px;
-        background-image: url('../assets/img/avatar.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
     }
 </style>

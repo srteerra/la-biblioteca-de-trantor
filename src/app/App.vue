@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Nav-Logged v-if="role === userRole"/>
-    <NavLoggedAdmin v-else-if="role === adminRole"/>
-    <NavLoggedReviewer v-else-if="role === judgeRole"/>
+    <Nav-Logged v-if="userRole === 'user'"/>
+    <NavLoggedAdmin v-else-if="userRole === 'admin'"/>
+    <NavLoggedJudge v-else-if="userRole === 'judge'"/>
     <Nav v-else/>
 
     <router-view :key="$route.fullPath" />
@@ -116,38 +116,28 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
   import vue from 'vue';
   import axios from 'axios';
-  import Test from "./components/Test";
   import Nav from "./components/Nav";
   import NavLogged from "./components/Nav-logged";
   import NavLoggedAdmin from "./components/Nav-loggedAdmin";
+  import NavLoggedJudge from "./components/Nav-loggedJudge";
   import Footer from "./components/Footer";
   
   export default {
     name: "App",
     data() {
       return {
-        role: "", // Main key
-        email: "",
-        password: "",
-
-        // Roles
-        userRole: "user",
-        adminRole: "admin",
-        judgeRole: "judge"
-
       };
     },
     components: {
-      Test,
       Nav,
       NavLogged,
       NavLoggedAdmin,
+      NavLoggedJudge,
       Footer
     },
     methods: {
@@ -162,6 +152,17 @@
           vue.$cookies.set('refresh_token', res.data.data.refresh_token)
           this.$router.push(`/profile/${res.data.data.user_id}`)
         })
+      },
+    },
+    computed: {
+      userNick() {
+          return this.$store.state.user.user_nickname
+      },
+      userAvatar() {
+          return this.$store.state.user.user_avatar
+      },
+      userRole() {
+          return this.$store.state.user.user_role
       },
     },
   };

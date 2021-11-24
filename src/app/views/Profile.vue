@@ -2,8 +2,7 @@
     <div class="profile__container container-fluid p-0 pb-5">
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
-                <!-- <img src="../assets/img/avatar-2.png" class="rounded-pill" id='myAvatar'> -->
-                <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="rounded-pill" id='myAvatar'>
+                <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="rounded-pill" id='myAvatar' type="button" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">
                 <p class="text-dark fs-5 pt-3">{{ userNick }}</p>
             </div>
         </div>
@@ -207,6 +206,46 @@
                 </div>
             </div>
         </div>
+        <!-- Participate -->
+        <div class="modal fade" id="changeAvatarModal" tabindex="-1" aria-labelledby="changeAvatarModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-5">
+                        <div class="">
+                            <h1 class="fw-bold fs-2">Cambiar avatar</h1>
+                            <p class="mb-2">Eligue tu avatar preferido:</p>
+                            <div class="">
+                                <div class="container">
+                                    <form class="row align-items-center pt-4" method="POST">
+                                        <div class="col-auto form-check">
+                                            <input class="form-check-input" type="radio" v-model="userAvatarChange" value="1" id="Avatar2R" style="background-image: url('../assets/img/avatar-1.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                        </div>
+                                        <div class="col-auto form-check">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="2" id="Avatar2R" style="background-image: url('../assets/img/avatar-2.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                        </div>
+                                        <div class="col-auto form-check">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="3" id="Avatar3R" style="background-image: url('../assets/img/avatar-3.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                        </div>
+                                        <div class="col-auto form-check">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="4" id="Avatar4R" style="background-image: url('../assets/img/avatar-4.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                        </div>
+                                        <div class="container-fluid justify-content-center p-0 mt-5">
+                                            <button type="submit" v-on:click.prevent="userAvatarUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                                            <p v-if="userverifyUpdateAvatar" class="text-success pt-3">Se ha cambiado tu avatar correctamente!</p>
+                                            <p v-if="usererrorUpdateAvatar" class="text-danger pt-3">Ha ocurrido un error</p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -219,6 +258,10 @@
                 user__Lastname: '',
                 userverifyUpdateFullname: 0,
                 usererrorUpdateFullname: 0,
+
+                user__AvatarChange: 1,
+                userverifyUpdateAvatar: 0,
+                usererrorUpdateAvatar: 0,
 
                 user__Typeaddress: 'Casa',
                 user__Numberaddress: '',
@@ -235,14 +278,27 @@
             userFullNameUpdate() {
                 try {
                     var userFullNameUpdateData = {
-                        user_firstname: this.userFirstname,
-                        user_lastname: this.userLastname,
+                        user_firstname: this.user__Firstname,
+                        user_lastname: this.user__Lastname,
                     }
                     axios.patch(`/api/v1/users/${this.$route.params.id}`, userFullNameUpdateData)
                     this.userverifyUpdateFullname = 1
+                    this.$toast.open('You did it!');
                 } catch (error) {
                     console.log(error)
                     this.usererrorUpdateFullname = 1
+                }
+            },
+            userAvatarUpdate() {
+                try {
+                    var userAvatarUpdateData = {
+                        user_avatar: this.user__AvatarChange,
+                    }
+                    axios.patch(`/api/v1/users/${this.$route.params.id}`, userAvatarUpdateData)
+                    this.userverifyUpdateAvatar = 1
+                } catch (error) {
+                    console.log(error)
+                    this.usererrorUpdateAvatar = 1
                 }
             },
             userAddressUpdate() {
@@ -299,18 +355,7 @@
                 return this.$store.state.user.user_zip
             },
             userAvatar() {
-                var user__Avatar = ''
-
-                if(this.$store.state.user.user_avatar === 1)
-                    user__Avatar = '1'
-                else if(this.$store.state.user.user_avatar === 2)
-                    user__Avatar = '2'
-                else if(this.$store.state.user.user_avatar === 3)
-                    user__Avatar = '3'
-                else if(this.$store.state.user.user_avatar === 3)
-                    user__Avatar = '4'
-
-                return user__Avatar
+                return this.$store.state.user.user_avatar
             },
         },
         mounted() {
@@ -326,11 +371,7 @@
 
     #profileBg {
         height: 400px;
-        background-image: url('https://images.unsplash.com/photo-1526285759904-71d1170ed2ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-color: brown;
+        background-color: rgb(70, 70, 70);
     }
 
     .profile__container {

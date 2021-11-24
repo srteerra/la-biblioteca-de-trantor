@@ -10,20 +10,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
                     <li class="nav-item">
-                        <router-link to="/admin/users" class="nav-link text-dark">Usuarios</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/admin/books" class="nav-link text-dark">Libros</router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link to="/judge/revisions" class="nav-link text-dark">Revisiones</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/admin/competitions" class="nav-link text-dark">Competiciones</router-link>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 text-end">
-                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>Admin</li>
+                    <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>Juez {{userFirstName}}</li>
                     <li class='text-end p-lg-0'>
                         <div class="nav-item dropdown text-center">
                             <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="btn dropdown profile__img p-0 rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"/>
@@ -41,7 +32,7 @@
 
 <script>
     export default {
-        name: "NavAdmin",
+        name: "NavJudge",
         data() {
             return {
             }
@@ -52,6 +43,9 @@
             },
             userNick() {
                 return this.$store.state.user.user_nickname
+            },
+            userFirstName() {
+                return this.$store.state.user.user_firstname
             },
             userAvatar() {
                 return this.$store.state.user.user_avatar

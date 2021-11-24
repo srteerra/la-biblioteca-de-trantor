@@ -44,7 +44,7 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-router.patch("/:id", auth.verifytoken,auth.restricted, async (req, res, next) => {
+router.patch("/:id", async (req, res, next) => {
   try {
     await service.update(
       req.params.id,

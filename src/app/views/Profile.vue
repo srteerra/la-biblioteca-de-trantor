@@ -2,7 +2,8 @@
     <div class="profile__container container-fluid p-0 pb-5">
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
-                <img src="../assets/img/avatar.png" class="rounded-pill" alt="" id='myAvatar'>
+                <!-- <img src="../assets/img/avatar-2.png" class="rounded-pill" id='myAvatar'> -->
+                <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="rounded-pill" id='myAvatar'>
                 <p class="text-dark fs-5 pt-3">{{ userNick }}</p>
             </div>
         </div>
@@ -32,20 +33,32 @@
                             class="form-control mb-4"
                             id="userNicknameV"
                             type="text"
-                            :placeholder="userNickname"
+                            :placeholder="[[userNick]]"
                             aria-label="Disabled input"
                             disabled>
-                        <label
-                            for="userNameV"
-                            class="form-label">
-                            Nombre legal
-                        </label>
-                        <input
-                            class="form-control mb-4"
-                            id="userNameV"
-                            type="text"
-                            :placeholder="userName"
-                            :v-model="userName">
+                        <div class="row p-0 m-0">
+                            <label
+                                for="userNameV"
+                                class="form-label">
+                                Nombre legal
+                            </label>
+                            <div class="col p-0 m-0 me-0 me-lg-3">
+                                <input
+                                    class="form-control mb-4"
+                                    id="userFirstnameV"
+                                    type="text"
+                                    :placeholder="[[userFirstName]]"
+                                    v-model="user__Firstname">
+                            </div>
+                            <div class="col p-0 m-0">
+                                <input
+                                    class="form-control mb-4"
+                                    id="userLastnameV"
+                                    type="text"
+                                    :placeholder="[[userLastName]]" 
+                                    v-model="user__Lastname">
+                            </div>
+                        </div>
                         <label
                             for="userEmailV"
                             class="form-label">
@@ -55,27 +68,28 @@
                             class="form-control mb-4"
                             id="userEmailV"
                             type="text"
-                            :placeholder="userEmail"
+                            :placeholder="[[userEmail]]"
                             aria-label="Disabled input"
                             disabled>
                         <div class="col-12 p-0">
-                            <button type="submit" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <button type="submit" v-on:click.prevent="userFullNameUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <p v-if="userverifyUpdateFullname" class="text-success pt-3">Se han actualizado tus datos correctamente!</p>
+                            <p v-if="usererrorUpdateFullname" class="text-danger pt-3">Ha ocurrido un error</p>
                         </div>
                     </form>
                 </div>
+
+                <!-- Domicilio -->
                 <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="" class="row g-3 py-5 px-4">
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Tipo de vivienda</label>
-                            <select
-                                id="inputState"
-                                name="user_addressType"
-                                class="form-select"
-                                :v-model="userTypeAddress">
-                                    <option selected>...</option>
-                                    <option>Casa</option>
-                                    <option>Apartamento</option>
-                            </select>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_addressType" id="user_addressTypeCasa" v-model="user__Typeaddress" value="Casa"> Casa
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_addressType" id="user_addressTypeDept" v-model="user__Typeaddress" value="Departamento"> Departamento
+                            </div>
                         </div>
                         <div class="col-md-2">
                             <label 
@@ -88,7 +102,8 @@
                                 class="form-control"
                                 id="userAddressNumber"
                                 name="user_addressNumber"
-                                :v-model="userNumberAddress">
+                                :placeholder="[[userAddressNumber]]"
+                                v-model="user__Numberaddress">
                         </div>
                         <div class="col-12">
                             <label
@@ -102,8 +117,8 @@
                                 class="form-control"
                                 id="userAddress1"
                                 name="user_street1"
-                                :v-model="userStreet1"
-                                placeholder="">
+                                v-model="user__Street1"
+                                :placeholder="[[userStreet1]]">
                         </div>
                         <div class="col-12">
                             <label
@@ -117,8 +132,8 @@
                                 class="form-control"
                                 id="userStreet2"
                                 name="user_street2"
-                                :v-model="userStreet2"
-                                placeholder="">
+                                v-model="user__Street2"
+                                :placeholder="[[userStreet2]]">
                         </div>
                         <div class="col-md-6">
                             <label
@@ -129,9 +144,10 @@
                             <input
                                 type="city"
                                 class="form-control"
-                                :v-model="userCity"
+                                v-model="user__City"
                                 id="inputCity"
-                                name="user_city">
+                                name="user_city"
+                                :placeholder="[[userCity]]">
                         </div>
                         <div class="col-md-4">
                             <label
@@ -139,27 +155,21 @@
                                 class="form-label">
                                 Estado
                             </label>
-                            <select id="inputState" name="user_state" class="form-select" :v-model="userState">
-                                <option selected>...</option>
-                                <option>Sonora</option>
-                                <option>Chihuahua</option>
-                                <option>Nuevo Leon</option>
-                                <option>Baja California Sur</option>
-                                <option>Baja California Norte</option>
-                            </select>
+                            <input id="inputState" name="user_state" class="form-control" v-model="user__State" :placeholder="[[userState]]">
                         </div>
                         <div class="col-md-2">
                             <label
                                 for="inputZip"
-                                class="form-label"
-                                :v-model="userZip">
+                                class="form-label">
                                 Zip
                             </label>
                             <input
                                 type="text"
                                 class="form-control"
                                 id="inputZip"
-                                name="user_zip">
+                                name="user_zip"
+                                v-model="user__Zip"
+                                :placeholder="[[userZip]]">
                         </div>
                         <div class="col-12">
                             <div class="form-check">
@@ -170,7 +180,9 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <button type="submit" v-on:click.prevent="userAddressUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <p v-if="userverifyUpdateTypeaddress" class="text-success pt-3">Se han actualizado tus datos correctamente!</p>
+                            <p v-if="usererrorUpdateTypeaddress" class="text-danger pt-3">Ha ocurrido un error</p>
                         </div>
                     </form>
                 </div>
@@ -199,29 +211,111 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         data() {
             return {
-                userNickname: "ImAngel",
-                userName: "Angel Lopez",
-                userEmail: "angellopez@example.com",
-                userTypeAddress: "",
-                userNumberAddress: "",
-                userStreet1: "",
-                userStreet2: "",
-                userCity: "",
-                userState: "",
-                userZip: ""
+                user__Firstname: '',
+                user__Lastname: '',
+                userverifyUpdateFullname: 0,
+                usererrorUpdateFullname: 0,
+
+                user__Typeaddress: 'Casa',
+                user__Numberaddress: '',
+                user__Street1: '',
+                user__Street2: '',
+                user__City: '',
+                user__State: '',
+                user__Zip: '',
+                userverifyUpdateTypeaddress: 0,
+                usererrorUpdateTypeaddress: 0,
+            }
+        },
+        methods: {
+            userFullNameUpdate() {
+                try {
+                    var userFullNameUpdateData = {
+                        user_firstname: this.userFirstname,
+                        user_lastname: this.userLastname,
+                    }
+                    axios.patch(`/api/v1/users/${this.$route.params.id}`, userFullNameUpdateData)
+                    this.userverifyUpdateFullname = 1
+                } catch (error) {
+                    console.log(error)
+                    this.usererrorUpdateFullname = 1
+                }
+            },
+            userAddressUpdate() {
+                try {
+                    var userAddressUpdateData = {
+                        user_addressType: this.user__Typeaddress,
+                        user_addressNumber: this.user__Numberaddress,
+                        user_street1: this.user__Street1,
+                        user_street2: this.user__Street2,
+                        user_city: this.user__City,
+                        user_state: this.user__State,
+                        user_zip: this.user__Zip,
+                    }
+                    axios.patch(`/api/v1/users/${this.$route.params.id}`, userAddressUpdateData)
+                    this.userverifyUpdateTypeaddress = 1
+                } catch (error) {
+                    console.log(error)
+                    this.usererrorUpdateTypeaddress = 1
+                }
             }
         },
         computed: {
             userNick() {
                 return this.$store.state.user.user_nickname
-            }
+            },
+            userEmail() {
+                return this.$store.state.user.user_email
+            },
+            userFirstName() {
+                return this.$store.state.user.user_firstname
+            },
+            userLastName() {
+                return this.$store.state.user.user_lastname
+            },
+            userAddressNumber() {
+                return this.$store.state.user.user_addressNumber
+            },
+            userStreet1() {
+                return this.$store.state.user.user_street1
+            },
+            userStreet2() {
+                return this.$store.state.user.user_street2
+            },
+            userTypeAddress() {
+                return this.$store.state.user.user_addressType
+            },
+            userCity() {
+                return this.$store.state.user.user_city
+            },
+            userState() {
+                return this.$store.state.user.user_state
+            },
+            userZip() {
+                return this.$store.state.user.user_zip
+            },
+            userAvatar() {
+                var user__Avatar = ''
+
+                if(this.$store.state.user.user_avatar === 1)
+                    user__Avatar = '1'
+                else if(this.$store.state.user.user_avatar === 2)
+                    user__Avatar = '2'
+                else if(this.$store.state.user.user_avatar === 3)
+                    user__Avatar = '3'
+                else if(this.$store.state.user.user_avatar === 3)
+                    user__Avatar = '4'
+
+                return user__Avatar
+            },
         },
         mounted() {
             this.$store.dispatch("updateUser", this.$route.params.id)
-        }
+        },
     }
 </script>
 

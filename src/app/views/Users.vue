@@ -65,11 +65,15 @@
                                     <input type="text" v-model="userNicknameAdd" class="form-control" placeholder="Ingresa un nickname">
                                 </div>
 
+                                <label class="form-label fw-bold">Nombre</label>
+                                <input type="text" v-model="userFirstnameAdd" class="form-control mb-3" placeholder="Ingresa un nombre">
+
                                 <label class="form-label fw-bold">Email</label>
                                 <input type="email" v-model="userEmailAdd" class="form-control mb-3" placeholder="Ingresa un correo electronico">
 
                                 <label class="form-label fw-bold">Contraseña</label>
                                 <input type="text" v-model="userPasswordAdd" class="form-control mb-3" placeholder="Ingresa una contraseña">
+                                
                                 <div class="py-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioRole" id="flexRadioAdmin" v-model="userRoleAdd" value="admin"> Admin
@@ -117,6 +121,7 @@
                 filterFieldComplete: 0,
 
                 userNicknameAdd: '',
+                userFirstnameAdd: '',
                 userEmailAdd: '',
                 userPasswordAdd: '',
                 userverifyAdd: 0,
@@ -154,6 +159,7 @@
                 try {
                     var dataUserAdd = {
                         user_nickname: this.userNicknameAdd,
+                        user_firstname: this.userFirstnameAdd,
                         user_email: this.userEmailAdd,
                         user_password: this.userPasswordAdd,
                         user_role: this.userRoleAdd

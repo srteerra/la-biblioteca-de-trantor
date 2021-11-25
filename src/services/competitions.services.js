@@ -7,6 +7,21 @@ const { encryptPassword, comparePassword } = require("../lib/helpers");
 class CompetitionsServices {
   constructor() {}
 
+  async dashboardCC(cb, next) {
+    mysqlConnection.query(
+      "SELECT users.user_id, users.user_nickname, (revision_1 + revision_2 + revision_3 + revision_4 + revision_5 + revision_6 + revision_7 + revision_8 + revision_9 + revision_10 + revision_11 + revision_12) / 12 AS user_score FROM revisions INNER JOIN users ON revisions.user_id = users.user_id WHERE revisions.competition_id = (SELECT current_comp.competition_id FROM current_comp);",
+      (err, rows, fields) => {
+        try {
+          if (err) throw boom.conflict("Invalid request");
+
+          cb(rows);
+        } catch (error) {
+          next(error);
+        }
+      }
+    );
+  }
+
   async findOne(id, cb, next) {
     mysqlConnection.query(
       "SELECT *FROM books WHERE book_id = ?",

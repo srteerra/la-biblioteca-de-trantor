@@ -7,7 +7,6 @@ import 'bootstrap'
 import VueCookies from 'vue-cookies'
 import store from './store'
 
-
 Vue.use(VueCookies)
 
 new Vue({

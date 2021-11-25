@@ -304,9 +304,7 @@
                     }
                     axios.patch(`/api/v1/users/${this.$route.params.id}`, userFullNameUpdateData)
                     this.userverifyUpdateFullname = 1
-                    this.$toast.open('You did it!');
                 } catch (error) {
-                    console.log(error)
                     this.usererrorUpdateFullname = 1
                 }
             },

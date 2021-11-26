@@ -71,7 +71,7 @@
                             aria-label="Disabled input"
                             disabled>
                         <div class="col-12 p-0">
-                            <button type="submit" v-on:click.prevent="userFullNameUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <button type="submit" v-on:click.prevent="userFullNameUpdate" class="btn btn-dark rounded-pill px-5" :disabled="fullNameButton">Guardar</button>
                             <p v-if="userverifyUpdateFullname" class="text-success pt-3">Se han actualizado tus datos correctamente!</p>
                             <p v-if="usererrorUpdateFullname" class="text-danger pt-3">Ha ocurrido un error</p>
                         </div>
@@ -172,14 +172,14 @@
                         </div>
                         <div class="col-12">
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input v-model="addressCheck" class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
                                 Valido que mis datos son correctos
                             </label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" v-on:click.prevent="userAddressUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <button type="submit" v-on:click.prevent="userAddressUpdate" class="btn btn-dark rounded-pill px-5" :disabled="addressButton">Guardar</button>
                             <p v-if="userverifyUpdateTypeaddress" class="text-success pt-3">Se han actualizado tus datos correctamente!</p>
                             <p v-if="usererrorUpdateTypeaddress" class="text-danger pt-3">Ha ocurrido un error</p>
                         </div>
@@ -189,18 +189,20 @@
                     <form action="" class="row col-12 col-md-6 py-5">
                         <div class="col-12 mb-4">
                             <label for="userNumber" class="form-label">Numero de telefono</label>
-                            <input type="text" name="user_phone" autocomplete="tel" class="form-control" id="userNumber" placeholder="">
+                            <input v-model="user__phone" :placeholder="[[userPhone]]" type="text" name="user_phone" autocomplete="tel" class="form-control" id="userNumber">
                         </div>
                         <div class="col-12 mb-4">
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input v-model="contactCheck" class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
                                 Valido que mis datos son correctos
                             </label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                            <button v-on:click.prevent="userContactUpdate" type="submit" class="btn btn-dark rounded-pill px-5" :disabled="contactButton">Guardar</button>
+                            <p v-if="contactVerify" class="text-success pt-3">Se han actualizado tus datos correctamente!</p>
+                            <p v-if="contactError" class="text-danger pt-3">Ha ocurrido un error</p>
                         </div>
                     </form>
                 </div>
@@ -212,12 +214,12 @@
                 <div class="row">
                     <div class="col-4 py-3">
                         <select v-model="compSelect" class="form-select competition__dropdown" >
-                            <option class="text-secondary" selected disabled>Competencias</option>
+                            <option class="text-secondary" value="1" selected disabled>Competencias</option>
                             <option v-for="comp in compToSubs" v-bind:key="comp"> {{ comp.competition_name }} </option>
                         </select>
                     </div>
                     <div class="col-8 py-3">
-                        <button v-on:click.prevent="enroll" type="submit" class="btn btn-dark rounded-pill px-5">Inscribirse</button>
+                        <button v-on:click.prevent="enroll" type="submit" class="btn btn-dark rounded-pill px-5" id="liveToastBtn" :disabled="compButton">Inscribirse</button>
                     </div>
                 </div>
                 <p v-if="compverifyEnrolled" class="text-success pt-3">Te has inscrito!</p>
@@ -290,8 +292,16 @@
                 user__City: '',
                 user__State: '',
                 user__Zip: '',
+                addressCheck: false,
                 userverifyUpdateTypeaddress: 0,
                 usererrorUpdateTypeaddress: 0,
+
+                user__phone:'',
+                contactCheck:false,
+                contactVerify:0,
+                contactError:0,
+
+                compSelect: 1
             }
         },
         methods: {
@@ -348,6 +358,18 @@
                     console.log(error)
                     this.usererrorUpdateTypeaddress = 1
                 }
+            },
+            userContactUpdate(){
+                try {
+                    var userContactUpdateData = {
+                        user_phone: this.user__phone
+                    }
+                    axios.patch(`/api/v1/users/${this.$route.params.id}`, userContactUpdateData)
+                    this.contactVerify = 1
+                } catch (error) {
+                    console.log(error)
+                    this.contactError = 1
+                }
             }
         },
         computed: {
@@ -387,15 +409,58 @@
             userAvatar() {
                 return this.$store.state.user.user_avatar
             },
+            userPhone() {
+                return this.$store.state.user.user_phone
+            },
+            fullNameButton(){
+                if (this.user__Firstname == "" | this.user__Lastname == ""){
+                    return true
+                }else{
+                    return false
+                }
+            },
+            addressButton(){
+                if (this.user__Numberaddress == "" | this.user__Street1 == "" | this.user__Street2 == "" | this.user__City == "" | this.user__State == "" | this.user__Zip == "" | this.addressCheck == false){
+                    return true
+                }else{
+                    return false
+                }
+            },
+            contactButton(){
+                if (this.user__phone == "" | this.contactCheck == false){
+                    return true
+                }else{
+                    return false
+                }
+            },
+            compButton(){
+                if (this.compSelect == 1){
+                    return true
+                }else{
+                    return false
+                }
+            }
         },
         mounted() {
             this.$store.dispatch("updateUser", this.$route.params.id)
+
         },
+        
         beforeMount(){
             axios.get('/api/v1/competitions/compTosubs')
             .then(res=>{
                 this.compToSubs=res.data
             })
+
+            var toastTrigger = document.getElementById('liveToastBtn')
+            var toastLiveExample = document.getElementById('liveToast')
+            if (toastTrigger) {
+                toastTrigger.addEventListener('click', function () {
+                    var toast = new bootstrap.Toast(toastLiveExample)
+
+                    toast.show()
+                })
+            }
         },
     }
 </script>

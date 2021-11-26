@@ -32,8 +32,7 @@ class currentCompetitionServices {
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("Competition not found");
           mysqlConnection.query(
-            "UPDATE current_comp SET competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '"+ [name] +"') WHERE currentComp_id = 1;",
-            [changes, name],
+            "UPDATE competitions SET competition_status = 'Finalizada' where competition_id = (SELECT competition_id FROM current_comp); UPDATE current_comp SET competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '"+ [name] +"') WHERE currentComp_id = 1; UPDATE competitions SET competition_status = 'En curso' where competition_id = (SELECT competition_id FROM current_comp);",
             function(err, results, fields) {
               try {
                 console.log(err)

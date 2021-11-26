@@ -95,10 +95,16 @@
                                         <form method="POST">
                                             <label class="form-label fw-bold">ID de la competencia</label>
                                             <input type="text" v-model="compIdDelete" class="form-control mb-3" name="">
-                                            <div class="text-center d-grid">
+                                            <div class="text-center d-grid mb-2">
                                                 <button v-on:click.prevent="deleteComp" type="submit" class="btn btn-dark">Eliminar</button>
                                                 <p v-if="compverifyDelete" class="text-success pt-3">Se ha eliminado la competencia correctamente!</p>
                                                 <p v-if="comperrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-danger text-white py-3 px-2 text-center danger" disabled>
+                                                    <span>No se pueden eliminar competencias con revisiones existentes.</span><br>
+                                                    <span class="pt-2">Aunque el mensaje sea correcto.</span>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -247,5 +253,8 @@
 <style lang="scss">
     .main__content {
         padding: 200px 10px 100px;
+    }
+    .danger{
+        font-size: 12px;
     }
 </style>

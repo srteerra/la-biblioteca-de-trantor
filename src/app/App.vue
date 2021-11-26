@@ -152,9 +152,6 @@
           vue.$cookies.set('refresh_token', res.data.data.refresh_token)
           this.$router.push(`/profile/${res.data.data.user_id}`)
         })
-      },
-      scrollToTop() {
-          window.scrollTo(0,0);
       }
     },
     computed: {

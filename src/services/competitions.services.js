@@ -169,6 +169,7 @@ class CompetitionsServices {
       [id],
       (err, rows) => {
         try {
+          
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("User not found");
           mysqlConnection.query(
@@ -176,6 +177,7 @@ class CompetitionsServices {
             [id],
             (err, result) => {
               try {
+                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 cb(rows);
               } catch (error) {

@@ -74,7 +74,10 @@ const routes =[
 
 const router = new Router({
     linkExactActiveClass:"link-active",
-    routes
+    routes,
+    scrollBehavior() {
+        window.scrollTo(0,0);
+    }
     // mode: "history",
 })
 

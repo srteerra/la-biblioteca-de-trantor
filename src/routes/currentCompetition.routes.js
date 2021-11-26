@@ -13,10 +13,10 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.patch("/:id", async (req, res, next) => {
+router.patch("/:name", async (req, res, next) => {
   try {
     await service.update(
-      req.params.id,
+      req.params.name,
       req.body,
       function(data) {
         return res.status(200).json({

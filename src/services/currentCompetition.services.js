@@ -22,19 +22,21 @@ class currentCompetitionServices {
     );
   }
 
-  async update(id, changes, cb, next) {
+  async update(name, changes, cb, next) {
     mysqlConnection.query(
-      "SELECT * FROM current_comp WHERE competition_id = ?",
-      [id],
+      "SELECT current_comp.*, competition_name FROM current_comp INNER JOIN competitions ON current_comp.competition_id = competitions.competition_id;",
+      [name],
       (err, rows, fields) => {
         try {
+          console.log(err)
           if (err) throw boom.conflict("Invalid request");
           if (rows.length === 0) throw boom.notFound("Competition not found");
           mysqlConnection.query(
-            "UPDATE current_comp SET ? WHERE competition_id = ?",
-            [changes, id],
+            "UPDATE current_comp SET competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '"+ [name] +"') WHERE currentComp_id = 1;",
+            [changes, name],
             function(err, results, fields) {
               try {
+                console.log(err)
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in changes) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {

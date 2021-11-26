@@ -32,7 +32,7 @@
                                 <li class="p-0"><router-link to="/profile/" class="dropdown-item text-dark">Ver perfil</router-link></li>
                                 <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contacto</router-link></li>
                                 <li class="p-0"><hr class="dropdown-divider text-dark"></li>
-                                <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Cerrar sesion</router-link></li>
+                                <li class="p-0"><button v-on:click.prevent="logout" class="dropdown-item text-dark">Cerrar sesion</button></li>
                             </ul>
                         </div>
                     </li>
@@ -47,6 +47,14 @@ export default {
     name:"Nav",
     data() {
         return {
+        }
+    },
+    methods: {
+        logout() {
+            sessionStorage.clear();
+            this.$cookies.remove("access_token");
+            this.$cookies.remove("refresh_token");
+            this.$router.go("/")
         }
     },
     computed: {

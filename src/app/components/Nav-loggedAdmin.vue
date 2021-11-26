@@ -29,7 +29,7 @@
                             <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="btn dropdown profile__img p-0 rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"/>
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                                <li class="p-0"><router-link to="/" class="dropdown-item text-dark">Cerrar sesion</router-link></li>
+                                <li class="p-0"><button v-on:click.prevent="logout" class="dropdown-item text-dark">Cerrar sesion</button></li>
                             </ul>
                         </div>
                     </li>
@@ -44,6 +44,12 @@
         name: "NavAdmin",
         data() {
             return {
+            }
+        },
+        methods: {
+            logout() {
+                sessionStorage.clear();
+                this.$router.go("/home")
             }
         },
         computed: {

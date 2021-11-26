@@ -153,6 +153,9 @@
           this.$router.push(`/profile/${res.data.data.user_id}`)
         })
       },
+      scrollToTop() {
+          window.scrollTo(0,0);
+      }
     },
     computed: {
       userNick() {

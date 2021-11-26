@@ -43,11 +43,11 @@ class RevisionsServices{
   async enroll(id, competition, cb, next) {
     console.log(id,competition)
     mysqlConnection.query(
-      "SELECT * FROM revisions WHERE user_id = " + [id] + ";",
+      "SELECT * FROM revisions WHERE user_id = " + [id] + " AND competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '" + [competition] + "');",
       async (err, rows, fields) => {
         try {
           if (err) throw boom.conflict("Invalid request");
-          if (rows.length > 0) throw boom.unauthorized("User existed");
+          if (rows.length > 0) throw boom.unauthorized("Ya esta inscrito");
           
           var query = mysqlConnection.query(
             "INSERT INTO revisions SET user_id = " + [id] + ", competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '" + [competition] + "');",

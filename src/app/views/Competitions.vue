@@ -6,18 +6,21 @@
                     <div class="row mb-5">
                         <div class="col-12 col-lg-8">
                             <h2 class="text-secondary">Competencia en curso: 
-                                <p v-for="currC in currentComp1" :key="currC" class="text-success">{{ currC.competition_name }}</p>
+                                <span class="text-success">{{ currentComp1[0].competition_name }}</span>
                             </h2>
                             <form method="POST">
-                                <div class="row pt-2">
-                                    <div class="col-3">
+                                <div class="row pt-3">
+                                    <div class="col-4">
                                         <select v-model="currComp" class="form-select" >
-                                            <option value="1" selected>Cambia la competencia en curso...</option>
-                                            <option v-for="curr in currentComp1" v-bind:key="curr"> {{ curr.competition_name }} </option>
+                                            <option value="1" selected disabled>Cambia la competencia en curso...</option>
+                                            <option v-for="compp in competitions1" v-bind:key="compp"> {{ compp.competition_name }} </option>
                                         </select>
                                     </div>
-                                    <div class="col-3">
-                                        <button class="btn btn-dark" type="submit">Guardar</button>
+                                    <div class="col-8">
+                                        <button v-on:click.prevent="changeComp" type="submit" class="btn btn-dark me-3">Guardar</button>
+                                        <span v-if="compverifyChange" class="text-success pt-3">Se ha cambiado de competencia!</span>
+                                        <span v-if="comperrorChange" class="text-danger pt-3">Ha ocurrido un error</span>
+                                        <span v-if="comperrorChange2" class="text-danger pt-3">Por favor eligue una competencia</span>
                                     </div>
                                 </div>
                             </form>
@@ -143,20 +146,25 @@
 
                 compNameAdd: "",
                 compDateAdd: "",
-                compverifyAdd: "",
-                comperrorAdd: "",
+                compverifyAdd: 0,
+                comperrorAdd: 0,
+
+                compNameCurrOpen: "",
+                compverifyChange: 0,
+                comperrorChange: 0,
+                comperrorChange2: 0,
 
                 compIdDelete: "",
-                compverifyDelete: "",
-                comperrorDelete: "",
+                compverifyDelete: 0,
+                comperrorDelete: 0,
 
                 compIdActivate: "",
-                compverifyActivate: "",
-                comperrorActivate: "",
+                compverifyActivate: 0,
+                comperrorActivate: 0,
                 
                 compIdFinish: "",
-                compverifyFinish: "",
-                comperrorFinish: "",
+                compverifyFinish: 0,
+                comperrorFinish: 0,
 
                 filterField: '',
             }
@@ -200,12 +208,26 @@
                     this.comperrorActivate = 1
                 }
             },
-            finishComp(){
+            finishComp() {
                 try {
                     axios.patch(`/api/v1/competitions/${this.compIdFinish}/finish`)
                     this.compverifyFinish = 1
                 } catch (error) {
                     this.comperrorFinish = 1
+                }
+            },
+            changeComp() {
+                try {
+                    if(this.currComp === 1) {
+                        this.comperrorChange2 = 1
+                    }
+                    else {
+                        axios.patch(`/api/v1/currentCompetition/${this.currComp}`)
+                        this.compverifyChange = 1
+                        this.comperrorChange2 = 0
+                    }
+                } catch (error) {
+                    this.comperrorChange = 1
                 }
             }
         },

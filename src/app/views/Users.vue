@@ -12,7 +12,7 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <div class="container table responsive users-dashboard__container">
+                <div class="container-fluid table responsive users-dashboard__container">
                     <div class="row">
                         <table class="table table-borderless table-striped text-center">
                             <thead>

@@ -207,23 +207,21 @@
             </div>
         </div>
         <div class="subscribe__container border container p-5">
-            <h2 class="text-center">Inscribirse</h2>
+            <h2 class="text-start fw-bold">Inscribirse</h2>
             <form method="POST">
-                <div class="row text-center">
-                    <div class="col-lg-6 col-md-12 col-xs-12 text-center py-3">
+                <div class="row">
+                    <div class="col-4 py-3">
                         <select v-model="compSelect" class="form-select competition__dropdown" >
-                            <option class="text-secondary" selected>Competencias</option>
+                            <option class="text-secondary" selected disabled>Competencias</option>
                             <option v-for="comp in compToSubs" v-bind:key="comp"> {{ comp.competition_name }} </option>
                         </select>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-xs-12 py-3">
-                        <div class="text-center">
-                            <button v-on:click.prevent="enroll" type="submit" class="btn btn-dark rounded-pill px-5">Inscribirse</button>
-                        </div>
+                    <div class="col-8 py-3">
+                        <button v-on:click.prevent="enroll" type="submit" class="btn btn-dark rounded-pill px-5">Inscribirse</button>
                     </div>
                 </div>
-                <p v-if="compverifyEnrolled" class="text-success pt-3">{{error}}</p>
-                <p v-if="comperrorEnrolled" class="text-danger pt-3">{{error}}</p>
+                <p v-if="compverifyEnrolled" class="text-success pt-3">Te has inscrito!</p>
+                <p v-if="comperrorEnrolled" class="text-danger pt-3">Ha ocurrido un error</p>
             </form>
         </div>
 
@@ -279,6 +277,7 @@
                 user__Lastname: '',
                 userverifyUpdateFullname: 0,
                 usererrorUpdateFullname: 0,
+                error11: "",
 
                 user__AvatarChange: 1,
                 userverifyUpdateAvatar: 0,
@@ -296,6 +295,18 @@
             }
         },
         methods: {
+            enroll() {
+                try {
+                    axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`)
+                    .then(res => {
+                        this.error11 = res.error
+                        console.log(res)
+                        console.log(error11)
+                    })
+                } catch (error) {
+                    console.log(error)
+                }
+            },
             userFullNameUpdate() {
                 try {
                     var userFullNameUpdateData = {

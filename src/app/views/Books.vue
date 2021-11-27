@@ -117,7 +117,7 @@
                                     <label class="form-label fw-bold">Categoria del libro</label>
                                     <input type="text" v-model="bookcategoryAdd" class="form-control mb-3" name="">
                                     <div class="text-center d-grid">
-                                        <button v-on:click.prevent="addBook" type="submit" class="btn btn-dark">Agregar</button>
+                                        <button v-on:click.prevent="addBook" type="submit" class="btn btn-dark" :disabled="addBookButton">Agregar</button>
                                         <p v-if="bookverifyAdd" class="text-success pt-3">Se ha agregado un libro!</p>
                                         <p v-if="bookerrorAdd" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
@@ -134,7 +134,7 @@
                                     <label class="form-label fw-bold">Categoria del libro</label>
                                     <input type="text" v-model="bookcategoryEdit" class="form-control mb-3" name="">
                                     <div class="text-center d-grid">
-                                        <button v-on:click.prevent="editBook" type="submit" class="btn btn-dark">Editar</button>
+                                        <button v-on:click.prevent="editBook" type="submit" class="btn btn-dark" :disabled="editBookButton">Editar</button>
                                         <p v-if="bookverifyEdit" class="text-success pt-3">Se ha editado correctamente!</p>
                                         <p v-if="bookerrorEdit" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
@@ -145,7 +145,7 @@
                                     <label class="form-label fw-bold">ID del libro</label>
                                     <input type="text" v-model="bookidDelete" class="form-control mb-3" name="">
                                     <div class="text-center d-grid">
-                                        <button v-on:click.prevent="deleteBook" type="submit" class="btn btn-dark">Eliminar</button>
+                                        <button v-on:click.prevent="deleteBook" type="submit" class="btn btn-dark" :disabled="deleteBookButton">Eliminar</button>
                                         <p v-if="bookverifyDelete" class="text-success pt-3">Se ha eliminado correctamente!</p>
                                         <p v-if="bookerrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
@@ -174,7 +174,7 @@
                                     <label class="form-label fw-bold">ID del usuario</label>
                                     <input type="text" v-model="bookuserInUse" class="form-control mb-3" name="">
                                     <div class="text-center d-grid">
-                                        <button v-on:click.prevent="PutInUse" type="submit" class="btn btn-dark">Agregar</button>
+                                        <button v-on:click.prevent="PutInUse" type="submit" class="btn btn-dark" :disabled="loanInUseButton">Agregar</button>
                                         <p v-if="bookverifyInUse" class="text-success pt-3">Se ha prestado un libro!</p>
                                         <p v-if="bookerrorInUse" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
@@ -185,7 +185,7 @@
                                     <label class="form-label fw-bold">ID del libro</label>
                                     <input type="text" v-model="bookidAvailable" class="form-control mb-3" name="">
                                     <div class="text-center d-grid">
-                                        <button v-on:click.prevent="PutAvailable" type="submit" class="btn btn-dark">Liberar</button>
+                                        <button v-on:click.prevent="PutAvailable" type="submit" class="btn btn-dark" :disabled="availableButton">Liberar</button>
                                         <p v-if="bookverifyAvailable" class="text-success pt-3">Se ha liberado el libro!</p>
                                         <p v-if="bookerrorAvailable" class="text-danger pt-3">Ha ocurrido un error</p>
                                     </div>
@@ -324,6 +324,36 @@
             },
             AvailableCount() {
                 return this.books.length - this.booksInUse.length
+            },
+            addBookButton(){
+                if (this.booktitleAdd == "" | this.bookauthorAdd == "" | this.bookcategoryAdd == "")
+                    return true
+                else 
+                    return false
+            },
+            editBookButton(){
+                if (this.bookidEdit == "" | this.booktitleEdit == "" | this.bookauthorEdit == "" | this.bookcategoryEdit == "")
+                    return true
+                else 
+                    return false
+            },
+            deleteBookButton(){
+                if (this.bookidDelete == "")
+                    return true
+                else
+                    return false
+            },
+            loanInUseButton(){
+                if (this.bookidInUse == "" | this.bookuserInUse == "")
+                    return true
+                else
+                    return false
+            },
+            availableButton(){
+                if (this.bookidAvailable == "")
+                    return true
+                else
+                    return false
             }
         },
         beforeMount() {

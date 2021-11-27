@@ -86,7 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center d-grid">
-                                    <button v-on:click.prevent="addUser" type="submit" class="btn btn-dark">Agregar</button>
+                                    <button v-on:click.prevent="addUser" type="submit" class="btn btn-dark" :disabled="addUserButton">Agregar</button>
                                     <p v-if="userverifyAdd" class="text-success pt-3">Se ha agregado un nuevo {{ RoleSelected }}!</p>
                                     <p v-if="usererrorAdd" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
@@ -97,7 +97,7 @@
                                 <label class="form-label fw-bold">ID del usuario</label>
                                 <input type="text" v-model="userIdDelete" class="form-control mb-3" name="">
                                 <div class="text-center d-grid">
-                                    <button v-on:click.prevent="deleteUser" type="submit" class="btn btn-dark">Eliminar</button>
+                                    <button v-on:click.prevent="deleteUser" type="submit" class="btn btn-dark" :disabled="deleteUserButton">Eliminar</button>
                                     <p v-if="userverifyDelete" class="text-success pt-3">Se ha eliminado al usuario correctamente!</p>
                                     <p v-if="usererrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
@@ -141,6 +141,18 @@
                     return "Juez"
                 else if(this.userRoleAdd === "user")
                     return "Usuario"
+            },
+            addUserButton(){
+                if (this.userNicknameAdd == "" | this.userFirstnameAdd == "" | this.user_email == "" | this.userPasswordAdd == "")
+                    return true
+                else
+                    return false
+            },
+            deleteUserButton(){
+                if (this.userIdDelete == "")
+                    return true
+                else
+                    return false
             }
         },
         methods: {

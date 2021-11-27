@@ -31,11 +31,11 @@
                 <input type="password" v-model="password" class="form-control rounded-pill" id="loginPassword">
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input v-model="loginCheck" type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
               </div>
               <div class="container-fluid justify-content-center p-0 mt-5">
-                <button v-on:click.prevent="login" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal">Entendido</button>
+                <button v-on:click.prevent="login" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="loginButton">Entendido</button>
                 <div class="d-flex mt-2">
                   <p class="">No tienes una cuenta?</p>
                   <router-link to="/" class="text-dark ps-2">Registrate</router-link>
@@ -66,24 +66,24 @@
                     <div class="col-12 col-lg-6">
                       <div class="mb-3">
                         <label for="registerNickname" class="form-label">Nickname</label>
-                        <input type="text" name="user_nickname" class="form-control rounded-pill" id="registerNickname">
+                        <input v-model="participateNick" type="text" name="user_nickname" class="form-control rounded-pill" id="registerNickname">
                       </div>
                       <div class="mb-3">
                         <label for="registerEmail" class="form-label">Correo electronico</label>
-                        <input type="email" name="user_email" class="form-control rounded-pill" id="registerEmail">
+                        <input v-model="participateEmail" type="email" name="user_email" class="form-control rounded-pill" id="registerEmail">
                       </div>
                       <div class="mb-3">
                         <label for="registerPassword" class="form-label">Contraseña</label>
-                        <input type="password" name="user_password" class="form-control rounded-pill" id="registerPassword">
+                        <input v-model="participatePassword" type="password" name="user_password" class="form-control rounded-pill" id="registerPassword">
                       </div>
                       <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="registerCheck">
+                        <input v-model="termsCheck" type="checkbox" class="form-check-input" id="registerCheck">
                         <label class="form-check-label" for="registerCheck">Acepto los
                           <span><router-link to="/" class="text-dark">Terminos y Condiciones</router-link></span>
                         </label>
                       </div>
                       <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="registerCheck2">
+                        <input v-model="rulesCheck" type="checkbox" class="form-check-input" id="registerCheck2">
                         <label class="form-check-label" for="registerCheck2">Acepto que sere <strong>descalificado</strong> si se me descubre incumpliendo alguna de las reglas.</label>
                       </div>
                     </div>
@@ -100,7 +100,7 @@
                       </div>
                     </aside>
                     <div class="container-fluid justify-content-center p-0 mt-5">
-                      <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal">Entendido</button>
+                      <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="participateButton">Entendido</button>
                       <div class="d-flex mt-2">
                         <p class="">Tienes una cuenta?</p>
                         <router-link to="/" class="text-dark ps-2">Logear</router-link>
@@ -131,6 +131,15 @@
     name: "App",
     data() {
       return {
+        loginEmail:'',
+        loginPassword:'',
+        loginCheck: false,
+
+        participateNick:'',
+        participateEmail:'',
+        participatePassword:'',
+        termsCheck:false,
+        rulesCheck:false
       };
     },
     components: {
@@ -156,14 +165,26 @@
     },
     computed: {
       userNick() {
-          return this.$store.state.user.user_nickname
+        return this.$store.state.user.user_nickname
       },
       userAvatar() {
-          return this.$store.state.user.user_avatar
+        return this.$store.state.user.user_avatar
       },
       userRole() {
-          return this.$store.state.user.user_role
+        return this.$store.state.user.user_role
       },
+      loginButton(){
+        if (this.loginEmail == "" | this.loginPassword == "" | this.loginCheck == false)
+          return true
+        else
+          return false
+      },
+      participateButton(){
+        if (this.participateNick == "" | this.participateEmail == "" | this.participatePassword == "" | this.termsCheck == false | this.rulesCheck == false)
+          return true
+        else
+          return false
+      }
     },
   };
 </script>

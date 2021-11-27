@@ -413,32 +413,28 @@
                 return this.$store.state.user.user_phone
             },
             fullNameButton(){
-                if (this.user__Firstname == "" | this.user__Lastname == ""){
+                if (this.user__Firstname == "" | this.user__Lastname == "")
                     return true
-                }else{
+                else
                     return false
-                }
             },
             addressButton(){
-                if (this.user__Numberaddress == "" | this.user__Street1 == "" | this.user__Street2 == "" | this.user__City == "" | this.user__State == "" | this.user__Zip == "" | this.addressCheck == false){
+                if (this.user__Numberaddress == "" | this.user__Street1 == "" | this.user__Street2 == "" | this.user__City == "" | this.user__State == "" | this.user__Zip == "" | this.addressCheck == false)
                     return true
-                }else{
+                else
                     return false
-                }
             },
             contactButton(){
-                if (this.user__phone == "" | this.contactCheck == false){
+                if (this.user__phone == "" | this.contactCheck == false)
                     return true
-                }else{
+                else
                     return false
-                }
             },
             compButton(){
-                if (this.compSelect == 1){
+                if (this.compSelect == 1)
                     return true
-                }else{
+                else
                     return false
-                }
             }
         },
         mounted() {

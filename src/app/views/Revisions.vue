@@ -97,7 +97,7 @@
                                 <label class="form-label fw-bold">Calificacion</label>
                                 <input type="text" class="form-control mb-3" v-model="calification">
                                 <div class="text-center d-grid">
-                                    <button v-on:click.prevent="revisionAdd" type="submit" class="btn btn-dark">Revisar</button>
+                                    <button v-on:click.prevent="revisionAdd" type="submit" class="btn btn-dark" :disabled="califButton">Revisar</button>
                                     <p v-if="revisionVerifyAdd" class="text-success pt-3">Se ha calificado la revision {{ userIdAdd }}!</p>
                                     <p v-if="revisionErrorAdd" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
@@ -127,7 +127,7 @@
                                     <option>12</option>
                                 </select>
                                 <div class="text-center d-grid pt-3">
-                                    <button v-on:click.prevent="revisionDelete" type="submit" class="btn btn-dark">Elinimar</button>
+                                    <button v-on:click.prevent="revisionDelete" type="submit" class="btn btn-dark" :disabled="deleteCalifButton">Elinimar</button>
                                     <p v-if="revisionVerifyDelete" class="text-success pt-3">Se ha eliminado correctamente!</p>
                                     <p v-if="revisionErrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                 </div>
@@ -156,10 +156,11 @@ export default {
             userIdAdd: "",
             revisionIdAdd: "",
             calification: "",
-            userIdDelete: "",
-            revisionIdDelete: "",
             revisionVerifyAdd: 0,
             revisionErrorAdd: 0,
+
+            userIdDelete: "",
+            revisionIdDelete: "",
             revisionVerifyDelete: 0,
             revisionErrorDelete: 0
         }
@@ -190,6 +191,20 @@ export default {
             } catch (error) {
                  this.revisionErrorDelete = 1
             }
+        }
+    },
+    computed:{
+        califButton(){
+            if (this.userIdAdd == "" | this.revisionAdd == "" | this.calification == "")
+                return true
+            else
+                return false
+        },
+        deleteCalifButton(){
+            if (this.userIdDelete == "" | this.revisionIdDelete == "")
+                return true
+            else
+                return false
         }
     },
     beforeMount(){

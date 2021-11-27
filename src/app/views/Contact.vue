@@ -10,18 +10,18 @@
             <form action="">
                 <div class="mb-5">
                     <label for="subjectcontactInput" class="form-label pb-3 fs-4 fw-bold">Asunto</label>
-                    <input type="text" class="form-control" id="subjectcontactInput" placeholder="Ingresa el asunto...">
+                    <input v-model="subject" type="text" class="form-control" id="subjectcontactInput" placeholder="Ingresa el asunto...">
                 </div>
                 <div class="mb-5">
                     <label for="emailcontactInput" class="form-label pb-3 fs-4 fw-bold">Correo Electronico</label>
-                    <input type="email" class="form-control" id="emailcontactInput" placeholder="Ingresa tu correo electronico...">
+                    <input v-model="email" type="email" class="form-control" id="emailcontactInput" placeholder="Ingresa tu correo electronico...">
                 </div>
                 <div class="mb-5">
                     <label for="messagecontactTextarea" class="form-label pb-3 fs-4 fw-bold">Mensaje</label>
-                    <textarea class="form-control" id="messagecontactTextarea" placeholder="Escribenos tu mensaje..." rows="5"></textarea>
+                    <textarea v-model="message" class="form-control" id="messagecontactTextarea" placeholder="Escribenos tu mensaje..." rows="5"></textarea>
                 </div>
                 <div class="">
-                    <button class="btn btn-dark px-5 py-3 rounded-pill col-12 col-lg-3" type="submit">Enviar</button>
+                    <button class="btn btn-dark px-5 py-3 rounded-pill col-12 col-lg-3" type="submit" :disabled="contactSubmitButton">Enviar</button>
                 </div>
             </form>
         </div>
@@ -33,6 +33,17 @@
         name: 'contact',
         data() {
             return {
+                subject:'',
+                email:'',
+                message:''
+            }
+        },
+        computed:{
+            contactSubmitButton(){
+                if (this.subject == "" | this.email == "" | this.message == "") 
+                    return true
+                else 
+                    return false
             }
         }
     }

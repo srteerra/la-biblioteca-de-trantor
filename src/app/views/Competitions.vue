@@ -85,7 +85,7 @@
                                             <label class="form-label fw-bold">Fecha de inicio</label>
                                             <input type="date" v-model="compDateAdd" class="form-control mb-3" name="" required>
                                             <div class="text-center d-grid">
-                                                <button v-on:click.prevent="addComp" type="submit" class="btn btn-dark">Agregar</button>
+                                                <button v-on:click.prevent="addComp" type="submit" class="btn btn-dark" :disabled="addButton">Agregar</button>
                                                 <p v-if="compverifyAdd" class="text-success pt-3">Se ha agregado una nueva competencia!</p>
                                                 <p v-if="comperrorAdd" class="text-danger pt-3">Ha ocurrido un error</p>
                                             </div>
@@ -96,7 +96,7 @@
                                             <label class="form-label fw-bold">ID de la competencia</label>
                                             <input type="text" v-model="compIdDelete" class="form-control mb-3" name="">
                                             <div class="text-center d-grid mb-2">
-                                                <button v-on:click.prevent="deleteComp" type="submit" class="btn btn-dark">Eliminar</button>
+                                                <button v-on:click.prevent="deleteComp" type="submit" class="btn btn-dark" :disabled="deleteButton">Eliminar</button>
                                                 <p v-if="compverifyDelete" class="text-success pt-3">Se ha eliminado la competencia correctamente!</p>
                                                 <p v-if="comperrorDelete" class="text-danger pt-3">Ha ocurrido un error</p>
                                             </div>
@@ -113,7 +113,7 @@
                                             <label class="form-label fw-bold">ID de la competencia</label>
                                             <input type="text" v-model="compIdActivate" class="form-control mb-3" name="">
                                             <div class="text-center d-grid">
-                                                <button v-on:click.prevent="activateComp" type="submit" class="btn btn-dark">Convocar</button>
+                                                <button v-on:click.prevent="activateComp" type="submit" class="btn btn-dark" :disabled="activateButton">Convocar</button>
                                                 <p v-if="compverifyActivate" class="text-success pt-3">Se ha actualizado la competencia correctamente!</p>
                                                 <p v-if="comperrorActivate" class="text-danger pt-3">Ha ocurrido un error</p>
                                             </div>
@@ -124,7 +124,7 @@
                                             <label class="form-label fw-bold">ID de la competencia</label>
                                             <input type="text" v-model="compIdFinish" class="form-control mb-3" name="">
                                             <div class="text-center d-grid">
-                                                <button v-on:click.prevent="finishComp" type="submit" class="btn btn-dark">Finalizar</button>
+                                                <button v-on:click.prevent="finishComp" type="submit" class="btn btn-dark" :disabled="finishButton">Finalizar</button>
                                                 <p v-if="compverifyFinish" class="text-success pt-3">Se ha finalizado la competencia correctamente!</p>
                                                 <p v-if="comperrorFinish" class="text-danger pt-3">Ha ocurrido un error</p>
                                             </div>
@@ -235,6 +235,32 @@
                 } catch (error) {
                     this.comperrorChange = 1
                 }
+            }
+        },
+        computed:{
+            addButton(){
+                if (this.compNameAdd == "" | this.compDateAdd == "")
+                    return true
+                else
+                    return false
+            },
+            deleteButton(){
+                if (this.compIdDelete == "")
+                    return true
+                else
+                    return false
+            },
+            activateButton(){
+                if (this.compIdActivate == "")
+                    return true
+                else
+                    return false
+            },
+            finishButton(){
+                if (this.compIdFinish == "")
+                    return true
+                else 
+                    return false
             }
         },
         beforeMount() {

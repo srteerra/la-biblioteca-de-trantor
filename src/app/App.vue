@@ -23,12 +23,12 @@
             <form method="POST">
               <div class="mb-3">
                 <label for="loginEmail" class="form-label">Correo electronico</label>
-                <input type="email" v-model="email" class="form-control rounded-pill" id="loginEmail" aria-describedby="emailHelp">
+                <input type="email" v-model="loginEmail" class="form-control rounded-pill" id="loginEmail" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">No compartas tu informacion con nadie mas.</div>
               </div>
               <div class="mb-3">
                 <label for="loginPassword" class="form-label">Contraseña</label>
-                <input type="password" v-model="password" class="form-control rounded-pill" id="loginPassword">
+                <input type="password" v-model="loginPassword" class="form-control rounded-pill" id="loginPassword">
               </div>
               <div class="mb-3 form-check">
                 <input v-model="loginCheck" type="checkbox" class="form-check-input" id="exampleCheck1">

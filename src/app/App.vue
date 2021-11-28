@@ -152,8 +152,8 @@
     methods: {
       login() {
         var data = {
-          user_email: this.email,
-          user_password: this.password
+          user_email: this.loginEmail,
+          user_password: this.loginPassword
         }
         axios.post('/api/v1/users/login', data)
         .then(res => {

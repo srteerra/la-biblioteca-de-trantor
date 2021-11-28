@@ -334,6 +334,7 @@
                     var userAvatarUpdateData = {
                         user_avatar: this.user__AvatarChange,
                     }
+                    this.$store.state.user.user_avatar = this.user__AvatarChange
                     axios.patch(`/api/v1/users/${this.$route.params.id}`, userAvatarUpdateData)
                     this.userverifyUpdateAvatar = 1
                 } catch (error) {

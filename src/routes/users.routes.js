@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const UsersServices = require("../services/users.services");
-const auth = require("../middlewares/auth.handler")
+const auth = require("../middlewares/auth.handler");
 const service = new UsersServices();
-
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -22,7 +21,7 @@ router.get("/", async (req, res, next) => {
   try {
     await service.find(function(data) {
       return res.status(200).json(data);
-    });
+    }, next);
   } catch (error) {
     next(error);
   }
@@ -86,15 +85,15 @@ router.post("/login", async (req, res, next) => {
       user_email,
       user_password,
       (data) => {
-        req.session.user=data.tokens
+        req.session.user = data.tokens;
         data.data = {
           ...data.data,
-          access_token:data.tokens.access_token,
-          refresh_token:data.tokens.refresh_token
-        }
-        data=data.data
+          access_token: data.tokens.access_token,
+          refresh_token: data.tokens.refresh_token,
+        };
+        data = data.data;
         res.status(200).json({
-          message:'success',
+          message: "success",
           data,
         });
       },
@@ -105,7 +104,7 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.post("/signup",  async (req, res, next) => {
+router.post("/signup", async (req, res, next) => {
   try {
     await service.create(
       req.body,
@@ -121,29 +120,50 @@ router.post("/signup",  async (req, res, next) => {
     next(error);
   }
 });
-router.post('/refreshtoken', auth.verifyRefreshToken, async (req, res) => {
+router.post("/refreshtoken", auth.verifyRefreshToken, async (req, res,next) => {
   try {
-    const token = await service.genereateAccessToken(req.userId)
-    req.session.user.access_token=token
+  
+    const token = await service.genereateAccessToken(req.userData);
+   
+    req.session.user.access_token = token;
     res.status(200).json({
-      access_token:token
-    })
-
+      access_token: token,
+    });
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
 router.post("/logout", auth.verifytoken, async (req, res, next) => {
   try {
-    
     req.session.destroy(null);
-  
+
     res.status(200).json({
-      message: "success"
-    })
+      message: "success",
+    });
   } catch (error) {
-    next(error)
+    next(error);
   }
-})
+});
+
+router.post("/accessRole", async (req, res, next) => {
+  try {
+    let token = req.headers.authorization.split(" ")[1];
+    let role = req.body.role;
+    
+    console.log();
+    await service.accessRole(
+      { token, role },
+      function(data) {
+        return res.status(200).json({
+          message: "acceess",
+          data,
+        });
+      },
+      next
+    );
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

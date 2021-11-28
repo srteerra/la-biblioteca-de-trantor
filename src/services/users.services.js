@@ -25,18 +25,15 @@ class UsersServices {
   }
 
   async find(cb, next) {
-    mysqlConnection.query(
-      "SELECT * FROM users",
-      (err, rows, fields) => {
-        try {
-          if (err) throw boom.conflict("Invalid request");
+    mysqlConnection.query("SELECT * FROM users", (err, rows, fields) => {
+      try {
+        if (err) throw boom.conflict("Invalid request");
 
-          cb(rows);
-        } catch (error) {
-          next(error);
-        }
+        cb(rows);
+      } catch (error) {
+        next(error);
       }
-    );
+    });
   }
 
   async create(data, cb, next) {
@@ -82,7 +79,7 @@ class UsersServices {
             [changes, id],
             function(err, results, fields) {
               try {
-                console.log(err)
+                console.log(err);
                 if (err) throw boom.conflict("Invalid request");
                 for (const key in changes) {
                   if (Object.hasOwnProperty.call(rows[0], key)) {
@@ -142,19 +139,22 @@ class UsersServices {
           delete rows[0].user_password;
           cb({
             data: rows[0],
-            tokens: await this.genereateTokens(rows[0].user_id),
+            tokens: await this.genereateTokens({
+              id: rows[0].user_id,
+              role: rows[0].user_role,
+            }),
           });
-          //return ;
         } catch (error) {
           next(error);
         }
       }
     );
   }
-  async genereateTokens(user_id) {
+  async genereateTokens(user) {
     let refresh_token = jwt.sign(
       {
-        user: user_id,
+        user: user.id,
+        role: user.role,
       },
       process.env.JWT_REFRESH_SECRET,
       {
@@ -163,7 +163,8 @@ class UsersServices {
     );
     let access_token = jwt.sign(
       {
-        user: user_id,
+        user: user.id,
+        role: user.role,
       },
       process.env.JWT_ACCESS_SECRET,
       {
@@ -173,17 +174,32 @@ class UsersServices {
 
     return { access_token, refresh_token };
   }
-  async genereateAccessToken(user_id) {
+  async genereateAccessToken(data) {
+    const { user, role } = data;
+
     let access_token = jwt.sign(
       {
-        user: user_id,
+        user,
+        role,
       },
       process.env.JWT_ACCESS_SECRET,
       {
         expiresIn: process.env.JWT_ACCESS_TIME,
       }
     );
+
     return access_token;
+  }
+  async accessRole(data, cb, next) {
+    try {
+      const decoded = jwt.verify(data.token, process.env.JWT_ACCESS_SECRET);
+      if (data.role !== decoded.role)
+        throw boom.unauthorized("uhauthorized access");
+
+      cb("success");
+    } catch (error) {
+      next(error);
+    }
   }
 }
 

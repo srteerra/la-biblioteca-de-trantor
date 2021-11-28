@@ -20,7 +20,9 @@ require("./db");
 
 //MIDDLEWARES
 app.use(morgan("tiny"));
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false,
+}));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

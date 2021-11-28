@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Nav-Logged v-if="userRole === 'user'"/>
-    <NavLoggedAdmin v-else-if="userRole === 'admin'"/>
-    <NavLoggedJudge v-else-if="userRole === 'judge'"/>
+    <Nav-Logged v-if="$store.state.user.user_role === 'user'"/>
+    <NavLoggedAdmin v-else-if="$store.state.user.user_role === 'admin'"/>
+    <NavLoggedJudge v-else-if="$store.state.user.user_role === 'judge'"/>
     <Nav v-else/>
-
+  
     <router-view :key="$route.fullPath" />
+    
     <Footer/>
 
     <!-- Modal for views -->
@@ -35,7 +36,7 @@
                 <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
               </div>
               <div class="container-fluid justify-content-center p-0 mt-5">
-                <button v-on:click.prevent="login" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="loginButton">Entendido</button>
+                <button v-on:click.prevent="login({loginEmail,loginPassword})" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="loginButton">Entendido</button>
                 <div class="d-flex mt-2">
                   <p class="">No tienes una cuenta?</p>
                   <router-link to="/" class="text-dark ps-2">Registrate</router-link>
@@ -127,6 +128,7 @@
   import NavLoggedJudge from "./components/Nav-loggedJudge";
   import Footer from "./components/Footer";
   
+  import {mapActions} from "vuex"
   export default {
     name: "App",
     data() {
@@ -150,18 +152,8 @@
       Footer
     },
     methods: {
-      login() {
-        var data = {
-          user_email: this.loginEmail,
-          user_password: this.loginPassword
-        }
-        axios.post('/api/v1/users/login', data)
-        .then(res => {
-          vue.$cookies.set('access_token', res.data.data.access_token)
-          vue.$cookies.set('refresh_token', res.data.data.refresh_token)
-          this.$router.push(`/profile/${res.data.data.user_id}`)
-        })
-      }
+      ...mapActions(['login']),
+     
     },
     computed: {
       userNick() {

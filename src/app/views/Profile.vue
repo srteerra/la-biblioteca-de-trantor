@@ -439,7 +439,7 @@
             }
         },
         mounted() {
-            this.$store.dispatch("updateUser", this.$route.params.id)
+            
 
         },
         

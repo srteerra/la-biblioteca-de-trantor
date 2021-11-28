@@ -24,12 +24,12 @@ const verifyRefreshToken = async (req, res, next) => {
   try {
     if (!req.session.user) throw boom.unauthorized("session unauthorized");
     let token = req.headers.authorization.split(" ")[1];
-
+    
     let sessionToken = req.session.user.refresh_token;
 
     if (token !== sessionToken) throw boom.unauthorized("Token unauthorized");
     const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET);
-    req.userId = decoded.user;
+    req.userData = decoded;
 
     next();
   } catch (error) {
@@ -65,7 +65,7 @@ const restricted = async (req, res, next) => {
 
 const allowed = async (token, roles, next) => {
   const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
-  console.log(decoded)
+ 
   user_id = decoded.user;
   mysqlConnection.query(
     "SELECT user_role FROM users WHERE user_id = ?",[user_id],

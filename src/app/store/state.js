@@ -1,4 +1,5 @@
 export default {
     user: [],
-    loggeIn:false
+    loggeIn:false,
+    access:false,
 }

@@ -122,12 +122,11 @@ router.post("/signup", async (req, res, next) => {
 });
 router.post("/refreshtoken", auth.verifyRefreshToken, async (req, res,next) => {
   try {
-  
-    const token = await service.genereateAccessToken(req.userData);
-   
-    req.session.user.access_token = token;
+    
+    const tokens = await service.genereateTokens(req.userData);
+    req.session.user = tokens;
     res.status(200).json({
-      access_token: token,
+      tokens
     });
   } catch (error) {
     next(error);
@@ -138,19 +137,18 @@ router.post("/logout", auth.verifytoken, async (req, res, next) => {
     req.session.destroy(null);
 
     res.status(200).json({
-      message: "success",
+      message: "logout",
     });
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/accessRole", async (req, res, next) => {
+router.post("/accessRole",[auth.verifytoken], async (req, res, next) => {
   try {
     let token = req.headers.authorization.split(" ")[1];
     let role = req.body.role;
-    
-    console.log();
+
     await service.accessRole(
       { token, role },
       function(data) {

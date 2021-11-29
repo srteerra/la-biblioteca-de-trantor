@@ -35,6 +35,7 @@ const routes = [
     name: "upload",
     path: "/upload",
     component: () => import(/* webpackChunkName:"home" */ "./views/Upload"),
+    meta: { requireAuth: true, restricted: true },
   },
   {
     name: "explore",
@@ -45,32 +46,32 @@ const routes = [
     name: "users",
     path: "/admin/users",
     component: () => import(/* webpackChunkName:"home" */ "./views/Users"),
-    meta: { requireAuth: true,restricted:true},
+    meta: { requireAuth: true, restricted: true },
   },
   {
     name: "books",
     path: "/admin/books",
     component: () => import(/* webpackChunkName:"home" */ "./views/Books"),
-    meta: { requireAuth: true, restricted: true, allowAccessJudge: true },
+    meta: { requireAuth: true, allowAccessJudge: true },
   },
   {
     name: "judge",
     path: "/judge/revisions",
     component: () => import(/* webpackChunkName:"home" */ "./views/Revisions"),
-    meta: { requireAuth: true,restricted:true},
+    meta: { requireAuth: true, restricted: true },
   },
   {
     name: "competitions",
     path: "/admin/competitions",
     component: () =>
       import(/* webpackChunkName:"home" */ "./views/Competitions"),
-      meta: { requireAuth: true,restricted:true},
+    meta: { requireAuth: true, restricted: true },
   },
   {
     name: "profile",
     path: "/profile/:id",
     component: () => import(/* webpackChunkName:"home" */ "./views/Profile"),
-    meta: { requireAuth: true,restricted:true},
+    meta: { requireAuth: true },
   },
 ];
 
@@ -84,12 +85,19 @@ const router = new Router({
 });
 router.beforeEach(async (to, from, next) => {
   if (to.matched.some((route) => route.meta.requireAuth == true)) {
-    
-    if (!store.state.loggeIn) next('/')
-    let access = await store.dispatch('accessRole',store.state.user)
-    console.log(access);
-    if (access!=='success') next('/')
-    next()
+    if (!store.state.loggeIn) next("/");
+
+    await store.dispatch("accessRole", store.state.user);
+    if (!store.state.access) next("/");
+    store.commit("SET_ACCESS", false);
+
+    if (to.meta.restricted && store.state.user.user_role !== "admin") {
+      next('/');
+    }
+    if (to.meta.allowAccessJudge && store.state.user.user_role !== "jubge" && store.state.user.user_role !== "admin" ) {
+      next('/');
+    }
+    next();
   }
   next();
 });

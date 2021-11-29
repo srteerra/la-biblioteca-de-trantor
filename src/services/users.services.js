@@ -196,7 +196,7 @@ class UsersServices {
       if (data.role !== decoded.role)
         throw boom.unauthorized("uhauthorized access");
 
-      cb("success");
+      cb(data.role);
     } catch (error) {
       next(error);
     }

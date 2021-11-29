@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
 export default {
     name:"Nav",
     data() {
@@ -50,12 +51,7 @@ export default {
         }
     },
     methods: {
-        logout() {
-            sessionStorage.clear();
-            this.$cookies.remove("access_token");
-            this.$cookies.remove("refresh_token");
-            this.$router.go("/")
-        }
+        ...mapActions(['logout'])
     },
     computed: {
         userNick() {

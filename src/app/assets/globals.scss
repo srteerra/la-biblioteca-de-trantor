@@ -11,6 +11,10 @@ a {
     }
 }
 
+li {
+    list-style: none;
+}
+
 h1 {
     color: var($dark);
     font-family: 'Times New Roman', Times, serif;

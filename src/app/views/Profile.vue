@@ -3,7 +3,7 @@
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
                 <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="rounded-pill" id='myAvatar' type="button" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">
-                <p class="text-dark fs-5 pt-3">{{ userNick }}</p>
+                <p class="text-dark fs-4 pt-3">{{ userNick }}</p>
             </div>
         </div>
         <div class="profile__tabs row container mx-auto pt-5">
@@ -242,7 +242,7 @@
                                 <div class="container">
                                     <form class="row align-items-center pt-4" method="POST">
                                         <div class="col-auto form-check">
-                                            <input class="form-check-input" type="radio" v-model="userAvatarChange" value="1" id="Avatar2R" style="background-image: url('../assets/img/avatar-1.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="1" id="Avatar2R" style="background-image: url('../assets/img/avatar-1.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="col-auto form-check">
                                             <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="2" id="Avatar2R" style="background-image: url('../assets/img/avatar-2.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
@@ -254,7 +254,7 @@
                                             <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="4" id="Avatar4R" style="background-image: url('../assets/img/avatar-4.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="container-fluid justify-content-center p-0 mt-5">
-                                            <button type="submit" v-on:click.prevent="userAvatarUpdate" class="btn btn-dark rounded-pill px-5">Guardar</button>
+                                            <button type="submit" v-on:click.prevent="userAvatarUpdate" class="btn btn-dark rounded-pill px-5" data-bs-dismiss="modal">Guardar</button>
                                             <p v-if="userverifyUpdateAvatar" class="text-success pt-3">Se ha cambiado tu avatar correctamente!</p>
                                             <p v-if="usererrorUpdateAvatar" class="text-danger pt-3">Ha ocurrido un error</p>
                                         </div>
@@ -334,6 +334,7 @@
                     var userAvatarUpdateData = {
                         user_avatar: this.user__AvatarChange,
                     }
+                    this.$store.state.user.user_avatar = this.user__AvatarChange
                     axios.patch(`/api/v1/users/${this.$route.params.id}`, userAvatarUpdateData)
                     this.userverifyUpdateAvatar = 1
                 } catch (error) {
@@ -438,7 +439,7 @@
             }
         },
         mounted() {
-            this.$store.dispatch("updateUser", this.$route.params.id)
+            
 
         },
         

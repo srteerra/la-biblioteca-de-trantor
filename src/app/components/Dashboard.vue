@@ -1,18 +1,14 @@
 <template>
-  <div class="dashboard__container container-fluid">
+  <div class="dashboard__container container-fluid pt-5">
     <div class="row">
       <div class="col-12 col-md-11 col-lg-9 col-xl-6 mx-auto p-0">
-        <img
-          src="../assets/img/badge.png"
-          alt=""
-          id="badge__img"
-          class="d-none d-md-block"
-        />
         <div class="dashboard__card px-3 px-lg-5 py-5">
           <div class="dashboard__content p-0 p-md-4">
             <div class="text-center pb-3">
               <h1 class="fs-2">TABLA DE PUNTUACIONES</h1>
-              <h5 class="fs-5">{{ this.currentCompNow.competition_id }}</h5>
+              <ul v-for="currentCom in currentCompNow" v-bind:key="currentCom">
+                <li class="fs-4"> {{currentCom.competition_name}} </li>
+              </ul>
             </div>
             <div class="dashboard__body table-responsive">
               <table class="table table-borderless text-center">

@@ -37,7 +37,7 @@
           <li class="text-end p-lg-0">
             <div class="nav-item dropdown text-center">
               <img
-                v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'"
+                v-bind:src="require('../assets/img/avatar-' + `${userAvatar}` + '.png')"
                 class="btn dropdown profile__img p-0 rounded-pill"
                 type="button"
                 id="profileDropdown"

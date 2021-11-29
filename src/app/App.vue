@@ -102,10 +102,6 @@
                     </aside>
                     <div class="container-fluid justify-content-center p-0 mt-5">
                       <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="participateButton">Entendido</button>
-                      <div class="d-flex mt-2">
-                        <p class="">Tienes una cuenta?</p>
-                        <router-link to="/" class="text-dark ps-2">Logear</router-link>
-                      </div>
                     </div>
                   </form>
                 </div>

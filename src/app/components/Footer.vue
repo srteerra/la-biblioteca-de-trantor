@@ -6,7 +6,7 @@
             <div class="row">
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0 lh-lg">
-                    <h5 class="text-light text-center text-lg-start text-uppercase fw-bold pb-3">Logo</h5>
+                    <h4 class="text-light text-center text-lg-start text-uppercase fw-bold pb-3">Logo</h4>
 
                     <ul class="list-unstyled mb-0">
                         <li class="p-0 m-0">
@@ -33,7 +33,7 @@
 
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0 lh-lg">
-                    <h5 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Quienes somos</h5>
+                    <h4 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Quienes somos</h4>
 
                     <ul class="list-unstyled">
                         <li class="p-0 m-0">
@@ -51,7 +51,7 @@
 
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0 lh-lg">
-                    <h5 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Ayudanos</h5>
+                    <h4 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Ayudanos</h4>
 
                     <ul class="list-unstyled mb-0">
                         <li class="p-0 m-0">
@@ -66,17 +66,14 @@
 
                 <!--Grid column-->
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0 lh-lg">
-                    <h5 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Ayuda</h5>
+                    <h4 class="text-light text-center text-lg-start fw-bold text-uppercase pb-3">Ayuda</h4>
 
                     <ul class="list-unstyled">
                         <li class="p-0 m-0">
                             <router-link to="/contact-us" class="text-light text-center text-lg-start p-0 m-0">Contactanos</router-link>
                         </li>
                         <li class="p-0 m-0">
-                            <router-link to="/admin" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
-                        </li>
-                        <li class="p-0 m-0">
-                            <router-link to="/reviewer" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug2</router-link>
+                            <router-link to="/contact-us" class="text-light text-center text-lg-start p-0 m-0">Reporta un bug</router-link>
                         </li>
                         <li class="p-0 m-0">
                             <router-link to="/about" class="text-light text-center text-lg-start p-0 m-0">Preguntas frecuentes</router-link>

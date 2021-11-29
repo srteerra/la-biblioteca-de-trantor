@@ -40,7 +40,9 @@
         methods: {
             logout() {
                 sessionStorage.clear();
-                this.$router.go("/home")
+                this.$cookies.remove("access_token");
+                this.$cookies.remove("refresh_token");
+                this.$router.go("/")
             }
         },
         computed: {

@@ -90,40 +90,41 @@ export default {
 </script>
 
 <style lang="scss">
-    .mainn__container {
-  p {
-    padding: 20px 0;
-    text-align: justify;
-  }
-  .container {
-    width: 70%;
-  }
-  .title__container {
-    padding: 300px 10px 50px;
-    .title__space__div {
-      border-top: 2px solid black;
-      width: 15%;
-      height: 30px;
+  .mainn__container {
+    padding-bottom: 100px;
+    p {
+      padding: 20px 0;
+      text-align: justify;
+    }
+    .container {
+      width: 70%;
+    }
+    .title__container {
+      padding: 300px 10px 50px;
+      .title__space__div {
+        border-top: 2px solid black;
+        width: 15%;
+        height: 30px;
+      }
+    }
+    .bannerr__container {
+      height: 280px;
+      position: relative;
+      background-image: url(../assets/img/students.jpg);
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 50px;
+      .bannerr__text__container {
+        position: absolute;
+        left: 10%;
+        top: 30%;
+      }
+    }
+    .contacts__container{
+      padding: 50px 0;
+      ul{
+        text-align: center;
+      }
     }
   }
-  .bannerr__container {
-    height: 280px;
-    position: relative;
-    background-image: url(../assets/img/students.jpg);
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 50px;
-    .bannerr__text__container {
-      position: absolute;
-      left: 10%;
-      top: 30%;
-    }
-  }
-  .contacts__container{
-    padding: 50px 0;
-    ul{
-      text-align: center;
-    }
-  }
-}
 </style>

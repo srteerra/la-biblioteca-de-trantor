@@ -90,40 +90,41 @@ export default {
 </script>
 
 <style lang="scss">
-.main__container {
-  p {
-    padding: 20px 0;
-    text-align: justify;
-  }
-  .container {
-    width: 70%;
-  }
-  .intro__container {
-    padding: 300px 10px 50px;
-    .intro__space__div {
-      border-top: 2px solid black;
-      width: 15%;
-      height: 30px;
+  .main__container {
+    padding-bottom: 100px;
+    p {
+      padding: 20px 0;
+      text-align: justify;
+    }
+    .container {
+      width: 70%;
+    }
+    .intro__container {
+      padding: 300px 10px 50px;
+      .intro__space__div {
+        border-top: 2px solid black;
+        width: 15%;
+        height: 30px;
+      }
+    }
+    .banner__container {
+      height: 280px;
+      position: relative;
+      background-image: url(../assets/img/meeting.jpg);
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 50px;
+      .banner__text__container {
+        position: absolute;
+        left: 10%;
+        top: 30%;
+      }
+    }
+    .contact__container{
+      padding: 50px 0;
+      ul{
+        text-align: center;
+      }
     }
   }
-  .banner__container {
-    height: 280px;
-    position: relative;
-    background-image: url(../assets/img/meeting.jpg);
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 50px;
-    .banner__text__container {
-      position: absolute;
-      left: 10%;
-      top: 30%;
-    }
-  }
-  .contact__container{
-    padding: 50px 0;
-    ul{
-      text-align: center;
-    }
-  }
-}
 </style>

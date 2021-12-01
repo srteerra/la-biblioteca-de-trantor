@@ -1,18 +1,32 @@
 import axios from "axios";
 import router from "../routes";
+import bootstrap from "bootstrap";
+import swal from "sweetalert";
+
 export const actions = {
   async login({ commit }, payload) {
-    var data = {
-      user_email: payload.loginEmail,
-      user_password: payload.loginPassword,
-    };
-    await axios
-      .post("/api/v1/users/login", data)
-      .then((res) => {
-        commit("SET_USER", res.data.data);
-        router.push(`/profile/${res.data.data.user_id}`);
-      })
-      .catch((error) => console.log(error));
+    try {
+      var data = {
+        user_email: payload.loginEmail,
+        user_password: payload.loginPassword,
+      };
+      await axios
+        .post("/api/v1/users/login", data)
+        .then((res) => {
+          commit("SET_USER", res.data.data);
+          router.push(`/profile/${res.data.data.user_id}`);
+        })
+    } catch (error) {
+      console.log(error)
+      if (error){
+          swal({
+            title: "error",
+            text: "El correo o contrasena son incorrectos, intententalo de nuevo",
+            icon: "error",
+            button: "OK"
+          });
+      }
+    }
   },
   async accessRole({ commit, dispatch }, payload) {
     try {

@@ -9,7 +9,7 @@
     
     <Footer/>
 
-    <!-- Modal for views -->
+    <!-- Modal for views -->c
 
     <!-- Log in -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -149,7 +149,6 @@
     },
     methods: {
       ...mapActions(['login']),
-     
     },
     computed: {
       userNick() {

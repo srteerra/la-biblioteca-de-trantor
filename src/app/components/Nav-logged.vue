@@ -26,10 +26,10 @@
                     <li class='text-center text-dark text-lg-end my-auto py-3 py-lg-0'>{{ userNick }}</li>
                     <li class='text-end p-lg-0'>
                         <div class="nav-item dropdown text-center">
-                            <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="btn dropdown profile__img p-0 rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"/>
+                            <img v-bind:src="require('../assets/img/avatar-' + `${userAvatar}` + '.png')" class="btn dropdown profile__img p-0 rounded-pill" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false"/>
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                                <li class="p-0"><router-link to="/profile/" class="dropdown-item text-dark">Ver perfil</router-link></li>
+                                <li class="p-0"><router-link :to="`/profile/${userId}`" class="dropdown-item text-dark">Ver perfil</router-link></li>
                                 <li class="p-0"><router-link to="/contact-us" class="dropdown-item text-dark">Contacto</router-link></li>
                                 <li class="p-0"><hr class="dropdown-divider text-dark"></li>
                                 <li class="p-0"><button v-on:click.prevent="logout" class="dropdown-item text-dark">Cerrar sesion</button></li>
@@ -62,6 +62,9 @@ export default {
         },
         userRole() {
             return this.$store.state.user.user_role
+        },
+        userId() {
+            return this.$store.state.user.user_id
         },
     },
 }

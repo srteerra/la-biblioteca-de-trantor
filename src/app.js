@@ -38,7 +38,7 @@ app.use(
       database: process.env.MYSQL_DB,
       clearExpired:true,
       checkExpirationInterval:60000,
-      expiration:3600000
+      expiration:129600000
     }),
   })
 );

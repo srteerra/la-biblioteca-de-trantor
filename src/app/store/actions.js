@@ -12,7 +12,7 @@ export const actions = {
         commit("SET_USER", res.data.data);
         router.push(`/profile/${res.data.data.user_id}`);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => commit("SET_LOGINSTATUS", true));
   },
   async accessRole({ commit, dispatch }, payload) {
     try {

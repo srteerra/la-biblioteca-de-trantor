@@ -34,8 +34,7 @@ const routes = [
   {
     name: "upload",
     path: "/upload",
-    component: () => import(/* webpackChunkName:"home" */ "./views/Upload"),
-    meta: { requireAuth: true, restricted: true },
+    component: () => import(/* webpackChunkName:"home" */ "./views/Upload")
   },
   {
     name: "explore",
@@ -94,7 +93,7 @@ router.beforeEach(async (to, from, next) => {
     if (to.meta.restricted && store.state.user.user_role !== "admin") {
       next('/');
     }
-    if (to.meta.allowAccessJudge && store.state.user.user_role !== "jubge" && store.state.user.user_role !== "admin" ) {
+    if (to.meta.allowAccessJudge && store.state.user.user_role !== "judge" && store.state.user.user_role !== "admin" ) {
       next('/');
     }
     next();

@@ -14,5 +14,8 @@ export const LOGOUT_USER = (state, user) => {
 
 export const SET_ACCESS = (state, access) => {
   state.access = access;
- 
+};
+
+export const SET_LOGINSTATUS = (state, status) => {
+  state.loginFailed = status;
 };

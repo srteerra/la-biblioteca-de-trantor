@@ -149,7 +149,6 @@
     },
     methods: {
       ...mapActions(['login']),
-     
     },
     computed: {
       userNick() {
@@ -160,6 +159,14 @@
       },
       userRole() {
         return this.$store.state.user.user_role
+      },
+      loginFail() {
+        if(this.$store.state.loginFailed == true) {
+          return true
+        }
+        else {
+          return false
+        }
       },
       loginButton(){
         if (this.loginEmail == "" | this.loginPassword == "" | this.loginCheck == false)

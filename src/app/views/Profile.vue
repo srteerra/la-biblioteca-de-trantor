@@ -2,7 +2,7 @@
     <div class="profile__container container-fluid p-0 pb-5">
         <div class="profile__top row container-fluid position-relative m-0 mb-5 pb-5" id="profileBg">
             <div class="text-center position-absolute top-100 start-50 translate-middle p-0 m-0">
-                <img v-bind:src="'../assets/img/avatar-' + `${userAvatar}` + '.png'" class="rounded-pill" id='myAvatar' type="button" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">
+                <img v-bind:src="require('../assets/img/avatar-' + `${userAvatar}` + '.png')" class="rounded-pill" id='myAvatar' type="button" data-bs-toggle="modal" data-bs-target="#changeAvatarModal">
                 <p class="text-dark fs-4 pt-3">{{ userNick }}</p>
             </div>
         </div>
@@ -242,16 +242,16 @@
                                 <div class="container">
                                     <form class="row align-items-center pt-4" method="POST">
                                         <div class="col-auto form-check">
-                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="1" id="Avatar2R" style="background-image: url('../assets/img/avatar-1.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="1" id="Avatar1R" :style="{backgroundImage: `url(${require('../assets/img/avatar-1.png')})`}" style="width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="col-auto form-check">
-                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="2" id="Avatar2R" style="background-image: url('../assets/img/avatar-2.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="2" id="Avatar2R" :style="{backgroundImage: `url(${require('../assets/img/avatar-2.png')})`}" style="width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="col-auto form-check">
-                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="3" id="Avatar3R" style="background-image: url('../assets/img/avatar-3.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="3" id="Avatar3R" :style="{backgroundImage: `url(${require('../assets/img/avatar-3.png')})`}" style="width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="col-auto form-check">
-                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="4" id="Avatar4R" style="background-image: url('../assets/img/avatar-4.png'); width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
+                                            <input class="form-check-input" type="radio" v-model="user__AvatarChange" value="4" id="Avatar4R" :style="{backgroundImage: `url(${require('../assets/img/avatar-4.png')})`}" style="width:100px; height:100px; border: 3px solid rgb(226, 226, 226);">
                                         </div>
                                         <div class="container-fluid justify-content-center p-0 mt-5">
                                             <button type="submit" v-on:click.prevent="userAvatarUpdate" class="btn btn-dark rounded-pill px-5" data-bs-dismiss="modal">Guardar</button>
@@ -307,7 +307,12 @@
         methods: {
             enroll() {
                 try {
-                    axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`)
+                    console.log()
+                    axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`, '', {
+                        headers: {
+                            Autorization: 'Baerer ' + this.$store.state.user.access_token
+                        }
+                    })
                     .then(res => {
                         this.error11 = res.error
                         console.log(res)

@@ -7,122 +7,80 @@
       <!-- First paragraph -->
       <img class="float-start p__image1" src="../assets/img/library.jpg" />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, est
-        adipisci! Perferendis ad ullam quos expedita ex quidem, delectus tempora
-        necessitatibus temporibus ducimus, hic sequi officiis quaerat alias quas
-        ipsa soluta aliquam dolores earum! Ut iure accusamus placeat, eum
-        ducimus doloremque. Distinctio cumque vel rerum quisquam quam dolor odio
-        deleniti veritatis ullam temporibus, atque, fugiat ipsam ea dignissimos
-        aut libero aspernatur et? Temporibus, maiores aspernatur veniam incidunt
-        error at deleniti pariatur reprehenderit dolores quae doloribus vitae
-        quo ex ipsum, facilis laboriosam dicta minima nam voluptatem aliquam
-        porro est maxime delectus! Quidem dolore, error exercitationem autem
-        sapiente soluta non dolorum magni commodi fugiat vero quo facere
-        mollitia. Quas deserunt sed itaque aliquam impedit minus harum
-        necessitatibus voluptates nisi explicabo, facilis ipsa doloremque,
-        voluptatibus perspiciatis delectus vel laudantium laboriosam eligendi
-        odio. Beatae sapiente cum, error cumque consectetur sint nisi voluptatum
-        ex, quidem ipsam dolor enim, illum voluptates nemo minus quam facere
-        doloremque odit accusantium tempore atque nihil voluptate. Sit iusto
-        illum atque quas! Consequuntur laboriosam nostrum quo! Doloremque ex
-        ipsa error sequi fuga at iure nam ullam, ab, recusandae cumque nemo
-        accusantium nulla distinctio perferendis facilis ducimus libero
-        provident voluptatum a nisi dignissimos, esse ratione? At harum
-        perspiciatis placeat consequuntur, perferendis impedit.
+      Jóvenes entre los 12 y 17 años, aquellos que van en preparatoria y en 
+      secundaria. Además, como el INEGI menciona en su estudio, la razón 
+      principal por la cual supuestamente no se lee es la falta de tiempo, 
+      algo que en el caso de niños y adolescentes no es necesariamente cierto,
+      sino que estos tienen mucho tiempo libre y puede ser mejor utilizado con 
+      esta actividad: la lectura.
       </p>
       <br /><br />
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia autem
-        illo nam? Perferendis, praesentium. Eligendi sequi tempora cumque
-        facilis, quia quam consectetur optio veritatis, rerum alias repudiandae
-        mollitia molestias, temporibus error saepe corporis quod expedita.
-        Recusandae suscipit ad vitae perspiciatis aliquid sunt consequatur
-        praesentium.<br /><br />
-        Assumenda iste rerum harum omnis blanditiis corrupti similique aliquam
-        consequuntur amet obcaecati rem voluptatum quis cumque consequatur,
-        corporis ullam enim aspernatur optio nesciunt fugiat! Totam voluptas
-        quis incidunt. Non consequatur rem quibusdam adipisci ad asperiores
-        porro placeat, sint consectetur facilis laboriosam quod impedit,
-        similique provident neque illum. Nobis deleniti cum excepturi, dolor
-        iusto magnam asperiores nisi odio accusantium, recusandae ad dicta vitae
-        alias. Voluptate, iusto asperiores officia ipsa tempore fugit
-        repudiandae quos soluta sapiente provident cum praesentium enim aut esse
-        molestias, sit ullam sequi. Praesentium veniam rem, cupiditate
-        doloremque rerum doloribus minima sint nulla nostrum maiores quae libero
-        veritatis sit animi dicta corporis sapiente reprehenderit vitae.
+        Lo que nosotros ofrecemos a este segmento de jóvenes es incrementar su 
+        nivel de lectura, tener acceso a libros físicos sin costo alguno, mejorar 
+        la base de criterio para que tomen decisiones a través de tener una visión
+        más amplia de la vida y con conocimientos que les pueden abrir las puertas, 
+        tanto con otras personas como en sus sueños y metas. Además de valores como
+        disciplina, constancia, trabajo por metas y valores como la empatía y trabajo
+        en equipo.<br /><br />
+        El proyecto se llevará a cabo en 4 etapas. En la primera etapa se buscará hacer
+        una recolección de libros de los distintos colaboradores del proyecto y de la 
+        población, se evaluarán los libros y se registrarán de manera apropiada, casi 
+        simultáneamente se llevará acabo la segunda etapa, en esta se buscará que aquellos 
+        del segmento objetivo se registren a la actividad que se realizará.
       </p>
       <!-- Banner -->
       <div class="fbanner__container"></div>
       <!-- Second paragraph -->
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non sed
-        aliquid dignissimos repellat nesciunt, corrupti quo quidem quis eius
-        harum in fuga, totam, mollitia dolorum rerum cupiditate. Sapiente
-        aliquam voluptatibus dolore consequuntur veritatis, quae perferendis
-        reiciendis illo in ratione ad dolores porro culpa? Maxime possimus sed
-        ratione, dolores quos facere nostrum nesciunt, error odio quia placeat,
-        vero quidem voluptate quod. Molestias possimus delectus consectetur nam
-        vitae eligendi dignissimos omnis velit, quos magni dolor eaque
-        necessitatibus dolore! Esse tempore aperiam, animi, sit, dicta
-        voluptates nostrum aspernatur aliquam neque dignissimos illo iure
-        distinctio placeat beatae accusamus nihil commodi veniam officiis
-        repellat tempora.
+        Cuando termine esta el registro, de los libros seleccionados se rolarán dependiendo
+        de la edad del participante y relacionándolos con la complejidad del libro, se dejará
+        una semana o dos para leer el libro dependiendo de la dificultad del libro, y al final
+        de esta, se compartirá la opinión a través de un texto que tendrán que enviarnos, y se
+        cambiará por otro libro, esto se repetirá una x cantidad de veces dependiendo de la 
+        cantidad de libros que se lograron acumular de la donación de esta manera todos podrán 
+        tener la oportunidad de leer todos los libros permitiendo la conversación e intercambio 
+        de ideas.
       </p>
       <br />
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit minus
-        cupiditate nihil, sequi reiciendis natus aperiam amet animi quis, non
-        unde quisquam magnam ab veritatis reprehenderit, eum voluptatum nostrum
-        doloremque.
+        En todo este proceso nuestro sitio web tendrá un papel relevante al ir 
+        publicando los avances de cada participante en una manera atractiva para
+        que los involucrados, sus familias, los patrocinadores y todo aquel que 
+        pudiera interesarse en el proyecto puedan ver de manera atractiva, divertida,
+        pero sobre todo con una imagen actual, una competencia sana que motive a la 
+        participación.
       </p>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse
-        voluptate, ea in veniam quae inventore? Officiis ipsum fugiat maiores,
-        similique eveniet aliquid iusto blanditiis nobis alias, vero rerum
-        pariatur ipsam repellendus? Cumque sint rem, facere ipsa nobis placeat
-        molestias, a delectus fuga voluptatem nisi culpa eos aut libero. Quis,
-        aspernatur! Unde, nisi! Quam debitis accusamus magnam provident est sed
-        magni nostrum quisquam reiciendis. Dolore necessitatibus voluptates
-        aliquid eos maxime porro modi dicta cumque excepturi quas nemo, labore
-        adipisci iste impedit itaque eum ex corporis quibusdam minus expedita,
-        repellendus, commodi perferendis aut? Fuga perferendis ipsum vel harum
-        aperiam dolores repellat soluta.
+        El proceso culminará con la premiación de los ganadores, aquel que 
+        haya concluído con la meta y obtenga una mejor calificación por los 
+        jueces que revisarán los “mapas mentales” que de cada libro haya 
+        entregado, donde no solo demuestre una gran comprensión de estos, sino
+        que pueda pensar maneras de aplicarlo en su vida personal, académica y 
+        familiar. Si hay un empate se decidirá por las opiniones mejor fundamentadas.
+        Los premios quedarán por definir conforme el proyecto y la cantidad de personas
+        que participen.
       </p>
       <br /><br />
       <!-- Third paragraph -->
       <img class="p__image2 float-end" src="../assets/img/reader.jpg" />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-        aliquam, fugiat temporibus aspernatur veniam nemo placeat suscipit
-        laudantium ut vero ipsum harum, quisquam aut labore doloremque quo
-        aliquid ducimus eius veritatis explicabo? Doloremque unde facilis dolore
-        error culpa nisi nesciunt numquam consequatur placeat ipsa animi
-        reprehenderit quo et quasi qui, nobis blanditiis quae eaque accusamus
-        praesentium eum officiis? Ducimus facere, non nisi laudantium id quasi!
-        Quis ea cupiditate rerum doloremque assumenda quaerat nemo qui quo. Vero
-        quaerat repudiandae deleniti, incidunt tenetur soluta, enim earum unde
-        cumque dolores quis dolorem. Dolorum fuga optio quibusdam repellendus
-        aut laborum, veritatis nemo in rem et qui deleniti culpa odio
-        consectetur non est, omnis dolores vero eos provident. Rerum a, tenetur
-        ex architecto ad delectus deserunt reprehenderit sed omnis ullam culpa
-        adipisci vel! Dolores, aliquam vitae impedit voluptatibus corrupti
-        magnam recusandae culpa laudantium ex aperiam architecto et ipsum,
-        voluptate nobis blanditiis sapiente optio? Veritatis, animi!
+       Este proyecto es totalmente sin fines de lucro, pero no podemos llevar a cabo 
+       el proyecto sin recursos, para esto, se busca que tanto el Gobierno como Donadores
+      privados nos proporcionen los recursos necesarios. Estos serían, libros, siendo el 
+      principal recurso que necesitamos, para esto, buscamos que nos apoyen librerías, 
+      personas físicas y morales, así como empresas editoriales y universidades. Por otro 
+      lado, está contemplado entregar premios a los ganadores, por ello se requieren recursos
+      económicos y/o materiales, también académicos como becas, cursos gratuitos, etc de tal 
+      manera que sea una motivación para los participantes. Por último, estaremos usando Patreon
+      para poder conseguir donantes para la compra de libros o de los premios. Siendo los socios 
+      claves, los patrocinadores y donadores.
       </p>
       <br />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ratione
-        fuga ducimus voluptatem distinctio, ullam sunt vero nesciunt quibusdam
-        autem a illum recusandae dolorum qui, architecto perspiciatis reiciendis
-        quam commodi id provident aperiam dolores ab ipsa. Porro, velit
-        molestiae? Incidunt consectetur, aliquam maxime quasi dignissimos
-        ratione totam quaerat optio accusantium praesentium, cumque tempora
-        quibusdam nostrum molestias explicabo consequatur? Eveniet aut ea
-        consectetur possimus! A eligendi in, et voluptas porro aliquid hic
-        maxime commodi error itaque minus provident fugiat quam quaerat
-        quibusdam molestias perspiciatis repellat, corrupti cumque obcaecati
-        assumenda ipsum. Molestias voluptatibus quo velit? Minima dolorum
-        nostrum facilis cumque quod quae.
+        La manera para promover el proyecto será a través de las redes sociales, se dará el 
+        mensaje por Instagram, TikTok, Facebook, una página web en desarrollo. Y uno de los 
+        principales contactos una vez que haya comenzado la actividad será Discord.
       </p>
     </div>
   </div>

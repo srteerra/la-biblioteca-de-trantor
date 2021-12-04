@@ -1,7 +1,6 @@
 {
   "name": "la-biblioteca-de-trantor",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node-dev  src/app.js --no-notify",
@@ -84,5 +83,6 @@
     "plugins": [
       "@babel/plugin-transform-runtime"
     ]
-  }
+  },
+  "description": ""
 }

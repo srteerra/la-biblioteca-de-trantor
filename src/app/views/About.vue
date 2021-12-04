@@ -5,24 +5,21 @@
       <h1 class="fw-bold fs-1">Acerca</h1>
       <div class="space__div"></div>
       <p class="lh-lg">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
-        similique veritatis quod mollitia assumenda autem qui quaerat tenetur
-        officiis, inventore aperiam quis suscipit! Similique atque libero natus
-        tenetur. Velit, adipisci!<br /><br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vel
-        quisquam ratione, ad nobis, beatae tempora quos quis nesciunt impedit
-        nihil pariatur, error porro eveniet quam officiis laudantium delectus
-        molestiae quo? Quas obcaecati a illum nesciunt doloribus dolore
-        provident deserunt dolorem dolores eligendi ipsum voluptates voluptatem
-        ipsam, ratione consectetur tempora assumenda incidunt quos aspernatur
-        error odio ipsa repudiandae quia. Officia!<br /><br />
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi iste
-        iusto numquam magnam quas eos, cupiditate laudantium impedit odit
-        similique neque, dolorem quasi exercitationem, officia nesciunt ab? Ea
-        obcaecati alias velit laboriosam minima aut esse ad modi quibusdam!
-        Explicabo, distinctio molestiae voluptate atque cupiditate officiis modi
-        sapiente itaque nulla, laudantium numquam corrupti qui? Totam odit
-        dignissimos dolorem sed at cupiditate.
+        Alfatech, S.A. de C.V., el cual tuvo sus inicios en la Ciudad de México,
+         D.F.  en el año 1999 logrando decenas de implementaciones exitosas en 
+         empresas de distintos giros, posteriormente, a finales de 2002 se inicia 
+         la apertura de un nuevo mercado: El bajío en el estado de Michoacán.<br/><br />
+        Desde esta nueva sede, Alfatech inició con éxito un programa de formación
+         de profesionistas, así como la penetración de ciudades como Uruapan, Ciudad
+          Hidalgo, etc. Alfatech actualmente cuenta con los departamentos de Ventas,
+           Soporte técnico y Consultoría, además maneja el concepto de Outsourcing para
+          el éxito de sus proyectos, contando con especialistas en diversas áreas quienes
+          intervienen según la necesidad de nuestros clientes, logrando con esto una
+          reducción radical en los costos de los proyectos.  <br /><br />
+        Pone a disposición de PyMES técnicas y metodología de clase mundial, combinadas 
+        con herramientas gerenciales y de administración completamente probadas por las 
+        grandes empresas corporativas; obviamente, debidamente adecuadas a las características
+         de cada empresa. (Macro Corp, 2021).
       </p>
     </div>
     <!--First container-->
@@ -111,7 +108,7 @@
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Lorem ipsum dolor sit amet quas provident fugit?
+              ¿Por qué no libros electrónicos?
             </button>
           </h2>
           <div
@@ -122,14 +119,9 @@
           >
             <div class="accordion-body">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                nobis, eum reiciendis, quos voluptates nisi consectetur non,
-                asperiores delectus rem assumenda! Cumque ratione asperiores
-                animi minima soluta perferendis, architecto maxime?Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
-                reiciendis, quos voluptates nisi consectetur non, asperiores
-                delectus rem assumenda! Cumque ratione asperiores animi minima
-                soluta perferendis, architecto maxime?
+                Esta es una pregunta importante ya que parece ser que
+                 los libros electrónicos son más fáciles de conseguir 
+                 y manejar, esto es cierto hasta determinado punto.
               </p>
             </div>
           </div>
@@ -144,7 +136,7 @@
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Lorem ipsum dolor sit amet quas provident fugit?
+              ¿Que titulos se proponen de inicio para secundaria?
             </button>
           </h2>
           <div
@@ -155,14 +147,14 @@
           >
             <div class="accordion-body">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                nobis, eum reiciendis, quos voluptates nisi consectetur non,
-                asperiores delectus rem assumenda! Cumque ratione asperiores
-                animi minima soluta perferendis, architecto maxime?Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
-                reiciendis, quos voluptates nisi consectetur non, asperiores
-                delectus rem assumenda! Cumque ratione asperiores animi minima
-                soluta perferendis, architecto maxime?
+   2 años de vacaciones - Julio Verne
+   Robin Hood
+   El rey Arturo y los caballeros de la mesa redonda - Thomas Malory
+   El León, la Bruja y el Ropero - C.S. Lewis
+   La vuelta al mundo en 80 días - Julio Verne
+   Mujercitas
+   La máquina del tiempo - H.G. Wells
+   Los Sabuesos de Baskerville - Arthur Conan Doyle
               </p>
             </div>
           </div>
@@ -177,7 +169,8 @@
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Lorem ipsum dolor sit amet quas provident fugit?
+            ¿Que titulos se proponen de inicio para preparatoria?
+
             </button>
           </h2>
           <div
@@ -188,14 +181,14 @@
           >
             <div class="accordion-body">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                nobis, eum reiciendis, quos voluptates nisi consectetur non,
-                asperiores delectus rem assumenda! Cumque ratione asperiores
-                animi minima soluta perferendis, architecto maxime?Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
-                reiciendis, quos voluptates nisi consectetur non, asperiores
-                delectus rem assumenda! Cumque ratione asperiores animi minima
-                soluta perferendis, architecto maxime?
+                1984 - George Orwell
+                Fundación
+                Fundación e Imperio
+                Segunda Fundación
+                Frankestein - Mary Shelly
+                Orgullo y prejuicio - Jane Austen
+                Un mundo felíz - Aldous Huxley
+                La guerra de los mundos - H.G. Wells
               </p>
             </div>
           </div>
@@ -210,7 +203,7 @@
               aria-expanded="false"
               aria-controls="collapseFour"
             >
-              Lorem ipsum dolor sit amet quas provident fugit?
+              ¿Cual es el alcance del proyecto?
             </button>
           </h2>
           <div
@@ -221,14 +214,11 @@
           >
             <div class="accordion-body">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                nobis, eum reiciendis, quos voluptates nisi consectetur non,
-                asperiores delectus rem assumenda! Cumque ratione asperiores
-                animi minima soluta perferendis, architecto maxime?Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Harum nobis, eum
-                reiciendis, quos voluptates nisi consectetur non, asperiores
-                delectus rem assumenda! Cumque ratione asperiores animi minima
-                soluta perferendis, architecto maxime?
+                La visión que se tiene para este proyecto es que en el plazo 
+                de 3-5 años éste se pueda llevar a cabo en más ciudades de 
+                México, con patrocinadores y socios oficiales, de esta manera,
+                el movimiento puede crecer y convertirse en un verdadero factor 
+                de cambio para el país.
               </p>
             </div>
           </div>

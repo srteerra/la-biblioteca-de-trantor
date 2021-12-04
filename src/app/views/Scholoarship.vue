@@ -4,23 +4,12 @@
         <h1 class="text-dark fs-1 fw-bold">BECAR</h1>
         <div class="title__space__div"></div>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            architecto accusantium, commodi similique placeat tenetur numquam
-            officia, laborum harum nobis at ipsam inventore provident aperiam porro
-            iusto. Eos magni, maxime officiis praesentium reiciendis consequatur
-            molestiae atque, error provident commodi quibusdam.<br /><br />
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-            laudantium debitis non, earum praesentium quo eveniet qui asperiores!
-            Aliquam ipsam veritatis temporibus qui, totam ad esse nostrum modi.
-            Nostrum, repellendus aperiam id corporis iusto voluptatem ducimus alias
-            unde laboriosam, ad, dolor porro aut.<br /><br />
-            Ipsum nulla sit, consequuntur inventore nesciunt fugit, facilis facere,
-            molestias quos sapiente vitae laboriosam fuga sequi officiis.
-            Consequatur itaque nulla vero praesentium reprehenderit architecto sed
-            libero, iusto eaque deserunt excepturi blanditiis illo porro recusandae
-            repellat quis. Temporibus nobis sapiente obcaecati dicta quas dolores
-            error sit accusamus ea repudiandae eos totam, excepturi, at ut
-            voluptatibus incidunt. Eius, praesentium.
+            Para poder llevar acabo el proyecto principalmente necesitamos libros, 
+            por lo que buscamos donaciones y patrocinadores, ya sean universidades, 
+            librerías y editoriales que deseen donar libros para la actividad. Así 
+            mismo, necesitamos publicidad para atraer a los jóvenes a formar parte 
+            de la actividad. Y por último, necesitamos un buen premio para el ganador,
+            algo que inspire a jóvenes no lectores a leer.
         </p>
         </div>
         <div class="container bannerr__container">
@@ -30,12 +19,9 @@
         </div>
         <div class="container text__container">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-            labore non eligendi perferendis sapiente et, reiciendis ad fugit
-            necessitatibus ipsam quidem minus neque at omnis nostrum enim
-            asperiores, cumque ab? Iusto tempora ut veritatis numquam quas delectus,
-            sunt quasi neque laboriosam ipsam, voluptas aspernatur impedit dicta
-            officia repudiandae nulla necessitatibus?
+            Estamos buscando donaciones de libros y/o dinero para conseguir libros 
+            y publicidad. También nos puedes ayudar llevando esta actividad a tu ciudad.
+
         </p>
         </div>
         <div class="container contacts__container">

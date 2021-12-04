@@ -35,7 +35,7 @@
                 utilizan métodos de entretenimiento de manera incorrecta o inapropiada, por lo cual, la empresa desea 
                 dar solución a la problemática por medio de una aplicación web.</p>
 
-              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+      
               <router-link to="/" class="btn btn-outline-dark py-3 px-4 mt-3 rounded-pill">Explora mas <span><i class="fas fa-arrow-right ps-2"></i></span></router-link>
             </div>
           </div>

@@ -111,7 +111,6 @@
               <li>El chico de la flecha. </li>
               <li>El club de las zapatillas rojas.</li>
             </ol>
-            <p class="text-dark text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perferendis consectetur voluptas itaque saepe.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Entendido</button>

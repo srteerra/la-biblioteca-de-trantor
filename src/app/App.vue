@@ -9,7 +9,7 @@
     
     <Footer/>
 
-    <!-- Modal for views -->c
+    <!-- Modal for views -->
 
     <!-- Log in -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">

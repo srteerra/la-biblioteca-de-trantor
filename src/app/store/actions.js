@@ -19,12 +19,12 @@ export const actions = {
     } catch (error) {
       console.log(error)
       if (error){
-          swal({
-            title: "error",
-            text: "El correo o contrasena son incorrectos, intententalo de nuevo",
-            icon: "error",
-            button: "OK"
-          });
+        swal({
+          title: "error",
+          text: "El correo o contrasena son incorrectos, intententalo de nuevo",
+          icon: "error",
+          button: "OK"
+        });
       }
     }
   },

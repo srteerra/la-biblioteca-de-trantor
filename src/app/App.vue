@@ -63,7 +63,7 @@
               <p class="mb-5">Tu registro sera revisado y autorizado, asi que si completas el formulario por favor espera hasta que verifiquemos tu informacion.</p>
               <div class="">
                 <div class="container">
-                  <form class="row" method="POST" action="/api/v1/users/signup">
+                  <form class="row" method="POST">
                     <div class="col-12 col-lg-6">
                       <div class="mb-3">
                         <label for="registerNickname" class="form-label">Nickname</label>
@@ -101,7 +101,7 @@
                       </div>
                     </aside>
                     <div class="container-fluid justify-content-center p-0 mt-5">
-                      <button type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="participateButton">Entendido</button>
+                      <button v-on:click.prevent="register" type="submit" class="btn btn-dark col-12 py-3 rounded-pill" data-bs-dismiss="modal" :disabled="participateButton">Entendido</button>
                     </div>
                   </form>
                 </div>
@@ -149,6 +149,34 @@
     },
     methods: {
       ...mapActions(['login']),
+      register(){
+        try {
+          var data = {
+            user_nickname : this.participateNick,
+            user_email : this.participateEmail,
+            user_password : this.participatePassword
+          }
+          axios.post('/api/v1/users/signup', data)
+          .then(res =>{
+            swal({
+              title: "Listo",
+              text: "Te has registrado exitosamente ahora puedes iniciar sesión",
+              icon: "success",
+              button: "OK"
+            });
+          })
+          .catch(error => {
+            swal({
+              title: "Error",
+              text: "Al parecer ya existe esta cuenta, intentalo de nuevo con otras credenciales",
+              icon: "error",
+              button: "OK"
+            });
+          })
+        } catch (error) {
+          console.log(error)
+        }
+      }
     },
     computed: {
       userNick() {

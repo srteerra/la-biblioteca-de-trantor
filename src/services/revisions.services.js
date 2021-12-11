@@ -41,7 +41,6 @@ class RevisionsServices{
   }
   
   async enroll(id, competition, cb, next) {
-    console.log(id,competition)
     mysqlConnection.query(
       "SELECT * FROM revisions WHERE user_id = " + [id] + " AND competition_id = (SELECT competition_id FROM competitions WHERE competition_name = '" + [competition] + "');",
       async (err, rows, fields) => {

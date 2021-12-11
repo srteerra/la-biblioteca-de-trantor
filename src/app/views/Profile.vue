@@ -301,26 +301,32 @@
                 contactVerify:0,
                 contactError:0,
 
+                compToSubs:'',
                 compSelect: 1
             }
         },
         methods: {
             enroll() {
-                try {
-                    console.log()
-                    axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`, '', {
-                        headers: {
-                            Autorization: 'Baerer ' + this.$store.state.user.access_token
-                        }
-                    })
-                    .then(res => {
-                        this.error11 = res.error
-                        console.log(res)
-                        console.log(error11)
-                    })
-                } catch (error) {
-                    console.log(error)
-                }
+                axios.post(`api/v1/revisions/${this.$route.params.id}/${this.compSelect}`, '', {
+                    headers: {
+                        Autorization: 'Baerer ' + this.$store.state.user.access_token
+                    }
+                }).then(res => {
+                    swal({
+                        title: "Listo",
+                        text: "Te has inscrito correctamente",
+                        icon: "success",
+                        button: "OK"
+                    });
+                })
+                .catch (error => {
+                    swal({
+                        title: "Error",
+                        text: "Al parecer ya estas incrito en esta revision",
+                        icon: "error",
+                        button: "OK"
+                    });
+                })
             },
             userFullNameUpdate() {
                 try {
@@ -453,16 +459,6 @@
             .then(res=>{
                 this.compToSubs=res.data
             })
-
-            var toastTrigger = document.getElementById('liveToastBtn')
-            var toastLiveExample = document.getElementById('liveToast')
-            if (toastTrigger) {
-                toastTrigger.addEventListener('click', function () {
-                    var toast = new bootstrap.Toast(toastLiveExample)
-
-                    toast.show()
-                })
-            }
         },
     }
 </script>

@@ -66,7 +66,7 @@ router.post("/:id/:competition", async (req, res, next) => {
       next
     );
   } catch (error) {
-    next(error);
+    console.log(error)
   }
 });
 

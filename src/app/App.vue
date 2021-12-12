@@ -129,9 +129,14 @@
     name: "App",
     data() {
       return {
-        loginEmail:'',
-        loginPassword:'',
-        loginCheck: false,
+        role: "", // Main key
+        email: "",
+        password: "",
+
+        // Roles
+        userRole: "user",
+        adminRole: "admin",
+        judgeRole: "judge",
 
         participateNick:'',
         participateEmail:'',

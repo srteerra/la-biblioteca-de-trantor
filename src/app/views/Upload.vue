@@ -2,7 +2,7 @@
     <div class="container upload__cont">
         <div class="mt-5 row">
             <h1 class="fs-1 fw-bold pb-4">Califica tu aprendizaje</h1>
-            <p class="fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi unde exercitationem omnis neque doloremque delectus obcaecati quasi, repellat rerum sequi magni officia nobis vitae aperiam fugiat aspernatur sint atque? Molestiae?</p>
+            <p class="fs-6">Cuentanos tu experiencia.</p>
         </div>
         <section class="py-5 row">
             <div class="bg-white p-5 border rounded-5">

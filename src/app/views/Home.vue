@@ -15,7 +15,7 @@
 
     <!-- Small info starts here -->
     <div class="infotop__container p-5 my-5">
-      <p class="text-dark fs-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quia dicta nam suscipit magni hic porro corporis, velit modi magnam, fugit aliquam obcaecati dolores praesentium temporibus asperiores minus! Totam, exercitationem.</p>
+      <p class="text-dark fs-6">La lectura es una de las mejores actividades que uno puede desarrollar a lo largo de su vida,  esto por las grandes ventajas y habilidades extras que se pueden conseguir al leer y no solo  quedarse con lo que se enseña en la escuela y/o internet. </p>
     </div>
     <!-- Small info ends here -->
 
@@ -29,8 +29,13 @@
                 <img src="../assets/img/planets-1.png" class="col-md-6 float-md-end mb-3 ms-md-3" alt="" id="planets-1">
               </div>
               <h1 class="text-dark fs-1 pb-5">¿Que es?</h1>
-              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
-              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <p class="text-dark fs-6">‘La biblioteca de Trantor’ tiene como objetivo fomentar la lectura a niños,
+               jóvenes adolescentes, entre otros; es conocido que en la mayor parte de la sociedad juvenil,
+                no es considerado el hecho de que hagan buen uso de la tecnología, debido a que principalmente 
+                utilizan métodos de entretenimiento de manera incorrecta o inapropiada, por lo cual, la empresa desea 
+                dar solución a la problemática por medio de una aplicación web.</p>
+
+      
               <router-link to="/" class="btn btn-outline-dark py-3 px-4 mt-3 rounded-pill">Explora mas <span><i class="fas fa-arrow-right ps-2"></i></span></router-link>
             </div>
           </div>
@@ -40,7 +45,10 @@
                 <img src="../assets/img/planets-2.png" class="col-md-6 float-md-start mb-3 ms-md-3" alt="" id="planets-2">
               </div>
               <h1 class="text-dark fs-1 pb-5">¿Por que?</h1>
-              <p class="text-dark fs-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque expedita iure quas laudantium libero nesciunt omnis eligendi! Unde quibusdam laudantium eius in dignissimos nam adipisci, illo labore temporibus nemo consequuntur.</p>
+              <p class="text-dark fs-6">Si se logra inculcar poco a poco el hábito, estos niños
+               y adolescentes lo transmitirán a sus hijos y el proceso será exponencial, de 
+               generación en generación hasta lograr cambiar esta preocupante situación en México.</p>
+               
             </div>
           </div>
         </div>
@@ -60,7 +68,7 @@
             <div>
               <strong class="text-dark">"</strong>
             </div>
-            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <p class="text-dark">Muchísimo mejor de lo que esperaba, con las explicaciones muy, muy claras.</p>
             <h5 class="text-dark">- Axell Lopez</h5>
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
           </div>
@@ -68,7 +76,7 @@
             <div>
               <strong class="text-dark">"</strong>
             </div>
-            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <p class="text-dark">Muy buenas lecturas que se realizan en diferentes escenarios.</p>
             <h5 class="text-dark">- Maria Moreno</h5>
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
           </div>
@@ -76,7 +84,7 @@
             <div>
               <strong class="text-dark">"</strong>
             </div>
-            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum, dolor sit amet consectetur adipisicing adipisicing dolor sit amet consectetur adipisicing.</p>
+            <p class="text-dark">Sin duda superó mis expectativas y lo recomendaría a todos.</p>
             <h5 class="text-dark">- Luis Ruiz</h5>
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" srcset="">
           </div>
@@ -96,14 +104,13 @@
           <div class="modal-body p-5">
             <h5>Ago - Feb</h5>
             <h3 class="mb-5">Estas son las recompensas:</h3>
-            <p class="text-dark text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perferendis consectetur voluptas itaque saepe.</p>
+            <p class="text-dark text-justify">Libros originales.</p>
             <ol>
-              <li>Objeto</li>
-              <li>Objeto</li>
-              <li>Objeto</li>
-              <li>Objeto</li>
+              <li>Caperucita en Manhattan.</li>
+              <li>El caballo de Lord Byron.</li>
+              <li>El chico de la flecha. </li>
+              <li>El club de las zapatillas rojas.</li>
             </ol>
-            <p class="text-dark text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perferendis consectetur voluptas itaque saepe.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Entendido</button>

@@ -14,6 +14,6 @@ helpers.comparePassword = async(pass,savePass)=>{
     } catch (error) {
         console.log(error)
     }
-  
 }
+
 module.exports = helpers
